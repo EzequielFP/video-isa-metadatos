@@ -1,0 +1,30 @@
+{
+  "consulta_hasta": "2026-11-11",
+  "fuente": "XM API https://servapibi.xm.com.co",
+  "zona_horaria": "America/Bogota",
+  "hora": "0=Hour01, intervalo 00:00–01:00; 23=Hour24",
+  "errores": [],
+  "registros": {
+    "Gene": 145872,
+    "DemaReal": 25032,
+    "PrecBolsNaci": 25032,
+    "CompBolsaTIEEner": 3375,
+    "VentBolsaTIEEner": 3375,
+    "CompBolsaIntEner": 1478,
+    "VentBolsaIntEner": 1478,
+    "ImpoEner": 3739,
+    "ExpoEner": 3921
+  },
+  "ultima_fecha": {
+    "Gene": "2026-11-08",
+    "DemaReal": "2026-11-08",
+    "PrecBolsNaci": "2026-11-08",
+    "CompBolsaTIEEner": "2026-07-31",
+    "VentBolsaTIEEner": "2026-07-31",
+    "CompBolsaIntEner": "2019-05-02",
+    "VentBolsaIntEner": "2019-05-02",
+    "ImpoEner": "2026-11-08",
+    "ExpoEner": "2026-11-08"
+  },
+  "nota": "Valores nulos y días con menos de 24 horas permanecen nulos. Catálogo actual usado para clasificar recursos históricos; revisar SIN_CLASIFICAR. Compras/ventas de bolsa no se renombran como importaciones/exportaciones físicas."
+}

@@ -1,0 +1,70 @@
+{
+  "ok": true,
+  "fecha": "2026-11-11",
+  "verificaciones": [
+    "claves sin duplicados",
+    "horas 0–23",
+    "1043 días completos de demanda/precio publicados",
+    "48 filas de perfiles",
+    "serie diaria de intercambios con calendario completo y huecos nulos",
+    "tres totales físicos mensuales contrastados con boletines XM",
+    "las horas incompletas no se convierten en días de cobertura completa"
+  ],
+  "contraste": [
+    {
+      "mes": "2024-10",
+      "API_GWh": 5.530872669999999,
+      "boletin_XM_GWh": 5.53,
+      "coincide_redondeo": true
+    },
+    {
+      "mes": "2024-11",
+      "API_GWh": 140.48459513999998,
+      "boletin_XM_GWh": 140.48,
+      "coincide_redondeo": true
+    },
+    {
+      "mes": "2024-12",
+      "API_GWh": 256.61028517999995,
+      "boletin_XM_GWh": 256.61,
+      "coincide_redondeo": true
+    }
+  ],
+  "archivos": [
+    {
+      "archivo": "VIDEO2\\XM\\datos\\gen_horaria_tipo.csv",
+      "bytes": 4988476,
+      "sha256": "c790d57a66a0fbbbc9ea5712eabab5eaa58be7568c5868b8c93d1b3b33515eb1"
+    },
+    {
+      "archivo": "VIDEO2\\XM\\datos\\dem_horaria.csv",
+      "bytes": 665543,
+      "sha256": "db99c45bc082c8dcebcfea7e46445597105f44e92a33125bb1ce47b931a85d85"
+    },
+    {
+      "archivo": "VIDEO2\\XM\\datos\\precio_horario.csv",
+      "bytes": 614369,
+      "sha256": "3902b96c7d916cafb69a269a70c0ed08ecf7e8342984b8d707996a3cb824601b"
+    },
+    {
+      "archivo": "VIDEO2\\XM\\datos\\perfil_dia_tipo.csv",
+      "bytes": 7120,
+      "sha256": "fe4aba023ecf3543182682f315c0618beea485eda972586a159b545d1d7219d3"
+    },
+    {
+      "archivo": "VIDEO2\\XM\\datos\\auditoria.json",
+      "bytes": 1135,
+      "sha256": "687491215e28a3b950892d2641414d32e382e934fa3f7742ba2f0ed8fc73969b"
+    },
+    {
+      "archivo": "VIDEO3\\XM\\intercambios_diarios.csv",
+      "bytes": 297600,
+      "sha256": "453069f34f9e38a8d31eae23a3793f8e91441c96143c4cd84efb7a095d116e34"
+    },
+    {
+      "archivo": "VIDEO3\\XM\\intercambios_mensuales.csv",
+      "bytes": 14106,
+      "sha256": "d7f0658f2f45c4de33c4ee2e36f861e6928eecc8285b6456f0bf2a3be8568621"
+    }
+  ]
+}

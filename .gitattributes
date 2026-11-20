@@ -1,0 +1,3 @@
+* text=auto eol=lf
+archivos/** -text -whitespace
+metadatos/catalogo.csv -text whitespace=cr-at-eol

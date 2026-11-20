@@ -1,0 +1,1079 @@
+[
+  {
+    "id": "recurso-01",
+    "videos": [
+      1
+    ],
+    "title": "Volumen útil de los embalses",
+    "description": "Volumen útil, capacidad y ocupación agregada diaria del Sistema Interconectado Nacional (SIN). GWh y porcentaje.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "01_embalse_agregado_diario.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/01_embalse_agregado_diario.csv",
+    "sha256": "7e4c60edc5b9d0d56518591095427b15d247a37e6be483be9119cecb2a3448d9",
+    "columns": [
+      "fecha",
+      "vol_util_GWh",
+      "capacidad_util_GWh",
+      "vol_util_pct"
+    ],
+    "rows": 4331,
+    "bytes": 213391,
+    "period": "2015-01-01 a 2026-11-09"
+  },
+  {
+    "id": "recurso-02",
+    "videos": [
+      1
+    ],
+    "title": "Aportes hídricos diarios",
+    "description": "Energía de los aportes hídricos y media histórica en GWh. Incluye porcentajes de referencia y media móvil de 30 días.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "02_aportes_diario.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/02_aportes_diario.csv",
+    "sha256": "03048c6f30e747f8aaad6093b730ac1a7277da710a90852b032c3fb794b6f91c",
+    "columns": [
+      "fecha",
+      "aportes_GWh",
+      "media_historica_GWh",
+      "aportes_pct_media",
+      "aportes_pct_media_30d"
+    ],
+    "rows": 4331,
+    "bytes": 273194,
+    "period": "2015-01-01 a 2026-11-09"
+  },
+  {
+    "id": "recurso-03",
+    "videos": [
+      1
+    ],
+    "title": "Nivel por embalse",
+    "description": "Porcentaje diario de volumen útil por embalse o agregado reportado por XM.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "03_embalses_individuales.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/03_embalses_individuales.csv",
+    "sha256": "62f297d1a1a0713b766c3371ada76cac6a5b8233ba0d981f9c93fe207d1621b1",
+    "columns": [
+      "fecha",
+      "embalse",
+      "vol_util_pct"
+    ],
+    "rows": 100346,
+    "bytes": 3084647,
+    "period": "2015-01-01 a 2026-11-09"
+  },
+  {
+    "id": "recurso-04",
+    "videos": [
+      1
+    ],
+    "title": "Aportes por río",
+    "description": "Aportes y media histórica diaria de cada río en GWh.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "04_aportes_por_rio.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/04_aportes_por_rio.csv",
+    "sha256": "546d4ded47022bd136ee7e9843fa19e2cdab467116246eb5404f07d843d7a2a2",
+    "columns": [
+      "fecha",
+      "rio",
+      "aportes_GWh",
+      "media_historica_GWh"
+    ],
+    "rows": 147421,
+    "bytes": 6281782,
+    "period": "2015-01-01 a 2026-11-09"
+  },
+  {
+    "id": "recurso-05",
+    "videos": [
+      1
+    ],
+    "title": "Generación diaria por tecnología",
+    "description": "Generación diaria por tipo en GWh y participación porcentual en la generación total.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "05_generacion_por_tipo_diaria.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/05_generacion_por_tipo_diaria.csv",
+    "sha256": "90fc80ef4b723425b552009bfbc1d04302c7b31a367d7ce2397ad87e7803e47d",
+    "columns": [
+      "fecha",
+      "COGENERADOR",
+      "EOLICA",
+      "HIDRAULICA",
+      "OTRO",
+      "SOLAR",
+      "TERMICA",
+      "total_GWh",
+      "pct_COGENERADOR",
+      "pct_EOLICA",
+      "pct_HIDRAULICA",
+      "pct_OTRO",
+      "pct_SOLAR",
+      "pct_TERMICA"
+    ],
+    "rows": 4329,
+    "bytes": 888904,
+    "period": "2015-01-01 a 2026-11-07"
+  },
+  {
+    "id": "recurso-06",
+    "videos": [
+      1
+    ],
+    "title": "Demanda eléctrica diaria",
+    "description": "Consumo diario del SIN en GWh y potencia máxima diaria en MW.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "06_demanda_diaria.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/06_demanda_diaria.csv",
+    "sha256": "40e835399dee77775d5181b04532de63e6516f00abd8a4c1a02150a6d263a0a4",
+    "columns": [
+      "fecha",
+      "demanda_GWh",
+      "potencia_max_MW"
+    ],
+    "rows": 4330,
+    "bytes": 154657,
+    "period": "2015-01-01 a 2026-11-08"
+  },
+  {
+    "id": "recurso-07",
+    "videos": [
+      1
+    ],
+    "title": "Precio de bolsa y de escasez",
+    "description": "Series de precios diarios, en COP/kWh. Los campos vacíos se conservaron.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "07_precio_bolsa_y_escasez.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/07_precio_bolsa_y_escasez.csv",
+    "sha256": "115592d03986560d578c1798537eca29c5de939582cb626f3866bff2fbdce473",
+    "columns": [
+      "fecha",
+      "precio_bolsa_COP_kWh",
+      "precio_escasez_COP_kWh",
+      "precio_escasez_activacion_COP_kWh"
+    ],
+    "rows": 4329,
+    "bytes": 202809,
+    "period": "2015-01-01 a 2026-11-07"
+  },
+  {
+    "id": "recurso-08",
+    "videos": [
+      1
+    ],
+    "title": "Catálogo de embalses",
+    "description": "Códigos, nombres, regiones y estado reportado de los embalses.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "08_listado_embalses.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/08_listado_embalses.csv",
+    "sha256": "90c0dd857405c112b401c9522b692ce761cdb3cde4a9e7105ec5c2ee1165e206",
+    "columns": [
+      "Id",
+      "Values_Code",
+      "Values_Name",
+      "Values_HydroRegion",
+      "Values_Status",
+      "Date"
+    ],
+    "rows": 24,
+    "bytes": 1327,
+    "period": "2026-11-10"
+  },
+  {
+    "id": "recurso-09",
+    "videos": [
+      1
+    ],
+    "title": "Catálogo de recursos de generación",
+    "description": "Códigos, tipo, fuente energética y estado de los recursos reportados por XM.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "09_listado_recursos.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/09_listado_recursos.csv",
+    "sha256": "878df1b2b3d70eb2cb08bfc947a86348c1c4c447e0260a33fbc11cb25ea1b75e",
+    "columns": [
+      "Id",
+      "Values_Code",
+      "Values_Name",
+      "Values_Type",
+      "Values_Disp",
+      "Values_RecType",
+      "Values_CompanyCode",
+      "Values_EnerSource",
+      "Values_OperStartdate",
+      "Values_State",
+      "Date"
+    ],
+    "rows": 2512,
+    "bytes": 336792,
+    "period": "2026-11-10"
+  },
+  {
+    "id": "recurso-10",
+    "videos": [
+      1
+    ],
+    "title": "Anomalía diaria de la región Niño 3.4",
+    "description": "Media espacial diaria de la anomalía de temperatura superficial del mar, en °C.",
+    "source": "NOAA · OISST v2.1",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/NOAA_CDR_OISST_V2_1",
+    "storage": "github",
+    "filename": "02_Nino34_anomalia_diaria.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/02_Nino34_anomalia_diaria.csv",
+    "sha256": "45300c9c8463c1203a2a79bb7b23b1aeb5795baffdc993170f32726ac73b7916",
+    "columns": [
+      "fecha",
+      "anom_nino34_C"
+    ],
+    "rows": 4321,
+    "bytes": 131404,
+    "period": "2015-01 a 2026-10"
+  },
+  {
+    "id": "recurso-11",
+    "videos": [
+      1
+    ],
+    "title": "Lluvia mensual en Colombia",
+    "description": "Precipitación mensual en mm y promedio del mismo mes para el periodo base 1991–2020.",
+    "source": "CHIRPS · Climate Hazards Center",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/UCSB-CHG_CHIRPS_PENTAD",
+    "storage": "github",
+    "filename": "04_Lluvia_mensual_Colombia_vs_clima.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/04_Lluvia_mensual_Colombia_vs_clima.csv",
+    "sha256": "20c17fcde2af2343bab2bc76d41a408d5d40eb7461e43b127805cfcda07f0a36",
+    "columns": [
+      "mes",
+      "lluvia_mm",
+      "clima_mm"
+    ],
+    "rows": 46,
+    "bytes": 2091,
+    "period": "2023-01 a 2026-10"
+  },
+  {
+    "id": "recurso-12",
+    "videos": [
+      1
+    ],
+    "title": "Superficie de agua de cuatro embalses",
+    "description": "Área estimada en km² a partir de Sentinel-2. Incluye el número de imágenes y la fracción de píxeles válidos.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "github",
+    "filename": "07_Embalses_area_agua_mensual_S2.csv",
+    "format": "CSV",
+    "path": "archivos/video-1/07_Embalses_area_agua_mensual_S2.csv",
+    "sha256": "1d17ac103e377eab659921a44bf47997ab94fc144dcb371c7ee95f84c21cee1d",
+    "columns": [
+      "embalse",
+      "mes",
+      "area_agua_km2",
+      "n_imagenes",
+      "fraccion_pixeles_validos"
+    ],
+    "rows": 376,
+    "bytes": 20417,
+    "period": "2019-01 a 2026-10"
+  },
+  {
+    "id": "recurso-13",
+    "videos": [
+      1
+    ],
+    "title": "Temperatura del Pacífico · anomalía mensual",
+    "description": "Capas mensuales del Pacífico tropical en °C, agregadas a partir de OISST v2.1.",
+    "source": "NOAA · OISST v2.1",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/NOAA_CDR_OISST_V2_1",
+    "storage": "github",
+    "filename": "01_SST_anomalia_mensual_C.tif",
+    "format": "GEOTIFF",
+    "path": "archivos/video-1/01_SST_anomalia_mensual_C.tif",
+    "sha256": "a9cc653ece8fe0cebb557303ebe36f08cf7df0efc1d5d8eb28885dd6faff43f6",
+    "bytes": 16290955,
+    "period": "2023-01 a 2026-10"
+  },
+  {
+    "id": "recurso-14",
+    "videos": [
+      1
+    ],
+    "title": "Mapa mensual de anomalía de lluvia",
+    "description": "Anomalía porcentual frente al promedio mensual 1991–2020.",
+    "source": "CHIRPS · Climate Hazards Center",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/UCSB-CHG_CHIRPS_PENTAD",
+    "storage": "github",
+    "filename": "03_Lluvia_anomalia_pct_CHIRPS.tif",
+    "format": "GEOTIFF",
+    "path": "archivos/video-1/03_Lluvia_anomalia_pct_CHIRPS.tif",
+    "sha256": "6c6f5ca232ea81d3e4f638cad45eb2d16af3c4a14c015bc5c2e8ea8b16e2184a",
+    "bytes": 17738123,
+    "period": "2023-01 a 2026-10"
+  },
+  {
+    "id": "recurso-15",
+    "videos": [
+      1
+    ],
+    "title": "Anomalía mensual de vegetación",
+    "description": "Índice de vegetación MODIS para Colombia, con comparación por mes frente a su climatología.",
+    "source": "NASA · MODIS",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD13A2",
+    "storage": "drive",
+    "filename": "05_NDVI_anomalia_MODIS.tif",
+    "format": "GEOTIFF",
+    "bytes": 133085099,
+    "period": "2023-01 a 2026-10"
+  },
+  {
+    "id": "recurso-16",
+    "videos": [
+      1
+    ],
+    "title": "Anomalía de temperatura de la superficie terrestre",
+    "description": "Anomalía mensual de temperatura diurna de superficie para Colombia, en °C.",
+    "source": "NASA · MODIS",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/MODIS_061_MOD11A2",
+    "storage": "drive",
+    "filename": "06_LST_anomalia_C_MODIS.tif",
+    "format": "GEOTIFF",
+    "bytes": 125436754,
+    "period": "2023-01 a 2026-10"
+  },
+  {
+    "id": "recurso-17",
+    "videos": [
+      1
+    ],
+    "title": "Relieve de Colombia a 250 m",
+    "description": "Modelo de elevación Copernicus remuestreado a 250 m para el recorte del proyecto.",
+    "source": "Copernicus DEM",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_DEM_GLO30",
+    "storage": "drive",
+    "filename": "09_DEM_Colombia_250m.tif",
+    "format": "GEOTIFF",
+    "bytes": 164127249
+  },
+  {
+    "id": "recurso-18",
+    "videos": [
+      1
+    ],
+    "title": "Luces nocturnas de Colombia",
+    "description": "Compuesto de radiancia nocturna VIIRS para el recorte colombiano, con escala de exportación de 500 m.",
+    "source": "NOAA · VIIRS DNB",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMSLCFG",
+    "storage": "github",
+    "filename": "10_Luces_nocturnas_VIIRS.tif",
+    "format": "GEOTIFF",
+    "path": "archivos/video-1/10_Luces_nocturnas_VIIRS.tif",
+    "sha256": "c9aa28e0cdd00daa2d30203ad8440cd25078b7bee71e1d1d1d25eccc7e43885d",
+    "bytes": 13257995
+  },
+  {
+    "id": "recurso-19",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Betania (antes)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Betania_antes.tif",
+    "format": "GEOTIFF",
+    "bytes": 34569248,
+    "period": "2022-06 a 2022-12"
+  },
+  {
+    "id": "recurso-20",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Betania (ahora)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Betania_ahora.tif",
+    "format": "GEOTIFF",
+    "bytes": 37605323,
+    "period": "2026-08 a 2026-10"
+  },
+  {
+    "id": "recurso-21",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Guavio (antes)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Guavio_antes.tif",
+    "format": "GEOTIFF",
+    "bytes": 21994927,
+    "period": "2022-06 a 2022-12"
+  },
+  {
+    "id": "recurso-22",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Guavio (ahora)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Guavio_ahora.tif",
+    "format": "GEOTIFF",
+    "bytes": 22667174,
+    "period": "2026-08 a 2026-10"
+  },
+  {
+    "id": "recurso-23",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Peñol–Guatapé (antes)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Penol_Guatape_antes.tif",
+    "format": "GEOTIFF",
+    "bytes": 25968352,
+    "period": "2022-06 a 2022-12"
+  },
+  {
+    "id": "recurso-24",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Peñol–Guatapé (ahora)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Penol_Guatape_ahora.tif",
+    "format": "GEOTIFF",
+    "bytes": 26556546,
+    "period": "2026-08 a 2026-10"
+  },
+  {
+    "id": "recurso-25",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Urrá (antes)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Urra_antes.tif",
+    "format": "GEOTIFF",
+    "bytes": 55422064,
+    "period": "2022-06 a 2022-12"
+  },
+  {
+    "id": "recurso-26",
+    "videos": [
+      1
+    ],
+    "title": "Sentinel-2 · Urrá (ahora)",
+    "description": "Composición RGB del entorno del embalse. La etiqueta identifica la ventana de observación.",
+    "source": "Copernicus · Sentinel-2",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR_HARMONIZED",
+    "storage": "drive",
+    "filename": "08_RGB_Urra_ahora.tif",
+    "format": "GEOTIFF",
+    "bytes": 49969805,
+    "period": "2026-08 a 2026-10"
+  },
+  {
+    "id": "recurso-27",
+    "videos": [
+      1
+    ],
+    "title": "Cuencas HydroBASINS",
+    "description": "Polígonos hidrográficos por nivel. El script de Earth Engine documenta la selección de nivel 5 para Colombia.",
+    "source": "HydroSHEDS",
+    "sourceUrl": "https://www.hydrosheds.org/products/hydrobasins",
+    "storage": "source",
+    "format": "SHP",
+    "notes": "Descarga disponible a través de la fuente original según sus términos de uso."
+  },
+  {
+    "id": "recurso-28",
+    "videos": [
+      1
+    ],
+    "title": "Red fluvial usada en el proyecto",
+    "description": "La exportación del proyecto usó la colección FreeFlowingRivers de HydroSHEDS.",
+    "source": "HydroSHEDS · FreeFlowingRivers",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/WWF_HydroSHEDS_v1_FreeFlowingRivers",
+    "storage": "source",
+    "format": "SHP",
+    "notes": "Descarga disponible a través de la fuente original según sus términos de uso."
+  },
+  {
+    "id": "recurso-29",
+    "videos": [
+      1
+    ],
+    "title": "Límite cartográfico de Colombia",
+    "description": "Contorno de referencia usado en Earth Engine. El ZIP contiene los componentes del shapefile.",
+    "source": "LSIB · Departamento de Estado de EE. UU.",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017",
+    "storage": "github",
+    "filename": "12a_Limite_Colombia.zip",
+    "format": "SHP",
+    "path": "archivos/video-1/12a_Limite_Colombia.zip",
+    "sha256": "48c42ed8a7ab6efe50d607463e2a86106870a5cb716ff11a25e3034ebf6c8124",
+    "bytes": 219202
+  },
+  {
+    "id": "recurso-30",
+    "videos": [
+      2
+    ],
+    "title": "Perfil horario de generación y demanda",
+    "description": "Promedios horarios de demanda, generación por tecnología y precio de bolsa, con cantidad de observaciones por variable.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "perfil_dia_tipo.csv",
+    "format": "CSV",
+    "path": "archivos/video-2/perfil_dia_tipo.csv",
+    "sha256": "fe4aba023ecf3543182682f315c0618beea485eda972586a159b545d1d7219d3",
+    "columns": [
+      "periodo",
+      "hora",
+      "dias_esperados",
+      "solar_MWh",
+      "n_solar_MWh",
+      "hidraulica_MWh",
+      "n_hidraulica_MWh",
+      "termica_MWh",
+      "n_termica_MWh",
+      "eolica_MWh",
+      "n_eolica_MWh",
+      "demanda_MWh",
+      "n_demanda_MWh",
+      "precio_COP_kWh",
+      "n_precio_COP_kWh"
+    ],
+    "rows": 48,
+    "bytes": 7120,
+    "period": "2024 y octubre de 2026",
+    "notes": "Hora Colombia. Se conservan diferencias de cobertura entre tecnologías y horas."
+  },
+  {
+    "id": "recurso-31",
+    "videos": [
+      2
+    ],
+    "title": "Generación horaria por tecnología",
+    "description": "Generación eléctrica por fecha, hora de inicio y tecnología, en MWh.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "gen_horaria_tipo.csv",
+    "format": "CSV",
+    "path": "archivos/video-2/gen_horaria_tipo.csv",
+    "sha256": "c790d57a66a0fbbbc9ea5712eabab5eaa58be7568c5868b8c93d1b3b33515eb1",
+    "columns": [
+      "fecha",
+      "hora",
+      "tipo",
+      "MWh"
+    ],
+    "rows": 145872,
+    "bytes": 4988476,
+    "period": "2024-01-01 a 2026-11-08",
+    "notes": "La clasificación histórica usa el catálogo consultado en noviembre de 2026."
+  },
+  {
+    "id": "recurso-32",
+    "videos": [
+      2
+    ],
+    "title": "Demanda horaria del SIN",
+    "description": "Energía demandada por hora de Colombia, en MWh.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "dem_horaria.csv",
+    "format": "CSV",
+    "path": "archivos/video-2/dem_horaria.csv",
+    "sha256": "db99c45bc082c8dcebcfea7e46445597105f44e92a33125bb1ce47b931a85d85",
+    "columns": [
+      "fecha",
+      "hora",
+      "MWh"
+    ],
+    "rows": 25032,
+    "bytes": 665543,
+    "period": "2024-01-01 a 2026-11-08"
+  },
+  {
+    "id": "recurso-33",
+    "videos": [
+      2
+    ],
+    "title": "Precio horario de bolsa",
+    "description": "Precio de bolsa por hora de Colombia, en COP/kWh.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "precio_horario.csv",
+    "format": "CSV",
+    "path": "archivos/video-2/precio_horario.csv",
+    "sha256": "3902b96c7d916cafb69a269a70c0ed08ecf7e8342984b8d707996a3cb824601b",
+    "columns": [
+      "fecha",
+      "hora",
+      "COP_kWh"
+    ],
+    "rows": 25032,
+    "bytes": 614369,
+    "period": "2024-01-01 a 2026-11-08",
+    "notes": "Serie de mercado mayorista."
+  },
+  {
+    "id": "recurso-34",
+    "videos": [
+      2
+    ],
+    "title": "Radiación solar anual media",
+    "description": "Radiación solar incidente en Colombia, en kWh/m²/día. Una banda por año.",
+    "source": "ECMWF · ERA5-Land",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_LAND_MONTHLY_AGGR",
+    "storage": "github",
+    "filename": "01_radiacion_anual_kWh_m2_dia_2020_2025.tif",
+    "format": "GEOTIFF",
+    "path": "archivos/video-2/01_radiacion_anual_kWh_m2_dia_2020_2025.tif",
+    "sha256": "26429d58230fe4d8fbf08071ac1d6f7401f539e78779ccbf8e0f56122c1576ba",
+    "bytes": 260290,
+    "period": "2020–2025",
+    "notes": "Contiene información modificada del Servicio de Cambio Climático de Copernicus. El recorte y la agregación corresponden al proyecto."
+  },
+  {
+    "id": "recurso-35",
+    "videos": [
+      2,
+      3
+    ],
+    "title": "Radiancia nocturna mensual VIIRS",
+    "description": "Treinta bandas mensuales de radiancia nocturna regional, en nW/cm²/sr.",
+    "source": "NOAA · VIIRS DNB",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMSLCFG",
+    "storage": "drive",
+    "filename": "02_VIIRS_radiancia_mensual_202301_202506.tif",
+    "format": "GEOTIFF",
+    "bytes": 1164839021,
+    "period": "2023-01 a 2025-06"
+  },
+  {
+    "id": "recurso-36",
+    "videos": [
+      2,
+      3
+    ],
+    "title": "Cobertura de observaciones VIIRS",
+    "description": "Número de observaciones despejadas por píxel y mes. Acompaña al GeoTIFF de radiancia.",
+    "source": "NOAA · VIIRS DNB",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_MONTHLY_V1_VCMSLCFG",
+    "storage": "drive",
+    "filename": "02b_VIIRS_observaciones_202301_202506.tif",
+    "format": "GEOTIFF",
+    "bytes": 914847378,
+    "period": "2023-01 a 2025-06"
+  },
+  {
+    "id": "recurso-37",
+    "videos": [
+      3
+    ],
+    "title": "Anomalía mensual de lluvia regional",
+    "description": "Porcentaje de desviación respecto de la climatología mensual 1991–2020.",
+    "source": "CHIRPS · Climate Hazards Center",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/UCSB-CHG_CHIRPS_PENTAD",
+    "storage": "github",
+    "filename": "03_CHIRPS_anomalia_pct_2023_2025_base1991_2020.tif",
+    "format": "GEOTIFF",
+    "path": "archivos/video-3/03_CHIRPS_anomalia_pct_2023_2025_base1991_2020.tif",
+    "sha256": "45729fed9995880a0a4a0703cc11e8fb8a58817858b20ed2579846414dac728b",
+    "bytes": 15680862,
+    "period": "2023–2025"
+  },
+  {
+    "id": "recurso-38",
+    "videos": [
+      3
+    ],
+    "title": "Límites cartográficos de países vecinos",
+    "description": "Polígonos de Ecuador, Panamá, Perú y Venezuela para el contexto regional del video.",
+    "source": "LSIB · Departamento de Estado de EE. UU.",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017",
+    "storage": "github",
+    "filename": "04_limites_vecinos_LSIB.geojson",
+    "format": "GEOJSON",
+    "path": "archivos/video-3/04_limites_vecinos_LSIB.geojson",
+    "sha256": "8a0f7b4b96ce3613d4d958815a7b98b69970c74104c28144415464d7f1dfe9a7",
+    "features": 4,
+    "bytes": 2465475,
+    "period": "LSIB 2017"
+  },
+  {
+    "id": "recurso-39",
+    "videos": [
+      2,
+      3
+    ],
+    "title": "Cobertura de las exportaciones satelitales",
+    "description": "Número de imágenes disponibles y esperadas para cada producto y periodo de Earth Engine.",
+    "source": "Google Earth Engine",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/",
+    "storage": "github",
+    "filename": "00_cobertura_productos.csv",
+    "format": "CSV",
+    "path": "archivos/compartidos/00_cobertura_productos.csv",
+    "sha256": "dc23f30dd9ce74144da10a35131a011eee22a9013caf0715bca5de95fb7ff6e2",
+    "columns": [
+      "producto",
+      "periodo",
+      "imagenes",
+      "esperadas"
+    ],
+    "rows": 72,
+    "bytes": 1386
+  },
+  {
+    "id": "recurso-40",
+    "videos": [
+      3
+    ],
+    "title": "Límites de países vecinos · shapefile",
+    "description": "Versión equivalente en shapefile. El ZIP contiene los componentes de la capa.",
+    "source": "LSIB · Departamento de Estado de EE. UU.",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017",
+    "storage": "github",
+    "filename": "04b_limites_vecinos_LSIB_SHP.zip",
+    "format": "SHP",
+    "path": "archivos/video-3/04b_limites_vecinos_LSIB_SHP.zip",
+    "sha256": "fc231da04b199a443b8362456ce357916cf8c9e6486e96932c16596f3346c5ab",
+    "bytes": 790698
+  },
+  {
+    "id": "recurso-41",
+    "videos": [
+      3
+    ],
+    "title": "Intercambios internacionales mensuales",
+    "description": "Sumas mensuales de importaciones, exportaciones e intercambios de bolsa, con recuento de días por métrica.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "intercambios_mensuales.csv",
+    "format": "CSV",
+    "path": "archivos/video-3/intercambios_mensuales.csv",
+    "sha256": "d7f0658f2f45c4de33c4ee2e36f861e6928eecc8285b6456f0bf2a3be8568621",
+    "columns": [
+      "mes",
+      "dias_esperados",
+      "CompBolsaTIEEner_GWh",
+      "CompBolsaTIEEner_GWh_dias",
+      "VentBolsaTIEEner_GWh",
+      "VentBolsaTIEEner_GWh_dias",
+      "CompBolsaIntEner_GWh",
+      "CompBolsaIntEner_GWh_dias",
+      "VentBolsaIntEner_GWh",
+      "VentBolsaIntEner_GWh_dias",
+      "ImpoEner_GWh",
+      "ImpoEner_GWh_dias",
+      "ImpoEner_GWh_observados",
+      "ImpoEner_GWh_observados_dias",
+      "ExpoEner_GWh",
+      "ExpoEner_GWh_dias",
+      "ExpoEner_GWh_observados",
+      "ExpoEner_GWh_observados_dias"
+    ],
+    "rows": 143,
+    "bytes": 14106,
+    "period": "2015-01 a 2026-11",
+    "notes": "Datos físicos publicados hasta el 8 de noviembre de 2026. Los totales observados utilizan las horas disponibles. Los campos de bolsa se conservan por separado."
+  },
+  {
+    "id": "recurso-42",
+    "videos": [
+      3
+    ],
+    "title": "Intercambios internacionales diarios",
+    "description": "Flujos físicos e intercambios de bolsa por día, con cobertura horaria y totales observados en GWh.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "github",
+    "filename": "intercambios_diarios.csv",
+    "format": "CSV",
+    "path": "archivos/video-3/intercambios_diarios.csv",
+    "sha256": "453069f34f9e38a8d31eae23a3793f8e91441c96143c4cd84efb7a095d116e34",
+    "columns": [
+      "fecha",
+      "CompBolsaTIEEner_GWh",
+      "CompBolsaTIEEner_horas",
+      "VentBolsaTIEEner_GWh",
+      "VentBolsaTIEEner_horas",
+      "CompBolsaIntEner_GWh",
+      "CompBolsaIntEner_horas",
+      "VentBolsaIntEner_GWh",
+      "VentBolsaIntEner_horas",
+      "ImpoEner_GWh",
+      "ImpoEner_GWh_observados",
+      "ImpoEner_horas",
+      "ExpoEner_GWh",
+      "ExpoEner_GWh_observados",
+      "ExpoEner_horas"
+    ],
+    "rows": 4333,
+    "bytes": 297600,
+    "period": "2015-01-01 a 2026-11-11",
+    "notes": "Datos físicos publicados hasta el 8 de noviembre de 2026. Los totales observados utilizan las horas disponibles. Los campos de bolsa se conservan por separado."
+  },
+  {
+    "id": "recurso-43",
+    "videos": [
+      3
+    ],
+    "title": "Líneas eléctricas de países vecinos",
+    "description": "Tramos de Ecuador, Panamá, Perú y Venezuela con tensión explícita de al menos 220 kV. WGS 84.",
+    "source": "© OpenStreetMap contributors · ODbL 1.0",
+    "sourceUrl": "https://www.openstreetmap.org/copyright",
+    "storage": "github",
+    "filename": "lineas_vecinos.geojson",
+    "format": "GEOJSON",
+    "path": "archivos/video-3/lineas_vecinos.geojson",
+    "sha256": "56ef93c721b9fb4332a58002e233588aece2577fe7153acd609321d9b196f425",
+    "features": 1174,
+    "bytes": 580222,
+    "period": "2026-11-11",
+    "notes": "Inventario cartográfico colaborativo. La tensión nominal describe la línea. La capacidad de transferencia se consulta con el operador."
+  },
+  {
+    "id": "recurso-44",
+    "videos": [
+      3
+    ],
+    "title": "Subestaciones fronterizas · cobertura parcial",
+    "description": "Candidatos cartográficos próximos al borde colombiano en Ecuador y Venezuela. WGS 84.",
+    "source": "© OpenStreetMap contributors · ODbL 1.0",
+    "sourceUrl": "https://www.openstreetmap.org/copyright",
+    "storage": "github",
+    "filename": "subestaciones_fronterizas.parcial.geojson",
+    "format": "GEOJSON",
+    "path": "archivos/video-3/subestaciones_fronterizas.parcial.geojson",
+    "sha256": "46a42497f252cd690e6c00356960163aca6f0b74ddfc8ee6707068eca0f101cb",
+    "features": 31,
+    "bytes": 12312,
+    "period": "2026-11-11",
+    "notes": "La consulta de Venezuela quedó parcial. Nodos y áreas pueden representar el mismo activo."
+  },
+  {
+    "id": "recurso-45",
+    "videos": [
+      3
+    ],
+    "title": "Procedencia de las capas regionales",
+    "description": "Fecha, licencia, consultas y alcance por país de la descarga OpenStreetMap.",
+    "source": "© OpenStreetMap contributors · ODbL 1.0",
+    "sourceUrl": "https://www.openstreetmap.org/copyright",
+    "storage": "github",
+    "filename": "procedencia.json",
+    "format": "JSON",
+    "path": "archivos/video-3/procedencia.json",
+    "sha256": "4bd45dd4ccd0a25f4efee72ef54ec3994b2e587c085476320999f8091a8aab80",
+    "bytes": 3521,
+    "period": "2026-11-11"
+  },
+  {
+    "id": "recurso-46",
+    "videos": [
+      1
+    ],
+    "title": "Diagnóstico ENSO · boletín 217",
+    "description": "Boletín histórico que sirve de referencia para el contexto climático del video.",
+    "source": "IDEAM",
+    "sourceUrl": "https://www.ideam.gov.co/file-download/download/public/23737",
+    "storage": "source",
+    "format": "PDF",
+    "period": "2026-10-20"
+  },
+  {
+    "id": "recurso-47",
+    "videos": [
+      1
+    ],
+    "title": "Diagnóstico de El Niño y La Niña",
+    "description": "Serie de diagnósticos del Climate Prediction Center.",
+    "source": "NOAA · CPC",
+    "sourceUrl": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+    "storage": "source",
+    "format": "WEB"
+  },
+  {
+    "id": "recurso-48",
+    "videos": [
+      1
+    ],
+    "title": "InfoGas 2026",
+    "description": "Publicación de contexto de gas natural y suministro nacional.",
+    "source": "Promigas",
+    "sourceUrl": "https://www.promigas.com/Paginas/Eventos/ESP/InfoGas-2026.aspx",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2026"
+  },
+  {
+    "id": "recurso-49",
+    "videos": [
+      1
+    ],
+    "title": "Medidas transitorias de abastecimiento",
+    "description": "Resolución CREG 101-127 de 2026, citada para el contexto regulatorio del video.",
+    "source": "CREG",
+    "sourceUrl": "https://gestornormativo.creg.gov.co/gestor/entorno/docs/resolucion_creg_101-127_2026.htm",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2026-08-27"
+  },
+  {
+    "id": "recurso-50",
+    "videos": [
+      1
+    ],
+    "title": "Red de transmisión del SIN y el STN",
+    "description": "Referencia oficial de mapas de transmisión nacional y regional.",
+    "source": "UPME",
+    "sourceUrl": "https://www1.upme.gov.co/PromocionSector/Documents/Documentos-interes-convocatorias/Mapas_SIN_y_STN_depurados_2024.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "2024"
+  },
+  {
+    "id": "recurso-51",
+    "videos": [
+      1,
+      3
+    ],
+    "title": "Resultados de ISA · tercer trimestre",
+    "description": "Informe con el alcance operativo de transporte de energía del grupo.",
+    "source": "ISA",
+    "sourceUrl": "https://isa.co/wp-content/uploads/2026/11/3Tt-26-iInforme-resultados-financieros.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "3T-2026"
+  },
+  {
+    "id": "recurso-52",
+    "videos": [
+      2
+    ],
+    "title": "Seguimiento de La Arenosa",
+    "description": "Boletín de convocatorias UPME con el proyecto de almacenamiento La Arenosa, página 44.",
+    "source": "UPME",
+    "sourceUrl": "https://docs.upme.gov.co/PromocionSector/Documents/Documentos-interes-convocatorias/Boletin_convocatorias_UPME_ene-mar_2026.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "Enero–marzo de 2026"
+  },
+  {
+    "id": "recurso-53",
+    "videos": [
+      2
+    ],
+    "title": "La curva del pato",
+    "description": "Explicación técnica sobre demanda neta, generación solar y rampa vespertina.",
+    "source": "Departamento de Energía de EE. UU.",
+    "sourceUrl": "https://www.energy.gov/cmei/solar/articles/confronting-duck-curve-how-address-over-generation-solar-energy",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2017-10-12"
+  },
+  {
+    "id": "recurso-54",
+    "videos": [
+      3
+    ],
+    "title": "Crisis eléctrica de Ecuador de 2024",
+    "description": "Apuntes de Economía 77. Reconstruye los episodios de racionamiento del año 2024.",
+    "source": "Banco Central del Ecuador",
+    "sourceUrl": "https://contenido.bce.fin.ec/documentos/PublicacionesNotas/Catalogo/Apuntes/ae77.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "2025-05"
+  },
+  {
+    "id": "recurso-55",
+    "videos": [
+      3
+    ],
+    "title": "Balance del mercado eléctrico · noviembre de 2024",
+    "description": "Boletín para contrastar los flujos físicos alrededor de la reactivación de exportaciones.",
+    "source": "XM",
+    "sourceUrl": "https://www.xm.com.co/noticias/7418-informe-de-xm-sobre-las-variables-del-mercado-de-energia-en-noviembre-de-2024",
+    "storage": "source",
+    "format": "WEB",
+    "period": "Noviembre de 2024"
+  },
+  {
+    "id": "recurso-56",
+    "videos": [
+      3
+    ],
+    "title": "Proyecto Colombia–Panamá",
+    "description": "Descripción técnica del proyecto entre Cerromatoso y Panamá II.",
+    "source": "Interconexión Colombia–Panamá",
+    "sourceUrl": "https://www.interconexioncp.com/descripcion-tecnica/",
+    "storage": "source",
+    "format": "WEB"
+  },
+  {
+    "id": "recurso-57",
+    "videos": [
+      3
+    ],
+    "title": "Interconexión eléctrica de Centroamérica",
+    "description": "Contexto de la red SIEPAC y de los tramos que la componen.",
+    "source": "Empresa Propietaria de la Red",
+    "sourceUrl": "https://eprsiepac.com/linea-siepac/",
+    "storage": "source",
+    "format": "WEB"
+  }
+]

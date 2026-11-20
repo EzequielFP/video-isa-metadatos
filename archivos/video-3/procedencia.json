@@ -1,0 +1,61 @@
+{
+  "fecha": "2026-11-11T12:48:40.796359",
+  "fuente": "OpenStreetMap contributors",
+  "licencia": "ODbL 1.0 https://www.openstreetmap.org/copyright",
+  "consultas": {
+    "EC": "[out:json][timeout:160];area[\"ISO3166-1\"=\"EC\"][admin_level=2]->.a;\n    (way[power=line][voltage~\"[2-9][0-9]{5}|[1-9][0-9]{6}\"](area.a);\n     nwr[power=substation](area.a););out tags center geom;",
+    "PA": "[out:json][timeout:160];area[\"ISO3166-1\"=\"PA\"][admin_level=2]->.a;\n    (way[power=line][voltage~\"[2-9][0-9]{5}|[1-9][0-9]{6}\"](area.a);\n     nwr[power=substation](area.a););out tags center geom;",
+    "PE": "[out:json][timeout:160];area[\"ISO3166-1\"=\"PE\"][admin_level=2]->.a;\n    (way[power=line][voltage~\"[2-9][0-9]{5}|[1-9][0-9]{6}\"](area.a);\n     nwr[power=substation](area.a););out tags center geom;",
+    "VE": "[out:json][timeout:160];area[\"ISO3166-1\"=\"VE\"][admin_level=2]->.a;\n    (way[power=line][voltage~\"[2-9][0-9]{5}|[1-9][0-9]{6}\"](area.a);\n     nwr[power=substation](area.a););out tags center geom;"
+  },
+  "endpoints": [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter"
+  ],
+  "limite_auxiliar": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_10m_admin_0_countries.geojson",
+  "crs_salida": "EPSG:4326",
+  "simplificacion_grados": 0.0004,
+  "subestaciones": "Centro/nodo OSM a <=100 km aproximados del borde de Colombia, distancia proyectada EPSG:9377; Natural Earth cartográfico, no límite legal. Incluye tensiones desconocidas. Venezuela parcial, con filtros de transmisión en algunas consultas. Revisar duplicados nodo/área.",
+  "limitacion": "Solo voltage explícito >=220000; OSM incompleto. No inferir trazado de Panamá futuro ni capacidad de transferencia desde voltage. No unir líneas artificialmente.",
+  "conteos": {
+    "EC": {
+      "lineas": 223,
+      "subestaciones_100km": 17,
+      "osm_base": "2026-11-11T17:14:04Z",
+      "completo": true,
+      "lineas_completas": true,
+      "subestaciones_completas": true,
+      "metodo": "Consulta administrativa de país completo"
+    },
+    "PA": {
+      "lineas": 95,
+      "subestaciones_100km": 0,
+      "osm_base": "2026-11-11T17:09:06Z",
+      "completo": true,
+      "lineas_completas": true,
+      "subestaciones_completas": true,
+      "metodo": "Consulta administrativa de país completo"
+    },
+    "PE": {
+      "lineas": 349,
+      "subestaciones_100km": 0,
+      "osm_base": "2026-11-11T17:17:05Z",
+      "completo": true,
+      "lineas_completas": true,
+      "subestaciones_completas": true,
+      "metodo": "Consultas por zonas; out geom para líneas, center para subestaciones. BBox Overpass + selección de país Natural Earth 1:10m, contingencia del filtro área; BBox Overpass + selección de país Natural Earth 1:10m, contingencia del filtro área; estaciones consultadas en región de 100 km de Colombia; Área administrativa OSM + bbox"
+    },
+    "VE": {
+      "lineas": 507,
+      "subestaciones_100km": 14,
+      "osm_base": "2026-11-11T17:28:20Z",
+      "completo": false,
+      "lineas_completas": true,
+      "subestaciones_completas": false,
+      "metodo": "BBox Overpass + selección de país Natural Earth 1:10m; seis zonas de líneas completas; estaciones parciales según cobertura explícita"
+    }
+  },
+  "errores": [
+    "VE: líneas completas, subestaciones parciales; ver cobertura en cache/VE.json. Overpass saturado (502/504)."
+  ]
+}

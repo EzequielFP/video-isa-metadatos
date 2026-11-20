@@ -1,0 +1,42 @@
+{
+  "ok_geometrias": true,
+  "cobertura_completa": false,
+  "pendientes": [
+    "VE: líneas completas, subestaciones parciales; ver cobertura en cache/VE.json. Overpass saturado (502/504)."
+  ],
+  "fecha": "2026-11-11",
+  "crs": "EPSG:4326",
+  "verificaciones": [
+    "IDs OSM únicos por país",
+    "geometrías válidas y no vacías",
+    "coordenadas regionales",
+    "tensión explícita >=220000 V",
+    "subestaciones candidatas a <=100 km aproximados del borde colombiano"
+  ],
+  "conteos": {
+    "lineas_vecinos.geojson": {
+      "EC": 223,
+      "PA": 95,
+      "PE": 349,
+      "VE": 507
+    },
+    "subestaciones_fronterizas.parcial.geojson": {
+      "EC": 17,
+      "VE": 14
+    }
+  },
+  "archivos": [
+    {
+      "archivo": "lineas_vecinos.geojson",
+      "features": 1174,
+      "bytes": 580222,
+      "sha256": "56ef93c721b9fb4332a58002e233588aece2577fe7153acd609321d9b196f425"
+    },
+    {
+      "archivo": "subestaciones_fronterizas.parcial.geojson",
+      "features": 31,
+      "bytes": 12312,
+      "sha256": "46a42497f252cd690e6c00356960163aca6f0b74ddfc8ee6707068eca0f101cb"
+    }
+  ]
+}
