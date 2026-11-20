@@ -30,3 +30,5 @@ Desde la raíz de este repositorio, ejecuta `python -m http.server 8000` y abre 
 - [Cronología del Pacífico](scripts/preparar_pacifico.py). Genera 46 mapas de enero de 2023 a octubre de 2026 con las bandas del GeoTIFF OISST v2.1 y la costa de Natural Earth. El valor visible de cada mes es la media del CSV diario Niño 3.4. El cambio entre mapas conserva las fechas de observación.
 - [Clips web](scripts/preparar_clips.py). Usa los renders de Blender del proyecto y dos clips de Google Flow de la producción original, identificados en las páginas como recreaciones generadas con IA.
 - El visor utiliza Three.js 0.187.0 y la tipografía Barlow Condensed. Sus licencias están en [assets/vendor](assets/vendor/).
+- Las transiciones de escena y el progreso del recorrido usan GSAP 3.15.1 con ScrollTrigger. El módulo se sirve desde el sitio y respeta la preferencia de movimiento reducido. [Licencia estándar de GSAP](https://gsap.com/standard-license/)
+- La iluminación de los enlaces entre capítulos toma como referencia el efecto [Spotlight Card de React Bits](https://reactbits.dev/components/spotlight-card) y usa CSS y eventos del navegador.

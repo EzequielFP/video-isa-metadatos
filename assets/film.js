@@ -5,6 +5,15 @@ import { clamp, fetchJson } from "./visual.js";
 
 const motion = matchMedia("(prefers-reduced-motion: reduce)");
 const finePointer = matchMedia("(pointer: fine)");
+let transitionsStarted = false;
+
+function loadTransitions() {
+  if (motion.matches || transitionsStarted) return;
+  transitionsStarted = true;
+  import("./transitions.js")
+    .then(({ setupTransitions }) => setupTransitions())
+    .catch(() => { transitionsStarted = false; });
+}
 
 function scrollFilm(hero) {
   const film = hero.querySelector("[data-scroll-video]");
@@ -118,3 +127,5 @@ document.querySelectorAll("[data-compare]").forEach((root) => {
 });
 setupBattery();
 setupDrive();
+loadTransitions();
+motion.addEventListener("change", loadTransitions);

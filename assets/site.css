@@ -44,6 +44,7 @@ img, video, canvas { display: block; max-width: 100%; }
 .fine a { color: var(--accent); }
 
 .header { position: sticky; top: 0; z-index: 8; background: #09141cf2; border-bottom: 1px solid #a6dbc320; backdrop-filter: blur(15px); }
+.page-progress { position: absolute; z-index: 1; pointer-events: none; inset: auto 0 -1px; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 55%, transparent); }
 .header-inner { min-height: 69px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1.1rem; }
 .brand { width: max-content; display: inline-flex; align-items: center; gap: .62rem; text-decoration: none; font-size: .9rem; letter-spacing: .055em; }
 .brand-mark { width: 2rem; height: 2rem; display: inline-grid; place-items: center; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 1.4rem; line-height: 1; font-weight: 750; }
@@ -97,7 +98,7 @@ body.red .hero h1 { max-width: 11ch; }
 
 .pacific-scene { position: relative; padding: 0; background: radial-gradient(ellipse at 55% 35%, #112b37, #09141c 70%); border-bottom: 1px solid var(--line); }
 .pacific-scene.scroll-capable { height: 278svh; }
-.pacific-sticky { padding-block: clamp(1.8rem, 4vh, 3.6rem); }
+.pacific-sticky { padding-block: clamp(1.45rem, 3vh, 2.4rem); }
 .pacific-scene.scroll-capable .pacific-sticky { position: sticky; top: clamp(66px, 9vh, 95px); }
 .pacific-heading { margin-bottom: 1rem; }
 .pacific-heading h2 { font-size: clamp(3rem, 5vw, 5.4rem); }
@@ -105,10 +106,8 @@ body.red .hero h1 { max-width: 11ch; }
 .map-figure, .pacific-readout { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #0b1b24; }
 .pacific-map { position: relative; aspect-ratio: 461 / 200; isolation: isolate; background: #0f2133; }
 .sst-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
-@media (prefers-reduced-motion: no-preference) {
-  .sst-layer { transition: opacity .13s linear; }
-}
 .sst-layer:not([src]) { visibility: hidden; }
+.map-grid, .nino-box, .map-location { z-index: 2; }
 .map-grid { position: absolute; inset: 0; background: repeating-linear-gradient(0deg, #f0fff422 0 1px, transparent 1px 25%), repeating-linear-gradient(90deg, #f0fff420 0 1px, transparent 1px 17.35%); pointer-events: none; }
 .nino-box { position: absolute; left: 8.67%; width: 43.38%; top: 40%; height: 20%; border: 1px dashed #fffde5; box-shadow: 0 0 0 1px #18222a70; pointer-events: none; }
 .nino-box span { position: absolute; top: -1.65rem; left: -.05rem; background: #08141f; padding: .15rem .32rem; color: #f5f3e3; font: 700 .73rem ui-monospace, monospace; letter-spacing: .08em; white-space: nowrap; }
@@ -124,8 +123,14 @@ body.red .hero h1 { max-width: 11ch; }
 .readout-date { font-weight: 750; }
 .pacific-spark { height: clamp(31px, 8vw, 76px); width: 100%; }
 .timeline-controls { display: grid; grid-template-columns: auto 1fr auto; align-items: end; gap: .75rem; margin-block: .65rem .35rem; }
-.timeline-jumps { margin-bottom: .45rem; }
-.timeline-jumps button { min-height: 30px; font: 700 .82rem ui-monospace, monospace; }
+.timeline-jumps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4rem; margin: 0 0 .65rem; }
+.timeline-jumps button { display: grid; gap: .08rem; min-width: 0; text-align: left; line-height: 1.25; border: 1px solid var(--line); border-radius: 4px; color: var(--ink); background: #0b1b24; padding: .48rem .65rem; }
+.timeline-jumps span { color: var(--muted); font-size: .78rem; }
+.timeline-jumps strong { font-size: .91rem; }
+.timeline-jumps button:hover { border-color: var(--accent); }
+.timeline-jumps button[aria-pressed="true"] { border-color: var(--accent); background: linear-gradient(105deg, #1b3c41, #0d2028); }
+.timeline-jumps button[aria-pressed="true"] strong { color: var(--accent); }
+.pacific-phase { min-height: 1.75rem; color: var(--ink); font-size: .91rem; }
 .timeline-range, .observation { display: grid; gap: .18rem; min-width: 0; }
 label { font-weight: 700; font-size: .89rem; }
 input[type="range"] { width: 100%; min-height: 22px; margin: 0; accent-color: var(--accent); cursor: pointer; }
@@ -191,6 +196,12 @@ input[type="range"] { width: 100%; min-height: 22px; margin: 0; accent-color: va
 .next-background, .next-card::before { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .next-background { object-fit: cover; z-index: -2; }
 .next-card::before { content: ""; z-index: -1; background: linear-gradient(90deg, #09141cf5, #09141c64); }
+@media (prefers-reduced-motion: no-preference) {
+  .next-background { transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+  .next-card:is(:hover, :focus-visible) .next-background { transform: scale(1.04); }
+  .next-card::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .28s; background: radial-gradient(13rem at var(--light-x, 62%) var(--light-y, 50%), color-mix(in srgb, var(--accent) 16%, transparent), transparent); }
+  .next-card:is(:hover, :focus-visible)::after { opacity: 1; }
+}
 .next-card:hover { border-color: var(--accent); color: var(--ink); }
 .next-card strong { font: 800 clamp(2.7rem, 6vw, 5.7rem)/.90 var(--display); text-transform: uppercase; }
 .footer { border-top: 1px solid var(--line); color: var(--muted); padding-block: 1.65rem; }
@@ -266,6 +277,7 @@ th { position: sticky; top: 0; background: #16313f; }
   .timeline-controls { grid-template-columns: 1fr 1fr; gap: .35rem; }
   .timeline-range { grid-column: 1 / -1; grid-row: 1; }
   .timeline-controls .button { white-space: normal; padding-inline: .45rem; font-size: .82rem; }
+  .pacific-phase { min-height: 2.62rem; font-size: .85rem; }
   .regional-map { width: min(100%, 460px); }
   .resource-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .catalog-tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -282,6 +294,10 @@ th { position: sticky; top: 0; background: #16313f; }
   .map-legend { font-size: .68rem; padding: .25rem .35rem; }
   .pacific-heading > p { font-size: .88rem; }
   .pacific-heading { margin-bottom: .55rem; }
+  .timeline-jumps { gap: .25rem; }
+  .timeline-jumps button { padding: .4rem .35rem; }
+  .timeline-jumps span { font-size: .71rem; }
+  .timeline-jumps strong { font-size: .82rem; }
   .pacific-sticky > .fine { font-size: .76rem; }
   .terrain figcaption { max-width: 90%; font-size: .74rem; }
   .terrain-tools .button { min-width: 37px; min-height: 36px; }

@@ -1,6 +1,11 @@
 import { canvasContext, clamp, fetchJson, monthLabel, temperature } from "./visual.js";
 
 const directory = new URL("./media/pacifico/", import.meta.url);
+const descriptions = {
+  "2023-01": "En 2023, la anomalía pasa de valores negativos a un máximo en noviembre.",
+  "2024-01": "La anomalía pierde fuerza durante 2024 y llega a valores negativos a comienzos de 2025.",
+  "2026-01": "En 2026, la anomalía vuelve a ser positiva en marzo y aumenta hasta octubre.",
+};
 
 export async function setupPacific(root, motion) {
   const sticky = root.querySelector(".pacific-sticky");
@@ -9,6 +14,7 @@ export async function setupPacific(root, motion) {
   const play = root.querySelector("[data-pacific-play]");
   const scroll = root.querySelector("[data-pacific-scroll]");
   const jumps = [...root.querySelectorAll("[data-pacific-jump]")];
+  const phase = root.querySelector("[data-pacific-phase]");
   const value = root.querySelector("[data-pacific-value]");
   const date = root.querySelector("[data-pacific-date]");
   const days = root.querySelector("[data-pacific-days]");
@@ -17,6 +23,7 @@ export async function setupPacific(root, motion) {
   const cache = new Map();
   let entries;
   let active = 0;
+  let dissolve;
   let current = -1;
   let requested = -1;
   let timer;
@@ -78,19 +85,31 @@ export async function setupPacific(root, motion) {
     try {
       const src = await image(index);
       if (requested !== index) return;
+      dissolve?.cancel();
+      const previous = layers[active];
       if (current !== -1) active = 1 - active;
-      layers[active].src = src;
-      layers[active].style.opacity = "1";
-      layers[1 - active].style.opacity = "0";
+      const next = layers[active];
+      next.src = src;
+      next.style.zIndex = "1";
+      next.style.opacity = "1";
+      if (previous !== next) {
+        previous.style.zIndex = "0";
+        if (!motion.matches) {
+          dissolve = next.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 170, easing: "ease-out" });
+          dissolve.onfinish = () => { previous.style.opacity = "0"; };
+        } else {
+          previous.style.opacity = "0";
+        }
+      }
       current = index;
       date.textContent = month[0].toUpperCase() + month.slice(1);
       value.textContent = entry.value === null ? "Sin datos" : `${temperature.format(entry.value)} °C`;
       value.dataset.tone = entry.value < 0 ? "cold" : "warm";
       days.textContent = `Media de ${entry.days} observaciones diarias.`;
       range.setAttribute("aria-valuetext", `${month}. ${value.textContent}`);
-      jumps.forEach((button) => {
-        button.setAttribute("aria-pressed", button.dataset.pacificJump.slice(0, 4) === entry.month.slice(0, 4));
-      });
+      const chapter = jumps.findLast((button) => button.dataset.phaseStart <= entry.month);
+      jumps.forEach((button) => button.setAttribute("aria-pressed", button === chapter));
+      phase.textContent = descriptions[chapter?.dataset.phaseStart] ?? "";
       drawTrend();
       for (const neighbor of [index + 1, index - 1]) {
         if (entries[neighbor]) image(neighbor).catch(() => {});
@@ -118,7 +137,7 @@ export async function setupPacific(root, motion) {
 
   function updateCapabilities() {
     const header = document.querySelector("header").offsetHeight;
-    const capable = !motion.matches && innerHeight > 670 && sticky.offsetHeight + header + 14 <= innerHeight;
+    const capable = !motion.matches && innerHeight > 670 && sticky.offsetHeight + header + 18 <= innerHeight;
     root.classList.toggle("scroll-capable", capable);
     scroll.hidden = !capable;
     scroll.disabled = !capable;
@@ -190,4 +209,5 @@ export async function setupPacific(root, motion) {
   new ResizeObserver(drawTrend).observe(graph);
   await select(0);
   updateCapabilities();
+  document.fonts.ready.then(updateCapabilities);
 }

@@ -45,6 +45,11 @@
       <div><p class="eyebrow">Pacífico tropical · 2023–2026</p><h2 id="pacific-title">El Niño, mes a mes.</h2></div>
       <p data-pacific-hint>Sigue la mancha cálida en la franja ecuatorial. Desplázate por la página o mueve el control para cambiar de mes.</p>
     </div>
+    <div class="timeline-jumps" role="group" aria-label="Momentos del Pacífico">
+      <button type="button" data-pacific-jump="2023-11" data-phase-start="2023-01" disabled><span>Noviembre de 2023</span><strong>Primer ascenso</strong></button>
+      <button type="button" data-pacific-jump="2025-01" data-phase-start="2024-01" disabled><span>Enero de 2025</span><strong>Enfriamiento</strong></button>
+      <button type="button" data-pacific-jump="2026-10" data-phase-start="2026-01" disabled><span>Octubre de 2026</span><strong>Nuevo ascenso</strong></button>
+    </div>
     <div class="pacific-layout">
       <figure class="map-figure">
         <div class="pacific-map">
@@ -73,12 +78,7 @@
       <div class="timeline-range"><label for="pacific-range">Mes del mapa</label><input id="pacific-range" data-pacific-range type="range" min="0" max="45" value="0" disabled></div>
       <button class="button outline" data-pacific-scroll type="button" aria-pressed="true" disabled>Sincronizar con scroll</button>
     </div>
-    <div class="mode-buttons timeline-jumps" role="group" aria-label="Saltar al inicio de un año">
-      <button type="button" data-pacific-jump="2023-01" disabled>2023</button>
-      <button type="button" data-pacific-jump="2024-01" disabled>2024</button>
-      <button type="button" data-pacific-jump="2025-01" disabled>2025</button>
-      <button type="button" data-pacific-jump="2026-01" disabled>2026</button>
-    </div>
+    <p class="pacific-phase" data-pacific-phase>En 2023, la anomalía pasa de valores negativos a un máximo en noviembre.</p>
     <p class="fine">Fuente <a href="archivos/video-1/01_SST_anomalia_mensual_C.tif">NOAA OISST v2.1</a> · <a href="archivos/video-1/02_Nino34_anomalia_diaria.csv">Serie diaria Niño 3.4</a></p>
   </div>
 </section>
