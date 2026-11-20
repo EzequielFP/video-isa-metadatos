@@ -1,0 +1,288 @@
+{
+  "width": 1383,
+  "height": 600,
+  "bounds": [
+    -180.00082337073323,
+    -25.000114357046282,
+    -64.75029618474987,
+    25.000114357046282
+  ],
+  "frames": [
+    {
+      "month": "2023-01",
+      "image": "2023-01.webp",
+      "value": -0.742,
+      "days": 31
+    },
+    {
+      "month": "2023-02",
+      "image": "2023-02.webp",
+      "value": -0.531,
+      "days": 28
+    },
+    {
+      "month": "2023-03",
+      "image": "2023-03.webp",
+      "value": 0.005,
+      "days": 31
+    },
+    {
+      "month": "2023-04",
+      "image": "2023-04.webp",
+      "value": 0.329,
+      "days": 30
+    },
+    {
+      "month": "2023-05",
+      "image": "2023-05.webp",
+      "value": 0.6,
+      "days": 31
+    },
+    {
+      "month": "2023-06",
+      "image": "2023-06.webp",
+      "value": 1.119,
+      "days": 30
+    },
+    {
+      "month": "2023-07",
+      "image": "2023-07.webp",
+      "value": 1.238,
+      "days": 31
+    },
+    {
+      "month": "2023-08",
+      "image": "2023-08.webp",
+      "value": 1.418,
+      "days": 31
+    },
+    {
+      "month": "2023-09",
+      "image": "2023-09.webp",
+      "value": 1.63,
+      "days": 30
+    },
+    {
+      "month": "2023-10",
+      "image": "2023-10.webp",
+      "value": 1.715,
+      "days": 31
+    },
+    {
+      "month": "2023-11",
+      "image": "2023-11.webp",
+      "value": 2.138,
+      "days": 30
+    },
+    {
+      "month": "2023-12",
+      "image": "2023-12.webp",
+      "value": 2.096,
+      "days": 31
+    },
+    {
+      "month": "2024-01",
+      "image": "2024-01.webp",
+      "value": 1.752,
+      "days": 31
+    },
+    {
+      "month": "2024-02",
+      "image": "2024-02.webp",
+      "value": 1.49,
+      "days": 29
+    },
+    {
+      "month": "2024-03",
+      "image": "2024-03.webp",
+      "value": 1.266,
+      "days": 31
+    },
+    {
+      "month": "2024-04",
+      "image": "2024-04.webp",
+      "value": 0.979,
+      "days": 30
+    },
+    {
+      "month": "2024-05",
+      "image": "2024-05.webp",
+      "value": 0.391,
+      "days": 31
+    },
+    {
+      "month": "2024-06",
+      "image": "2024-06.webp",
+      "value": 0.405,
+      "days": 30
+    },
+    {
+      "month": "2024-07",
+      "image": "2024-07.webp",
+      "value": 0.326,
+      "days": 31
+    },
+    {
+      "month": "2024-08",
+      "image": "2024-08.webp",
+      "value": 0.022,
+      "days": 31
+    },
+    {
+      "month": "2024-09",
+      "image": "2024-09.webp",
+      "value": -0.215,
+      "days": 30
+    },
+    {
+      "month": "2024-10",
+      "image": "2024-10.webp",
+      "value": -0.24,
+      "days": 31
+    },
+    {
+      "month": "2024-11",
+      "image": "2024-11.webp",
+      "value": 0.096,
+      "days": 30
+    },
+    {
+      "month": "2024-12",
+      "image": "2024-12.webp",
+      "value": -0.546,
+      "days": 31
+    },
+    {
+      "month": "2025-01",
+      "image": "2025-01.webp",
+      "value": -0.827,
+      "days": 30
+    },
+    {
+      "month": "2025-02",
+      "image": "2025-02.webp",
+      "value": -0.42,
+      "days": 28
+    },
+    {
+      "month": "2025-03",
+      "image": "2025-03.webp",
+      "value": 0.143,
+      "days": 31
+    },
+    {
+      "month": "2025-04",
+      "image": "2025-04.webp",
+      "value": 0.007,
+      "days": 30
+    },
+    {
+      "month": "2025-05",
+      "image": "2025-05.webp",
+      "value": 0.08,
+      "days": 31
+    },
+    {
+      "month": "2025-06",
+      "image": "2025-06.webp",
+      "value": 0.205,
+      "days": 30
+    },
+    {
+      "month": "2025-07",
+      "image": "2025-07.webp",
+      "value": 0.083,
+      "days": 31
+    },
+    {
+      "month": "2025-08",
+      "image": "2025-08.webp",
+      "value": -0.234,
+      "days": 31
+    },
+    {
+      "month": "2025-09",
+      "image": "2025-09.webp",
+      "value": -0.413,
+      "days": 30
+    },
+    {
+      "month": "2025-10",
+      "image": "2025-10.webp",
+      "value": -0.408,
+      "days": 31
+    },
+    {
+      "month": "2025-11",
+      "image": "2025-11.webp",
+      "value": -0.502,
+      "days": 30
+    },
+    {
+      "month": "2025-12",
+      "image": "2025-12.webp",
+      "value": -0.555,
+      "days": 31
+    },
+    {
+      "month": "2026-01",
+      "image": "2026-01.webp",
+      "value": -0.621,
+      "days": 31
+    },
+    {
+      "month": "2026-02",
+      "image": "2026-02.webp",
+      "value": -0.262,
+      "days": 28
+    },
+    {
+      "month": "2026-03",
+      "image": "2026-03.webp",
+      "value": 0.035,
+      "days": 31
+    },
+    {
+      "month": "2026-04",
+      "image": "2026-04.webp",
+      "value": 0.612,
+      "days": 30
+    },
+    {
+      "month": "2026-05",
+      "image": "2026-05.webp",
+      "value": 1.062,
+      "days": 31
+    },
+    {
+      "month": "2026-06",
+      "image": "2026-06.webp",
+      "value": 1.785,
+      "days": 30
+    },
+    {
+      "month": "2026-07",
+      "image": "2026-07.webp",
+      "value": 2.252,
+      "days": 31
+    },
+    {
+      "month": "2026-08",
+      "image": "2026-08.webp",
+      "value": 2.667,
+      "days": 31
+    },
+    {
+      "month": "2026-09",
+      "image": "2026-09.webp",
+      "value": 3.01,
+      "days": 30
+    },
+    {
+      "month": "2026-10",
+      "image": "2026-10.webp",
+      "value": 3.434,
+      "days": 31
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09141c">
+  <meta name="description" content="El sol entrega más energía a mediodía. La demanda sigue alta al anochecer. Desliza el reloj de Colombia y descubre lo que pasa entre las dos curvas.">
+  <title>Guardar el sol · De Watts a Wow</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <script type="module" src="assets/film.js"></script>
+
+</head>
+<body class="sol">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">ϟ</span><strong>DE WATTS A WOW</strong></a>
+      <nav class="main-nav" aria-label="Capítulos"><a href="./"><span>01</span> El Niño y la luz</a><a href="solar.html" aria-current="page"><span>02</span> Guardar el sol</a><a href="fronteras.html"><span>03</span> Cruzar fronteras</a></nav>
+      <a class="catalog-link" href="./?video=2#catalogo">Datos</a>
+    </div>
+  </header>
+  <main id="contenido">
+    <section class="hero" data-hero aria-labelledby="titulo">
+  <div class="hero-picture">
+    <img src="assets/media/caribe-portada.webp" alt="" fetchpriority="high">
+    <video data-scroll-video data-src="assets/media/caribe-vuelo.mp4" aria-hidden="true" muted playsinline preload="none"></video>
+  </div>
+  <div class="shell hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow"><span>Capítulo 02</span> Generación solar y almacenamiento</p>
+      <h1 id="titulo">Guardar el sol para la noche.</h1>
+      <p class="lede">El sol entrega más energía a mediodía. La demanda sigue alta al anochecer. Desliza el reloj de Colombia y descubre lo que pasa entre las dos curvas.</p>
+      <a class="button primary" href="#reloj">Empezar el recorrido</a>
+    </div>
+    <p class="hero-credit">Caribe colombiano · Render de Blender</p>
+  </div>
+  <div class="chapter-bar">
+    <nav class="shell" aria-label="Escenas de este capítulo"><a href="#reloj"><span>01</span>El reloj de la red</a><a href="#caribe"><span>02</span>Día y noche</a><a href="#baterias"><span>03</span>Almacenamiento</a></nav>
+  </div>
+</section>
+    <section class="scene data-scene" id="reloj" aria-labelledby="solar-title">
+  <div class="shell">
+    <div class="scene-heading"><div><p class="eyebrow">XM · Perfil horario</p><h2 id="solar-title">El reloj de la red.</h2></div><p>Compara lo que generan los paneles y lo que consume Colombia a cada hora del día.</p></div>
+    <div class="data-stage" data-observatory="solar">
+      <div class="data-head"><div><h3 data-data-title>Generación solar y demanda</h3></div><label class="period">Periodo<select data-data-year disabled><option>Octubre de 2026</option></select></label></div>
+      <canvas data-data-plot aria-hidden="true"></canvas>
+      <div class="observation"><label for="solar-point">Hora de Colombia</label><input id="solar-point" data-data-range type="range" min="0" max="23" value="18" disabled><p data-data-values role="status">Cargando datos…</p></div>
+      <p class="fine" data-data-note></p>
+    </div>
+  </div>
+</section>
+<section class="scene shell pair" id="caribe" aria-labelledby="caribe-title">
+  <div class="scene-copy"><p class="eyebrow">Render 3D · Caribe</p><h2 id="caribe-title">Cuando cae la tarde.</h2><p>Compara dos momentos del vuelo sobre el Caribe. La radiancia nocturna VIIRS aporta la capa de luz del render.</p></div>
+  <figure class="comparison" data-compare style="--position:50%">
+    <div class="compare-visual tall">
+      <img src="assets/media/caribe-noche.webp" alt="Vista nocturna del Caribe en el render de Blender" loading="lazy">
+      <img class="compare-top" src="assets/media/caribe-dia.webp" alt="Vista diurna del Caribe en el mismo vuelo de Blender" loading="lazy">
+      <span class="split-line" aria-hidden="true"></span><span class="compare-label a">Día</span><span class="compare-label b">Noche</span>
+    </div>
+    <figcaption><label for="solar-compare">Comparar día y noche</label><input id="solar-compare" type="range" min="0" max="100" value="50"></figcaption>
+  </figure>
+</section>
+<section class="scene editorial" id="baterias" aria-labelledby="battery-title">
+  <div class="shell pair">
+    <figure class="flow-film"><video controls playsinline preload="none" poster="assets/media/flow-arenosa.webp" src="assets/media/flow-arenosa.mp4" aria-label="Ilustración generada con Flow de contenedores de baterías junto a una subestación" muted></video><figcaption>Recreación visual generada con IA · Google Flow</figcaption></figure>
+    <div class="scene-copy"><p class="eyebrow">Almacenamiento · Caso de referencia</p><h2 id="battery-title">Guardar energía para después.</h2><p>Una batería puede cargarse cuando hay generación disponible y entregar energía más tarde, cuando cambia la demanda.</p>
+      <div class="mode-buttons" role="group" aria-label="Fase de almacenamiento"><button type="button" data-battery="carga" aria-pressed="true">Cargar</button><button type="button" data-battery="descarga" aria-pressed="false">Entregar</button></div>
+      <div class="battery-diagram" data-battery-visual="carga"><span>Red</span><span class="battery-wire" aria-hidden="true"></span><span>Batería</span></div>
+      <p data-battery-state aria-live="polite">La batería absorbe energía de la red para guardarla.</p>
+      <a class="text-link" href="https://docs.upme.gov.co/PromocionSector/Documents/Documentos-interes-convocatorias/Boletin_convocatorias_UPME_ene-mar_2026.pdf">Boletín UPME · La Arenosa, pág. 44</a>
+    </div>
+  </div>
+</section>
+    <section class="shell chapter-end">
+  <div class="sources-strip">
+    <div><span class="eyebrow">Material del capítulo</span><h2>Datos y video</h2></div>
+    <div class="actions"><a class="button outline" href="./?video=2#catalogo">Consultar fuentes</a><span class="drive-state" data-drive="2">Carpeta de Drive pendiente</span></div>
+  </div>
+  <a class="next-card" href="fronteras.html" style="--cover:url('assets/media/frontera-portada.webp')"><span class="eyebrow">Siguiente capítulo</span><strong>La red que cruza fronteras.</strong></a>
+</section>
+
+  </main>
+  <footer class="footer"><div class="shell footer-inner">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">ϟ</span><strong>DE WATTS A WOW</strong></a>
+    <a href="https://github.com/EzequielFP/video-isa-metadatos">Proyecto en GitHub</a>
+  </div></footer>
+
+</body>
+</html>

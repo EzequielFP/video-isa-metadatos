@@ -1,240 +1,256 @@
 import { readCsv } from "./csv.js";
-
-const colors = ["#d0f47d", "#6cdbc4"];
-const number = new Intl.NumberFormat("es-CO", { maximumFractionDigits: 2 });
-const daily = new Intl.DateTimeFormat("es-CO", { day: "numeric", month: "short", timeZone: "UTC" });
-const monthly = new Intl.DateTimeFormat("es-CO", { month: "short", year: "numeric", timeZone: "UTC" });
-const day = (value) => daily.format(new Date(value));
-const month = (value) => monthly.format(new Date(`${value}-01`));
-const hour = (value) => `${value.padStart(2, "0")}:00`;
-const asNumber = (value) => value?.trim() && Number.isFinite(Number(value)) ? Number(value) : null;
+import { canvasContext, clamp, dayLabel, monthLabel, number, numeric } from "./visual.js";
 
 const charts = {
-  agua: {
+  lluvia: {
+    title: "Lluvia mensual en Colombia",
+    file: "archivos/video-1/04_Lluvia_mensual_Colombia_vs_clima.csv",
+    time: "mes", period: "2026", label: (row) => monthLabel(row.mes),
+    unit: "mm", step: 100,
+    series: [
+      { field: "lluvia_mm", label: "Lluvia observada", color: "#a5efdb" },
+      { field: "clima_mm", label: "Promedio 1991–2020", color: "#a8bcd4", dash: [5, 5] },
+    ],
+    note: "CHIRPS · Comparación con el promedio del mismo mes. Los meses sin observación se muestran sin valor.",
+  },
+  embalses: {
     title: "Volumen útil de los embalses",
     file: "archivos/video-1/01_embalse_agregado_diario.csv",
-    period: "2026",
-    group: (row) => row.fecha.slice(0, 4),
-    point: (row) => day(row.fecha),
-    unit: "%",
-    series: [{ label: "Volumen útil", field: "vol_util_pct" }],
-    maximum: 100,
-    step: 25,
-    note: "Porcentaje de la capacidad útil del SIN. La serie llega al 9 de noviembre de 2026.",
+    time: "fecha", period: "2026", label: (row) => dayLabel(row.fecha),
+    unit: "%", step: 25, ceiling: 100,
+    series: [{ field: "vol_util_pct", label: "Volumen útil nacional", color: "#a5efdb" }],
+    note: "XM · Porcentaje de la capacidad útil del SIN. Los datos publicados llegan al 9 de noviembre de 2026.",
+  },
+  generacion: {
+    title: "Generación hidráulica y térmica",
+    file: "archivos/video-1/05_generacion_por_tipo_diaria.csv",
+    time: "fecha", period: "2026", label: (row) => dayLabel(row.fecha),
+    unit: "GWh", step: 60,
+    series: [
+      { field: "HIDRAULICA", label: "Hidráulica", color: "#a5efdb" },
+      { field: "TERMICA", label: "Térmica", color: "#ffb887" },
+    ],
+    note: "XM · Energía diaria por tecnología. La categoría térmica incluye varios combustibles. La serie llega al 7 de noviembre de 2026.",
   },
   solar: {
     title: "Generación solar y demanda",
     file: "archivos/video-2/perfil_dia_tipo.csv",
-    period: "2026-10",
-    periodLabel: { "2024": "2024", "2026-10": "Oct. 2026" },
-    group: (row) => row.periodo,
-    point: (row) => hour(row.hora),
-    unit: "MWh",
+    time: "periodo", period: "2026-10", periods: { "2024": "Año 2024", "2026-10": "Octubre de 2026" },
+    label: (row) => `${row.hora.padStart(2, "0")}:00`,
+    unit: "MWh", step: 3000, initial: 18,
     series: [
-      { label: "Demanda", field: "demanda_MWh", coverage: "n_demanda_MWh" },
-      { label: "Generación solar", field: "solar_MWh", coverage: "n_solar_MWh" },
+      { field: "demanda_MWh", label: "Demanda", color: "#b5d8fb", coverage: "n_demanda_MWh" },
+      { field: "solar_MWh", label: "Generación solar", color: "#ffca7e", coverage: "n_solar_MWh" },
     ],
-    step: 3000,
-    note: "Promedios por hora de Colombia. La disponibilidad de observaciones cambia según la hora y la variable.",
+    note: "XM · Promedios por hora de Colombia. Los recuentos indican los días que aportaron observaciones.",
   },
   red: {
     title: "Intercambios internacionales",
     file: "archivos/video-3/intercambios_mensuales.csv",
-    period: "2024",
-    group: (row) => row.mes.slice(0, 4),
-    point: (row) => month(row.mes),
-    unit: "GWh",
+    time: "mes", period: "2024", label: (row) => monthLabel(row.mes),
+    unit: "GWh", step: 100, initial: 9, bars: true,
     series: [
-      { label: "Exportaciones", field: "ExpoEner_GWh_observados", coverage: "ExpoEner_GWh_observados_dias" },
-      { label: "Importaciones", field: "ImpoEner_GWh_observados", coverage: "ImpoEner_GWh_observados_dias" },
+      { field: "ExpoEner_GWh_observados", label: "Exportaciones", color: "#aacfff", coverage: "ExpoEner_GWh_observados_dias" },
+      { field: "ImpoEner_GWh_observados", label: "Importaciones", color: "#9cebd7", coverage: "ImpoEner_GWh_observados_dias" },
     ],
-    step: 100,
-    note: "Totales físicos observados de XM. La cobertura cuenta días con al menos un dato. Noviembre de 2026 es parcial.",
+    note: "XM · Totales físicos observados. Noviembre de 2026 solo tiene datos publicados hasta el día 8.",
   },
 };
 
-export function setupCharts() {
-  const find = (id) => document.getElementById(id);
-  const tabs = [...document.querySelectorAll("[data-chart]")];
-  const period = find("chart-period");
-  const canvas = find("chart");
-  const plot = find("plot");
-  const status = find("chart-status");
-  const note = find("chart-note");
-  const selector = find("chart-point");
-  const values = find("chart-values");
-  const cache = new Map();
-  const selectedPeriods = new Map();
-  let config = charts.agua;
-  let grouped = new Map();
+const fileCache = new Map();
+async function loadRows(file) {
+  if (fileCache.has(file)) return fileCache.get(file);
+  const { headers, rows } = await readCsv(file);
+  const table = rows.map((row) => Object.fromEntries(headers.map((field, i) => [field, row[i]])));
+  fileCache.set(file, table);
+  return table;
+}
+
+export function setupObservatory(root) {
+  const canvas = root.querySelector("[data-data-plot]");
+  const title = root.querySelector("[data-data-title]");
+  const select = root.querySelector("[data-data-year]");
+  const range = root.querySelector("[data-data-range]");
+  const values = root.querySelector("[data-data-values]");
+  const note = root.querySelector("[data-data-note]");
+  const modes = [...root.querySelectorAll("[data-mode]")];
+  const months = [...root.querySelectorAll("[data-month]")];
+  const left = 54;
+  const right = 14;
+  let config;
   let rows = [];
-  let currentRequest = 0;
-  const left = 44;
-  const right = 10;
+  let grouped = new Map();
+  let request = 0;
 
   function draw() {
     if (!rows.length) return;
-    const width = plot.clientWidth;
-    const height = plot.clientHeight;
-    if (width <= left + right || height < 50) return;
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    const ctx = canvas.getContext("2d");
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const top = 13;
-    const bottom = height - 22;
-    const highest = Math.max(0, ...rows.flatMap((row) => config.series.map(({ field }) => asNumber(row[field]) ?? 0)));
-    const step = Math.max(config.step, Math.ceil(highest / (config.step * 5)) * config.step);
-    const maximum = config.maximum ?? Math.max(step, Math.ceil(highest / step) * step);
-    const x = (i) => left + i / Math.max(1, rows.length - 1) * (width - left - right);
-    const y = (v) => bottom - v / maximum * (bottom - top);
+    const box = canvasContext(canvas);
+    if (!box) return;
+    const { ctx, width, height } = box;
+    const bottom = height - 28;
+    const top = 14;
+    const content = width - left - right;
+    const highest = Math.max(0, ...rows.flatMap((row) =>
+      config.series.map(({ field }) => numeric(row[field]) ?? 0)));
+    const step = Math.max(config.step, Math.ceil(highest / (config.step * 6)) * config.step);
+    const ceiling = config.ceiling ?? Math.max(step, Math.ceil(highest / step) * step);
+    const count = rows.length - (config.bars ? 0 : 1);
+    const x = (index) => left + (index + (config.bars ? 0.5 : 0)) * content / Math.max(count, 1);
+    const y = (datum) => bottom - datum * (bottom - top) / ceiling;
+    const chosen = Number(range.value);
 
-    ctx.font = "11px system-ui, sans-serif";
-    ctx.fillStyle = "#c7ded3";
-    ctx.textAlign = "right";
+    ctx.font = "12px system-ui";
+    ctx.fillStyle = "#adc4cd";
     ctx.textBaseline = "middle";
-    for (let tick = 0; tick <= maximum; tick += step) {
-      const position = y(tick);
-      ctx.strokeStyle = "#ffffff26";
+    ctx.textAlign = "right";
+    for (let datum = 0; datum <= ceiling; datum += step) {
+      ctx.fillText(number.format(datum), left - 7, y(datum));
+      ctx.strokeStyle = "#8dafb52b";
       ctx.beginPath();
-      ctx.moveTo(left, position);
-      ctx.lineTo(width - right, position);
+      ctx.moveTo(left, y(datum));
+      ctx.lineTo(width - right, y(datum));
       ctx.stroke();
-      ctx.fillText(number.format(tick), left - 5, position);
     }
-
-    const tickCount = Math.min(width > 415 ? 5 : 3, rows.length);
+    const ticks = Math.min(width > 620 ? 6 : 3, rows.length);
     ctx.textBaseline = "top";
-    for (let tick = 0; tick < tickCount; tick += 1) {
-      const index = Math.round(tick / Math.max(1, tickCount - 1) * (rows.length - 1));
-      ctx.textAlign = tick === 0 ? "left" : tick === tickCount - 1 ? "right" : "center";
-      ctx.fillText(config.point(rows[index]), x(index), bottom + 6);
+    for (let i = 0; i < ticks; i++) {
+      const index = Math.round(i * (rows.length - 1) / Math.max(ticks - 1, 1));
+      const row = rows[index];
+      const label = config.time === "mes" ? config.label(row).split(" ")[0].slice(0, 3) : config.label(row);
+      ctx.textAlign = i === 0 ? "left" : i === ticks - 1 ? "right" : "center";
+      ctx.fillText(label, x(index), bottom + 8);
     }
 
-    const selected = Number(selector.value);
-    ctx.strokeStyle = "#eefbee82";
+    ctx.strokeStyle = "#e8f8f57a";
     ctx.beginPath();
-    ctx.moveTo(x(selected), top);
-    ctx.lineTo(x(selected), bottom);
+    ctx.moveTo(x(chosen), top);
+    ctx.lineTo(x(chosen), bottom);
     ctx.stroke();
 
-    config.series.forEach(({ field }, index) => {
-      ctx.strokeStyle = colors[index];
-      ctx.lineWidth = 2.3;
-      ctx.lineJoin = "round";
+    config.series.forEach(({ field, color, dash }, i) => {
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = config.bars ? 1 : 2.3;
+      if (config.bars) {
+        const bar = Math.min(19, content / rows.length / 2.65);
+        rows.forEach((row, j) => {
+          const datum = numeric(row[field]);
+          if (datum === null) return;
+          ctx.globalAlpha = j === chosen ? 1 : 0.63;
+          ctx.fillRect(x(j) + (i === 0 ? -bar - 1 : 1), y(datum), bar, bottom - y(datum));
+        });
+        ctx.globalAlpha = 1;
+        return;
+      }
+
+      ctx.setLineDash(dash ?? []);
       ctx.beginPath();
       let previous = false;
-      rows.forEach((row, i) => {
-        const value = asNumber(row[field]);
-        if (value !== null) {
-          if (previous) ctx.lineTo(x(i), y(value));
-          else ctx.moveTo(x(i), y(value));
+      rows.forEach((row, j) => {
+        const datum = numeric(row[field]);
+        if (datum !== null) {
+          if (previous) ctx.lineTo(x(j), y(datum));
+          else ctx.moveTo(x(j), y(datum));
         }
-        previous = value !== null;
+        previous = datum !== null;
       });
       ctx.stroke();
-
-      const current = asNumber(rows[selected][field]);
-      if (current !== null) {
-        ctx.fillStyle = colors[index];
+      ctx.setLineDash([]);
+      const datum = numeric(rows[chosen]?.[field]);
+      if (datum !== null) {
         ctx.beginPath();
-        ctx.arc(x(selected), y(current), 4, 0, Math.PI * 2);
+        ctx.arc(x(chosen), y(datum), 4, 0, Math.PI * 2);
         ctx.fill();
       }
     });
   }
 
-  function selectPoint(index) {
+  function point(index) {
     const row = rows[index];
     if (!row) return;
-    selector.value = index;
-    const date = document.createElement("strong");
-    date.textContent = config.point(row);
-    const series = config.series.map(({ label, field, coverage }) => {
-      const element = document.createElement("span");
-      const value = asNumber(row[field]);
-      const count = coverage && asNumber(row[coverage]);
-      let detail = value === null ? "sin dato" : `${number.format(value)} ${config.unit}`;
-      if (count != null && count !== false) detail += ` · ${count} días`;
-      element.textContent = `${label}: ${detail}`;
-      return element;
+    range.value = index;
+    const stamp = document.createElement("strong");
+    stamp.textContent = config.label(row);
+    const details = config.series.map(({ field, label, coverage, color }) => {
+      const datum = numeric(row[field]);
+      const count = numeric(coverage && row[coverage]);
+      const item = document.createElement("span");
+      item.style.setProperty("--series", color);
+      item.textContent = `${label}: ${datum === null ? "sin dato" : `${number.format(datum)} ${config.unit}`}`
+        + (count === null ? "" : ` · ${count} días`);
+      return item;
     });
-    values.replaceChildren(date, ...series);
-    selector.setAttribute("aria-valuetext", [date, ...series].map((element) => element.textContent).join(". "));
+    values.replaceChildren(stamp, ...details);
+    range.setAttribute("aria-valuetext", [stamp, ...details].map((item) => item.textContent).join(". "));
+    months.forEach((button) => button.setAttribute("aria-pressed", button.dataset.month === row.mes));
     draw();
   }
 
   function choosePeriod() {
-    selectedPeriods.set(config.file, period.value);
-    rows = grouped.get(period.value) ?? [];
-    selector.max = Math.max(0, rows.length - 1);
-    selector.disabled = rows.length < 2;
-    const solarPeak = config === charts.solar ? rows.findIndex((row) => row.hora === "18") : -1;
-    selectPoint(solarPeak >= 0 ? solarPeak : rows.length - 1);
+    rows = grouped.get(select.value) ?? [];
+    range.min = 0;
+    range.max = Math.max(0, rows.length - 1);
+    range.disabled = rows.length < 2;
+    point(Math.min(config.initial ?? rows.length - 1, rows.length - 1));
   }
 
-  async function loadChart(key) {
-    const request = ++currentRequest;
+  async function load(key) {
+    const current = ++request;
     config = charts[key];
-    tabs.forEach((tab) => tab.setAttribute("aria-pressed", tab.dataset.chart === key));
+    modes.forEach((button) => button.setAttribute("aria-pressed", button.dataset.mode === key));
+    const selected = config;
+    title.textContent = selected.title;
+    note.replaceChildren();
+    const download = document.createElement("a");
+    download.href = selected.file;
+    download.download = "";
+    download.textContent = "Descargar CSV";
+    note.append(selected.note, " ", download);
     rows = [];
-    const context = canvas.getContext("2d");
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    status.textContent = "Cargando datos de XM…";
-    status.hidden = false;
-    find("chart-title").textContent = config.title;
-    find("chart-download").href = config.file;
-    const legend = config.series.map(({ label }, index) => {
-      const item = document.createElement("span");
-      const chip = document.createElement("i");
-      chip.style.backgroundColor = colors[index];
-      item.append(chip, label);
-      return item;
-    });
-    find("chart-legend").replaceChildren(...legend);
-    values.replaceChildren();
-    note.textContent = config.note;
-    period.disabled = true;
-    selector.disabled = true;
-
+    canvasContext(canvas);
+    values.textContent = "Cargando datos…";
+    select.disabled = true;
+    range.disabled = true;
+    months.forEach((button) => { button.disabled = true; });
     try {
-      if (!cache.has(key)) {
-        const { headers, rows: rawRows } = await readCsv(config.file);
-        cache.set(key, rawRows.map((row) => Object.fromEntries(headers.map((field, index) => [field, row[index]]))));
-      }
-      if (request !== currentRequest) return;
+      const table = await loadRows(selected.file);
+      if (request !== current) return;
       grouped = new Map();
-      for (const row of cache.get(key)) {
-        const group = config.group(row);
-        if (!grouped.has(group)) grouped.set(group, []);
-        grouped.get(group).push(row);
+      for (const row of table) {
+        const period = key === "solar" ? row[selected.time] : row[selected.time].slice(0, 4);
+        if (!grouped.has(period)) grouped.set(period, []);
+        grouped.get(period).push(row);
       }
-      period.replaceChildren(...[...grouped.keys()].reverse().map((group) =>
-        new Option(config.periodLabel?.[group] ?? group, group),
-      ));
-      period.value = selectedPeriods.get(config.file) ?? config.period;
-      period.disabled = false;
-      status.hidden = true;
+      select.replaceChildren(...[...grouped.keys()].reverse().map((period) =>
+        new Option(selected.periods?.[period] ?? period, period)));
+      select.value = selected.period;
+      select.disabled = false;
+      months.forEach((button) => { button.disabled = false; });
       choosePeriod();
     } catch {
-      if (request === currentRequest) status.textContent = "No se pudo cargar la gráfica. Puedes descargar el CSV.";
+      if (request === current) values.textContent = "No se pudo cargar la gráfica. El CSV está disponible debajo.";
     }
   }
 
-  function onPointer(event) {
+  select.addEventListener("change", choosePeriod);
+  range.addEventListener("input", () => point(Number(range.value)));
+  modes.forEach((button) => button.addEventListener("click", () => load(button.dataset.mode)));
+  months.forEach((button) => button.addEventListener("click", () => {
+    if (select.value !== "2024") {
+      select.value = "2024";
+      choosePeriod();
+    }
+    point(rows.findIndex((row) => row.mes === button.dataset.month));
+  }));
+  function pointer(event) {
     if (!rows.length) return;
-    const x = (event.offsetX - left) / (canvas.clientWidth - left - right);
-    selectPoint(Math.round(Math.max(0, Math.min(1, x)) * (rows.length - 1)));
+    const ratio = clamp((event.offsetX - left) / (canvas.clientWidth - left - right), 0, 1);
+    point(config.bars ? Math.min(rows.length - 1, Math.floor(ratio * rows.length)) : Math.round(ratio * (rows.length - 1)));
   }
-
-  tabs.forEach((tab) => tab.addEventListener("click", () => loadChart(tab.dataset.chart)));
-  period.addEventListener("change", choosePeriod);
-  selector.addEventListener("input", () => selectPoint(Number(selector.value)));
   canvas.addEventListener("pointermove", (event) => {
-    if (event.pointerType === "mouse") onPointer(event);
+    if (event.pointerType === "mouse" && (event.buttons & 1)) pointer(event);
   });
-  canvas.addEventListener("pointerdown", onPointer);
-  new ResizeObserver(draw).observe(plot);
-  loadChart("agua");
+  canvas.addEventListener("pointerdown", pointer);
+  new ResizeObserver(draw).observe(canvas);
+  load(root.dataset.observatory === "agua" ? "lluvia" : root.dataset.observatory);
 }

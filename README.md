@@ -1,8 +1,12 @@
 # De Watts a Wow · Datos y fuentes
 
-[Abre el portal de datos](https://ezequielfp.github.io/video-isa-metadatos/)
+[Abre la serie interactiva](https://ezequielfp.github.io/video-isa-metadatos/)
 
-Material de consulta para los videos **El embalse que se llena con gas**, **Guardar el sol para la noche** y **La red que cruza fronteras**. El portal incluye gráficas interactivas, filtros por video y formato, muestras de tablas CSV y fichas con las fuentes.
+Tres recorridos visuales con escenas de la producción, controles de tiempo, mapas y fuentes descargables.
+
+1. [El Niño y la luz](https://ezequielfp.github.io/video-isa-metadatos/) reúne la cronología de temperatura del Pacífico, el terreno 3D de Peñol–Guatapé, un comparador Sentinel-2 y las series de lluvia, embalses y generación.
+2. [Guardar el sol para la noche](https://ezequielfp.github.io/video-isa-metadatos/solar.html) combina las curvas de XM con un comparador del Caribe y una escena sobre el almacenamiento.
+3. [La red que cruza fronteras](https://ezequielfp.github.io/video-isa-metadatos/fronteras.html) permite explorar los intercambios observados de XM, los corredores regionales y el contexto ecuatoriano.
 
 - [Metadatos y metodología](metadatos/)
 - [Catálogo CSV](metadatos/catalogo.csv) y [catálogo JSON](metadatos/catalogo.json)
@@ -19,3 +23,10 @@ El bloque opcional `datos` acepta enlaces independientes para los GeoTIFF de may
 ## Ver localmente
 
 Desde la raíz de este repositorio, ejecuta `python -m http.server 8000` y abre [localhost:8000](http://localhost:8000/). El portal usa HTML, CSS y JavaScript y se publica desde la raíz de `main` en GitHub Pages.
+
+## Procedencia de las escenas
+
+- [Exportación de Blender](scripts/exportar_penol.py). Abre la escena original `vuelo_penol.blend`, renderiza la vista panorámica y exporta una malla para navegador con el mismo desplazamiento, coordenadas UV y textura. Admite `--frames` para renderizar la secuencia del vuelo.
+- [Cronología del Pacífico](scripts/preparar_pacifico.py). Genera 46 mapas de enero de 2023 a octubre de 2026 con las bandas del GeoTIFF OISST v2.1 y la costa de Natural Earth. El valor visible de cada mes es la media del CSV diario Niño 3.4. El cambio entre mapas conserva las fechas de observación.
+- [Clips web](scripts/preparar_clips.py). Usa los renders de Blender del proyecto y dos clips de Google Flow de la producción original, identificados en las páginas como recreaciones generadas con IA.
+- El visor utiliza Three.js 0.187.0 y la tipografía Barlow Condensed. Sus licencias están en [assets/vendor](assets/vendor/).

@@ -1,4 +1,3 @@
-import { setupCharts } from "./charts.js";
 import { readCsv } from "./csv.js";
 
 const find = (id) => document.getElementById(id);
@@ -202,6 +201,8 @@ async function setupCatalog() {
     const formats = [...new Set(entries.map((entry) => entry.format))];
     formats.sort((a, b) => formatLabel(a).localeCompare(formatLabel(b), "es"));
     filters[1].append(...formats.map((format) => new Option(formatLabel(format), format)));
+    const chapter = new URLSearchParams(window.location.search).get("video");
+    if (["1", "2", "3"].includes(chapter)) filters[0].value = chapter;
     resetPage();
     search.addEventListener("input", resetPage);
     filters.forEach((filter) => filter.addEventListener("change", resetPage));
@@ -216,15 +217,6 @@ async function setupCatalog() {
       const newCards = render({ append: true });
       newCards[0]?.querySelector("button")?.focus({ preventScroll: true });
     });
-    document.querySelectorAll("[data-video]").forEach((link) => {
-      link.addEventListener("click", () => {
-        search.value = "";
-        filters[0].value = link.dataset.video;
-        filters[1].value = "";
-        filters[2].value = "";
-        resetPage();
-      });
-    });
   } catch {
     find("result-count").textContent = "No se pudo cargar el catálogo. Puedes descargar el CSV o el JSON.";
   }
@@ -233,10 +225,6 @@ async function setupCatalog() {
 async function setupDrive() {
   try {
     drive = await readJson("metadatos/drive.json");
-    document.querySelectorAll("[data-drive]").forEach((status) => {
-      const url = driveUrl(drive.videos?.[status.dataset.drive]);
-      if (url) status.replaceWith(link("Abrir carpeta de Drive", url));
-    });
     if (entries.length) render();
   } catch {
     // El acceso a los archivos directos permanece disponible.
@@ -246,6 +234,5 @@ async function setupDrive() {
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) dialog.close();
 });
-setupCharts();
 setupCatalog();
 setupDrive();
