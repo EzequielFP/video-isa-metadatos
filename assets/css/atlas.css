@@ -460,6 +460,7 @@ html.is-arriving body::after { content: ""; position: fixed; inset: 0; z-index: 
 
 /* Figura isométrica (Anatomy) */
 .fig-wrap { margin-top: clamp(40px, 6vw, 72px); }
+.fig-wrap.fig-first { margin: 0 0 clamp(40px, 6vw, 72px); }
 
 /* Mapa regional */
 .region-map { position: relative; aspect-ratio: 1540 / 1680; max-height: 82vh; margin-inline: auto; overflow: hidden; background: var(--sky); }

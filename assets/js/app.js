@@ -338,6 +338,10 @@ function setupChapterHero() {
 }
 
 /* ---------- Escenas que se cargan al acercarse ---------- */
+const FIGURES = {
+  bateria: () => import("../figuras/bateria.js"),
+  central: () => import("../figuras/central.js"),
+};
 const scenes = [
   ["[data-topo]", () => import("./topo.js"), "setupTopo"],
   ["[data-terrain3d]", () => import("./terreno.js"), "setupTerrain"],
@@ -350,7 +354,7 @@ const scenes = [
   ["[data-region]", () => import("./region.js"), "setupRegion"],
   ["[data-catalog]", () => import("./catalogo.js"), "setupCatalog"],
   ["[data-home-stats]", () => import("./inicio.js"), "setupStats"],
-  ["[data-figure=\"bateria\"]", () => import("../figuras/bateria.js"), "setupFigure"],
+  ["[data-figure]", (el) => FIGURES[el.dataset.figure]?.(), "setupFigure"],
 ];
 function loadScenes() {
   const near = new IntersectionObserver((entries) => {
@@ -358,7 +362,7 @@ function loadScenes() {
       if (!entry.isIntersecting) continue;
       near.unobserve(entry.target);
       const { loader, name } = entry.target.__scene;
-      loader().then((module) => module[name](entry.target, { reduce, fine, lenis }))
+      Promise.resolve(loader(entry.target)).then((module) => module[name](entry.target, { reduce, fine, lenis }))
         .catch((error) => console.error(name, error))
         .finally(() => ScrollTrigger.refresh());
     }
