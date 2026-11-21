@@ -229,8 +229,9 @@ async function setupDrive() {
     drive = await readJson("metadatos/drive.json");
     if (entries.length) render();
     for (const placeholder of document.querySelectorAll("[data-drive]")) {
-      const url = driveUrl(drive.videos?.[placeholder.dataset.drive] || "");
-      if (url) placeholder.replaceWith(link("Abrir carpeta de Drive ↗", url, { className: "btn small solid" }));
+      const key = placeholder.dataset.drive;
+      const url = driveUrl((key === "todo" ? drive.carpeta : drive.videos?.[key]) || "");
+      if (url) placeholder.replaceWith(link(key === "todo" ? "Abrir todo en Drive ↗" : "Abrir carpeta de Drive ↗", url, { className: "btn small solid" }));
     }
   } catch {
     // El acceso a los archivos directos permanece disponible.

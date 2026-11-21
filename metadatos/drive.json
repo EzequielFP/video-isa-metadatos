@@ -1,11 +1,12 @@
 {
+  "carpeta": "https://drive.google.com/drive/folders/16LuMru2R78a5wknsrF8zK1qbeiDKP0hm",
   "videos": {
-    "1": "",
-    "2": "",
-    "3": ""
+    "1": "https://drive.google.com/drive/folders/10xvxFgEC0WWrL5CYl2ySjyVcrWn-4H5o",
+    "2": "https://drive.google.com/drive/folders/1ur3AXaV3b5RvXGZ8V6Ii0cjNqtRIQAEc",
+    "3": "https://drive.google.com/drive/folders/1v9oguHkB5FkwJNIbLUXDqmV07-tCbpUL"
   },
   "datos": {
-    "1": "",
-    "2-3": ""
+    "1": "https://drive.google.com/drive/folders/1737E88bC4XzxvKdKxedJPSADH1rCTEwh",
+    "2-3": "https://drive.google.com/drive/folders/1DWUSsw03FVruOXSqClqBtIJqwcYciyP9"
   }
 }
