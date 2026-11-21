@@ -5,7 +5,7 @@
 La portada presenta la serie sobre un mapa topográfico vivo: las curvas de nivel son las del relieve real de Peñol–Guatapé y el cursor abre una linterna con la imagen Sentinel-2 de 2026. Debajo están el video final, los tres capítulos y las cifras principales, calculadas en el navegador con los archivos publicados.
 
 1. [El Niño y la luz](https://ezequielfp.github.io/video-isa-metadatos/agua.html). Cronología mensual del Pacífico, modelo 3D de Peñol–Guatapé con cortina 2022/2026 sobre el relieve, comparador Sentinel-2 con lupa y parpadeo, volumen útil de XM y series de lluvia, embalses y generación.
-2. [Guardar el sol para la noche](https://ezequielfp.github.io/video-isa-metadatos/solar.html). Reloj horario de XM, comparador día y noche del Caribe y almacenamiento con baterías.
+2. [Guardar el sol para la noche](https://ezequielfp.github.io/video-isa-metadatos/solar.html). Reloj horario de XM, comparador día y noche del Caribe y una figura isométrica interactiva de una batería de red del tamaño de La Arenosa.
 3. [La red que cruza fronteras](https://ezequielfp.github.io/video-isa-metadatos/fronteras.html). Intercambios observados de XM, corredores regionales y contexto ecuatoriano.
 
 - [Catálogo de datos](https://ezequielfp.github.io/video-isa-metadatos/datos.html), también como [CSV](metadatos/catalogo.csv) y [JSON](metadatos/catalogo.json)
@@ -49,6 +49,7 @@ Desde la raíz de este repositorio, ejecuta `python -m http.server 8000` y abre 
 
 - [Terreno de Peñol–Guatapé](scripts/preparar_terreno.py). Recorta el mapa de alturas de 16 bits de la escena de Blender a la caja de la exportación Sentinel-2 de GEE (75,05–75,25° O, 6,15–6,36° N), lo guarda como rejilla de 400 × 420 y copia las composiciones de 2022 y 2026. También resume el volumen útil diario de XM por semana para los cuatro embalses del comparador. La lámina de agua se detecta en el navegador como la superficie casi plana alrededor de 1900 m del modelo de alturas.
 - [Mapa regional claro](scripts/preparar_region.py). Recolorea el mapa base del Video 3.
+- [Batería de red](scripts/figuras/bateria.mjs). Figura isométrica hecha con el kit de [Anatomy](https://github.com/wheresryan22/anatomy) (MIT, copiado en `scripts/figuras/kit`). Escribe `assets/figuras/bateria.js` con `node scripts/figuras/bateria.mjs`. Usa La Arenosa (45 MW / 45 MWh, UPME) y el perfil horario de XM de octubre de 2026: carga en las tres horas de más sol y entrega en la hora de más demanda; la operación es ilustrativa y sin pérdidas.
 - [Exportación de Blender](scripts/exportar_penol.py). Renderiza la vista panorámica `penol-blender.jpg` de la escena original `vuelo_penol.blend`.
 - [Cronología del Pacífico](scripts/preparar_pacifico.py). Genera 46 mapas de enero de 2023 a octubre de 2026 con las bandas del GeoTIFF OISST v2.1 y la costa de Natural Earth.
 - [Clips web](scripts/preparar_clips.py). Usa los renders de Blender del proyecto y dos clips de Google Flow de la producción original, identificados en las páginas como recreaciones generadas con IA.

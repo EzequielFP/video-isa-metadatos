@@ -337,21 +337,6 @@ function setupChapterHero() {
   });
 }
 
-/* ---------- Batería (capítulo 2) ---------- */
-function setupBattery() {
-  const diagram = document.querySelector("[data-battery-visual]");
-  if (!diagram) return;
-  const buttons = [...document.querySelectorAll("[data-battery]")];
-  const label = document.querySelector("[data-battery-state]");
-  buttons.forEach((button) => button.addEventListener("click", () => {
-    const stage = button.dataset.battery;
-    buttons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-    diagram.dataset.batteryVisual = stage;
-    label.textContent = stage === "carga" ? "La batería absorbe energía de la red para guardarla."
-      : "La batería devuelve a la red parte de la energía que almacenó.";
-  }));
-}
-
 /* ---------- Escenas que se cargan al acercarse ---------- */
 const scenes = [
   ["[data-topo]", () => import("./topo.js"), "setupTopo"],
@@ -365,6 +350,7 @@ const scenes = [
   ["[data-region]", () => import("./region.js"), "setupRegion"],
   ["[data-catalog]", () => import("./catalogo.js"), "setupCatalog"],
   ["[data-home-stats]", () => import("./inicio.js"), "setupStats"],
+  ["[data-figure=\"bateria\"]", () => import("../figuras/bateria.js"), "setupFigure"],
 ];
 function loadScenes() {
   const near = new IntersectionObserver((entries) => {
@@ -391,7 +377,6 @@ setupMarquees();
 setupChapterHero();
 setupStack();
 setupMagnets();
-setupBattery();
 loadScenes();
 document.fonts.ready.then(() => {
   setupReveals();
