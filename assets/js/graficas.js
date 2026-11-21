@@ -1,5 +1,4 @@
-import { readCsv } from "./csv.js";
-import { canvasContext, clamp, dayLabel, monthLabel, number, numeric } from "./visual.js";
+import { canvasContext, clamp, dayLabel, monthLabel, number, numeric, palette, readCsv } from "./util.js";
 
 const charts = {
   lluvia: {
@@ -8,8 +7,8 @@ const charts = {
     time: "mes", period: "2026", label: (row) => monthLabel(row.mes),
     unit: "mm", step: 100,
     series: [
-      { field: "lluvia_mm", label: "Lluvia observada", color: "#a5efdb" },
-      { field: "clima_mm", label: "Promedio 1991–2020", color: "#a8bcd4", dash: [5, 5] },
+      { field: "lluvia_mm", label: "Lluvia observada", color: palette.cobalt },
+      { field: "clima_mm", label: "Promedio 1991–2020", color: palette.ink2, dash: [5, 5] },
     ],
     note: "CHIRPS · Comparación con el promedio del mismo mes. Los meses sin observación se muestran sin valor.",
   },
@@ -18,7 +17,7 @@ const charts = {
     file: "archivos/video-1/01_embalse_agregado_diario.csv",
     time: "fecha", period: "2026", label: (row) => dayLabel(row.fecha),
     unit: "%", step: 25, ceiling: 100,
-    series: [{ field: "vol_util_pct", label: "Volumen útil nacional", color: "#a5efdb" }],
+    series: [{ field: "vol_util_pct", label: "Volumen útil nacional", color: palette.cobalt }],
     note: "XM · Porcentaje de la capacidad útil del SIN. Los datos publicados llegan al 9 de noviembre de 2026.",
   },
   generacion: {
@@ -27,8 +26,8 @@ const charts = {
     time: "fecha", period: "2026", label: (row) => dayLabel(row.fecha),
     unit: "GWh", step: 60,
     series: [
-      { field: "HIDRAULICA", label: "Hidráulica", color: "#a5efdb" },
-      { field: "TERMICA", label: "Térmica", color: "#ffb887" },
+      { field: "HIDRAULICA", label: "Hidráulica", color: palette.cobalt },
+      { field: "TERMICA", label: "Térmica", color: palette.coral },
     ],
     note: "XM · Energía diaria por tecnología. La categoría térmica incluye varios combustibles. La serie llega al 7 de noviembre de 2026.",
   },
@@ -39,8 +38,8 @@ const charts = {
     label: (row) => `${row.hora.padStart(2, "0")}:00`,
     unit: "MWh", step: 3000, initial: 18,
     series: [
-      { field: "demanda_MWh", label: "Demanda", color: "#b5d8fb", coverage: "n_demanda_MWh" },
-      { field: "solar_MWh", label: "Generación solar", color: "#ffca7e", coverage: "n_solar_MWh" },
+      { field: "demanda_MWh", label: "Demanda", color: palette.cobalt, coverage: "n_demanda_MWh" },
+      { field: "solar_MWh", label: "Generación solar", color: "#f29a00", coverage: "n_solar_MWh" },
     ],
     note: "XM · Promedios por hora de Colombia. Los recuentos indican los días que aportaron observaciones.",
   },
@@ -50,8 +49,8 @@ const charts = {
     time: "mes", period: "2024", label: (row) => monthLabel(row.mes),
     unit: "GWh", step: 100, initial: 9, bars: true,
     series: [
-      { field: "ExpoEner_GWh_observados", label: "Exportaciones", color: "#aacfff", coverage: "ExpoEner_GWh_observados_dias" },
-      { field: "ImpoEner_GWh_observados", label: "Importaciones", color: "#9cebd7", coverage: "ImpoEner_GWh_observados_dias" },
+      { field: "ExpoEner_GWh_observados", label: "Exportaciones", color: palette.cobalt, coverage: "ExpoEner_GWh_observados_dias" },
+      { field: "ImpoEner_GWh_observados", label: "Importaciones", color: palette.lime, coverage: "ImpoEner_GWh_observados_dias" },
     ],
     note: "XM · Totales físicos observados. Noviembre de 2026 solo tiene datos publicados hasta el día 8.",
   },
@@ -99,13 +98,13 @@ export function setupObservatory(root) {
     const y = (datum) => bottom - datum * (bottom - top) / ceiling;
     const chosen = Number(range.value);
 
-    ctx.font = "12px system-ui";
-    ctx.fillStyle = "#adc4cd";
+    ctx.font = "600 11px 'Azeret Mono', monospace";
+    ctx.fillStyle = palette.ink2;
     ctx.textBaseline = "middle";
     ctx.textAlign = "right";
     for (let datum = 0; datum <= ceiling; datum += step) {
       ctx.fillText(number.format(datum), left - 7, y(datum));
-      ctx.strokeStyle = "#8dafb52b";
+      ctx.strokeStyle = palette.rule;
       ctx.beginPath();
       ctx.moveTo(left, y(datum));
       ctx.lineTo(width - right, y(datum));
@@ -121,7 +120,7 @@ export function setupObservatory(root) {
       ctx.fillText(label, x(index), bottom + 8);
     }
 
-    ctx.strokeStyle = "#e8f8f57a";
+    ctx.strokeStyle = palette.ink;
     ctx.beginPath();
     ctx.moveTo(x(chosen), top);
     ctx.lineTo(x(chosen), bottom);
@@ -136,8 +135,13 @@ export function setupObservatory(root) {
         rows.forEach((row, j) => {
           const datum = numeric(row[field]);
           if (datum === null) return;
-          ctx.globalAlpha = j === chosen ? 1 : 0.63;
+          ctx.globalAlpha = j === chosen ? 1 : 0.55;
           ctx.fillRect(x(j) + (i === 0 ? -bar - 1 : 1), y(datum), bar, bottom - y(datum));
+          if (j === chosen) {
+            ctx.strokeStyle = palette.ink;
+            ctx.lineWidth = 1.5;
+            ctx.strokeRect(x(j) + (i === 0 ? -bar - 1 : 1), y(datum), bar, bottom - y(datum));
+          }
         });
         ctx.globalAlpha = 1;
         return;
@@ -159,8 +163,11 @@ export function setupObservatory(root) {
       const datum = numeric(rows[chosen]?.[field]);
       if (datum !== null) {
         ctx.beginPath();
-        ctx.arc(x(chosen), y(datum), 4, 0, Math.PI * 2);
+        ctx.arc(x(chosen), y(datum), 5, 0, Math.PI * 2);
         ctx.fill();
+        ctx.strokeStyle = palette.ink;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
       }
     });
   }

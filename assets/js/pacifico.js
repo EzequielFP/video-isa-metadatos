@@ -1,13 +1,13 @@
-import { canvasContext, clamp, fetchJson, monthLabel, temperature } from "./visual.js";
+import { canvasContext, clamp, fetchJson, monthLabel, palette, temperature } from "./util.js";
 
-const directory = new URL("./media/pacifico/", import.meta.url);
+const directory = new URL("../media/pacifico/", import.meta.url);
 const descriptions = {
   "2023-01": "En 2023, la anomalía pasa de valores negativos a un máximo en noviembre.",
   "2024-01": "La anomalía pierde fuerza durante 2024 y llega a valores negativos a comienzos de 2025.",
   "2026-01": "En 2026, la anomalía vuelve a ser positiva en marzo y aumenta hasta octubre.",
 };
 
-export async function setupPacific(root, motion) {
+export async function setupPacific(root, { reduce: motion }) {
   const sticky = root.querySelector(".pacific-sticky");
   const layers = [...root.querySelectorAll("[data-sst-layer]")];
   const range = root.querySelector("[data-pacific-range]");
@@ -50,13 +50,13 @@ export async function setupPacific(root, motion) {
     const { ctx, width, height } = sizing;
     const x = (i) => 4 + i * (width - 8) / (entries.length - 1);
     const y = (v) => 4 + (4 - v) / 7 * (height - 8);
-    ctx.strokeStyle = "#ffffff40";
+    ctx.strokeStyle = palette.rule;
     ctx.beginPath();
     ctx.moveTo(0, y(0));
     ctx.lineTo(width, y(0));
     ctx.stroke();
-    ctx.strokeStyle = "#ffb887";
-    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = palette.ink;
+    ctx.lineWidth = 1.6;
     ctx.beginPath();
     let hasPrevious = false;
     entries.forEach((entry, i) => {
@@ -68,10 +68,13 @@ export async function setupPacific(root, motion) {
     });
     ctx.stroke();
     if (entries[current].value !== null) {
-      ctx.fillStyle = "#fff3d8";
+      ctx.fillStyle = entries[current].value < 0 ? palette.cobalt : palette.coral;
+      ctx.strokeStyle = palette.ink;
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.arc(x(current), y(entries[current].value), 3, 0, Math.PI * 2);
+      ctx.arc(x(current), y(entries[current].value), 5, 0, Math.PI * 2);
       ctx.fill();
+      ctx.stroke();
     }
   }
 
@@ -105,6 +108,7 @@ export async function setupPacific(root, motion) {
       date.textContent = month[0].toUpperCase() + month.slice(1);
       value.textContent = entry.value === null ? "Sin datos" : `${temperature.format(entry.value)} °C`;
       value.dataset.tone = entry.value < 0 ? "cold" : "warm";
+      if (entry.value !== null) root.style.setProperty("--heat", clamp((entry.value + 1) / 4.5, 0, 1).toFixed(3));
       days.textContent = `Media de ${entry.days} observaciones diarias.`;
       range.setAttribute("aria-valuetext", `${month}. ${value.textContent}`);
       const chapter = jumps.findLast((button) => button.dataset.phaseStart <= entry.month);

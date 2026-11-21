@@ -1,169 +1,167 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#09141c">
-  <meta name="description" content="Del calentamiento del Pacífico al embalse de Peñol–Guatapé. Recorre el fenómeno mes a mes y sigue su huella en la electricidad de Colombia.">
-  <title>El Niño y la luz · De Watts a Wow</title>
+  <meta name="theme-color" content="#f2eee4">
+  <meta name="description" content="Atlas interactivo de De Watts a Wow: el agua, el sol y la red eléctrica de Colombia contados con imágenes de satélite, series de XM y vuelos 3D.">
+  <title>De Watts a Wow · Atlas de la energía en Colombia</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/site.css">
-  <script type="module" src="assets/film.js"></script>
-  <script type="module" src="assets/site.js"></script>
+  <link rel="preload" href="assets/vendor/fonts/overused-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/atlas.css">
+  <script>(function(){var h=location.hash,o={"#pacifico":"#pacifico","#penol":"#penol-3d","#lluvia":"#lluvia"};if(h==="#catalogo"||/[?&]video=/.test(location.search))location.replace("datos.html"+location.search);else if(o[h])location.replace("agua.html"+o[h])})();</script>
+  <script>try{var c=JSON.parse(sessionStorage.getItem("atlas-cortina")||"null");if(c&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("is-arriving");document.documentElement.style.setProperty("--arrive",c.color)}}catch(e){}</script>
+  <script type="module" src="assets/js/app.js"></script>
 </head>
-<body class="agua">
+<body class="tema-agua" data-geo="6.2197,-75.1788">
   <a class="skip" href="#contenido">Saltar al contenido</a>
-  <header class="header">
-    <div class="shell header-inner">
-      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">ϟ</span><strong>DE WATTS A WOW</strong></a>
-      <nav class="main-nav" aria-label="Capítulos"><a href="./" aria-current="page"><span>01</span> El Niño y la luz</a><a href="solar.html"><span>02</span> Guardar el sol</a><a href="fronteras.html"><span>03</span> Cruzar fronteras</a></nav>
-      <a class="catalog-link" href="#catalogo">Datos</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="./" aria-label="De Watts a Wow, portada"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="var(--accent)" stroke="#13141a" stroke-width="2"/><path d="M3 23c4-1 6-5 11-5s7 4 15 2M3 14c4-2 7-6 12-6s8 3 14 1" fill="none" stroke="#fff" stroke-width="1.6" opacity=".75"/><path d="M18 3l-6 14h5l-3 12 9-16h-5l4-10z" fill="var(--sun)" stroke="#13141a" stroke-width="1.5" stroke-linejoin="round"/></svg><span>De Watts <i>a</i> Wow</span></a>
+      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html"><span>03</span>Red</a><a href="datos.html"><span>↓</span>Datos</a></nav>
+      <div class="geo-readout" data-geo-readout aria-hidden="true"></div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
     </div>
   </header>
+
   <main id="contenido">
-    <section class="hero" data-hero aria-labelledby="titulo">
-  <div class="hero-picture">
-    <img src="assets/media/penol-blender.jpg" alt="" fetchpriority="high">
-    <video data-scroll-video data-src="assets/media/penol-vuelo.mp4" aria-hidden="true" muted playsinline preload="none"></video>
-  </div>
-  <div class="shell hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow"><span>Capítulo 01</span> El embalse que se llena con gas</p>
-      <h1 id="titulo">El Niño y la luz.</h1>
-      <p class="lede">Del calentamiento del Pacífico al embalse de Peñol–Guatapé. Recorre el fenómeno mes a mes y sigue su huella en la electricidad de Colombia.</p>
-      <a class="button primary" href="#pacifico">Empezar el recorrido</a>
-    </div>
-    <p class="hero-credit">Peñol–Guatapé, Antioquia · Render de Blender</p>
-  </div>
-  <div class="chapter-bar">
-    <nav class="shell" aria-label="Escenas de este capítulo"><a href="#pacifico"><span>01</span>El Pacífico</a><a href="#penol"><span>02</span>Embalse 3D</a><a href="#lluvia"><span>03</span>Lluvia y energía</a></nav>
-  </div>
-</section>
-    <section class="scene pacific-scene" id="pacifico" data-pacific aria-labelledby="pacific-title">
-  <div class="shell pacific-sticky">
-    <div class="pacific-heading">
-      <div><p class="eyebrow">Pacífico tropical · 2023–2026</p><h2 id="pacific-title">El Niño, mes a mes.</h2></div>
-      <p data-pacific-hint>Sigue la mancha cálida en la franja ecuatorial. Desplázate por la página o mueve el control para cambiar de mes.</p>
-    </div>
-    <div class="timeline-jumps" role="group" aria-label="Momentos del Pacífico">
-      <button type="button" data-pacific-jump="2023-11" data-phase-start="2023-01" disabled><span>Noviembre de 2023</span><strong>Primer ascenso</strong></button>
-      <button type="button" data-pacific-jump="2025-01" data-phase-start="2024-01" disabled><span>Enero de 2025</span><strong>Enfriamiento</strong></button>
-      <button type="button" data-pacific-jump="2026-10" data-phase-start="2026-01" disabled><span>Octubre de 2026</span><strong>Nuevo ascenso</strong></button>
-    </div>
-    <div class="pacific-layout">
-      <figure class="map-figure">
-        <div class="pacific-map">
-          <img class="sst-layer" data-sst-layer src="assets/media/pacifico/2023-01.webp" alt="Mapa mensual de anomalía de temperatura superficial en el Pacífico tropical">
-          <img class="sst-layer" data-sst-layer alt="" aria-hidden="true">
-          <div class="map-grid" aria-hidden="true"></div>
-          <div class="nino-box" aria-hidden="true"><span>NIÑO 3.4</span></div>
-          <span class="map-location pacific-text" aria-hidden="true">OCÉANO PACÍFICO</span>
-          <span class="map-location col-text" aria-hidden="true">COLOMBIA</span>
+    <section class="hero-topo" data-topo aria-labelledby="titulo">
+      <canvas class="topo-canvas" aria-hidden="true"></canvas>
+      <div class="wrap hero-copy">
+        <p class="kicker"><b>Atlas interactivo</b> Energía, clima y territorio en Colombia</p>
+        <h1 class="hero-title" id="titulo" data-hero-title><span class="row">De Watts</span><span class="row indent"><i>a</i> Wow</span></h1>
+        <p class="hero-lede">Tres historias de la electricidad colombiana contadas con imágenes de satélite, series de XM y vuelos 3D: el agua, el sol y la red.</p>
+        <div class="hero-actions">
+          <a class="btn solid" href="#video" data-magnet>Ver el video <span class="arrow" aria-hidden="true">↓</span></a>
+          <a class="btn" href="#capitulos" data-magnet>Explorar capítulos <span class="arrow" aria-hidden="true">→</span></a>
         </div>
-        <figcaption class="map-legend">
-          <span>Anomalía superficial del mar (°C)</span>
-          <div class="color-scale" aria-label="Escala de menos 3 a más 4,5 grados Celsius"><span>−3</span><span>0</span><span>+4,5</span></div>
-        </figcaption>
-      </figure>
-      <aside class="pacific-readout">
-        <p class="eyebrow">Región Niño 3.4</p>
-        <p class="pacific-number" data-pacific-value>—</p>
-        <p class="readout-date" data-pacific-date>Enero de 2023</p>
-        <canvas class="pacific-spark" data-pacific-graph aria-hidden="true"></canvas>
-        <p class="fine" data-pacific-days>Media de observaciones diarias.</p>
-      </aside>
-    </div>
-    <div class="timeline-controls">
-      <button class="button primary" data-pacific-play type="button" disabled>Reproducir evolución</button>
-      <div class="timeline-range"><label for="pacific-range">Mes del mapa</label><input id="pacific-range" data-pacific-range type="range" min="0" max="45" value="0" disabled></div>
-      <button class="button outline" data-pacific-scroll type="button" aria-pressed="true" disabled>Sincronizar con scroll</button>
-    </div>
-    <p class="pacific-phase" data-pacific-phase>En 2023, la anomalía pasa de valores negativos a un máximo en noviembre.</p>
-    <p class="fine">Fuente <a href="archivos/video-1/01_SST_anomalia_mensual_C.tif">NOAA OISST v2.1</a> · <a href="archivos/video-1/02_Nino34_anomalia_diaria.csv">Serie diaria Niño 3.4</a></p>
-  </div>
-</section>
+      </div>
+      <div class="wrap hero-foot">
+        <div class="map-legend">
+          <strong>Fondo: relieve de Peñol–Guatapé, Antioquia</strong>
+          <span class="lg-row"><span class="lg-line"></span>Curva de nivel cada 25 m</span>
+          <span class="lg-row"><span class="lg-line bold"></span>Curva maestra cada 100 m</span>
+          <span class="lg-row"><span class="lg-water"></span>Lámina de agua del embalse</span>
+          <span class="lg-row"><span class="lg-lens"></span>Pasa el cursor: Sentinel-2, 2026</span>
+        </div>
+        <dl class="probe" data-probe>
+          <span class="probe-title">Punto del mapa</span>
+          <dt>Latitud</dt><dd data-lat>—</dd>
+          <dt>Longitud</dt><dd data-lon>—</dd>
+          <dt>Altitud</dt><dd data-elev>—</dd>
+          <dt>Superficie</dt><dd data-cover>—</dd>
+        </dl>
+      </div>
+      <a class="scroll-cue" href="#video" aria-label="Ir al video"><span>Desliza</span><i></i></a>
+    </section>
 
-<section class="scene shell" id="penol" aria-labelledby="penol-title">
-  <div class="scene-heading"><div><p class="eyebrow">Antioquia · Cuenca del río Nare</p><h2 id="penol-title">Vuela sobre Guatapé.</h2></div><p>Recorre el agua y las montañas con el terreno de la escena original de Blender.</p></div>
-  <figure class="visual-frame terrain" data-terrain>
-    <img src="assets/media/penol-blender.jpg" alt="Relieve tridimensional del embalse de Peñol–Guatapé visto desde el aire" loading="lazy">
-    <div class="terrain-screen" data-terrain-screen hidden></div>
-    <div class="terrain-launch">
-      <button class="button primary" data-terrain-open type="button">Abrir modelo en 3D</button>
-      <p data-terrain-status role="status"></p>
+    <div class="marquee accent" data-marquee="46" aria-hidden="true">
+      <div class="marquee-track"><div class="marquee-item">
+        <span>Agua</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 0v20M0 10h20" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Sol</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 0v20M0 10h20" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Red</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 0v20M0 10h20" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Sentinel-2</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 0v20M0 10h20" stroke="currentColor" stroke-width="2"/></svg>
+        <span>NOAA</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 0v20M0 10h20" stroke="currentColor" stroke-width="2"/></svg>
+        <span>XM</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 0v20M0 10h20" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Datos abiertos</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 0v20M0 10h20" stroke="currentColor" stroke-width="2"/></svg>
+      </div></div>
     </div>
-    <div data-terrain-tools class="terrain-tools" hidden>
-      <button type="button" class="button outline" data-terrain-action="left" aria-label="Girar a la izquierda">←</button>
-      <button type="button" class="button outline" data-terrain-action="right" aria-label="Girar a la derecha">→</button>
-      <button type="button" class="button outline" data-terrain-action="in" aria-label="Acercar">+</button>
-      <button type="button" class="button outline" data-terrain-action="out" aria-label="Alejar">−</button>
-      <button type="button" class="button outline" data-terrain-action="reset">Restablecer</button>
-    </div>
-    <figcaption>Relieve ALOS PALSAR · Textura Sentinel-2 · Exageración vertical ×2</figcaption>
-  </figure>
-  <div class="pair under-scene">
-    <div class="scene-copy"><p class="eyebrow">Sentinel-2 · Dos periodos</p><h3>El borde del agua.</h3><p>Mueve la cortina para observar el mismo embalse en dos composiciones satelitales.</p></div>
-    <figure class="comparison" data-compare style="--position:50%">
-      <div class="compare-visual">
-        <img src="assets/media/penol-ahora.webp" alt="Composición Sentinel-2 de Peñol–Guatapé, agosto a octubre de 2026" loading="lazy">
-        <img class="compare-top" src="assets/media/penol-antes.webp" alt="Composición Sentinel-2 del mismo lugar, junio a diciembre de 2022" loading="lazy">
-        <span class="split-line" aria-hidden="true"></span><span class="compare-label a">2022</span><span class="compare-label b">2026</span>
-      </div>
-      <figcaption><label for="penol-compare">Comparar las imágenes</label><input id="penol-compare" type="range" min="0" max="100" value="50"></figcaption>
-    </figure>
-  </div>
-</section>
 
-<section class="scene data-scene" id="lluvia" aria-labelledby="rain-title">
-  <div class="shell">
-    <div class="scene-heading"><div><p class="eyebrow">CHIRPS · XM</p><h2 id="rain-title">Del agua a la energía.</h2></div><p>La lluvia alimenta los ríos. Cuando bajan los aportes, las centrales térmicas, incluidas las de gas, pueden cubrir parte de la demanda y aliviar el uso de los embalses.</p></div>
-    <div class="data-stage" data-observatory="agua">
-      <div class="data-head"><div><div class="mode-buttons" role="group" aria-label="Serie"><button type="button" data-mode="lluvia" aria-pressed="true">Lluvia</button><button type="button" data-mode="embalses" aria-pressed="false">Embalses</button><button type="button" data-mode="generacion" aria-pressed="false">Generación</button></div><h3 data-data-title>Lluvia mensual en Colombia</h3></div><label class="period">Año<select data-data-year disabled><option>2026</option></select></label></div>
-      <canvas data-data-plot aria-hidden="true"></canvas>
-      <div class="observation"><label for="water-point">Observación</label><input id="water-point" data-data-range type="range" min="0" max="1" value="0" disabled><p data-data-values role="status">Cargando datos…</p></div>
-      <p class="fine" data-data-note></p>
-    </div>
-  </div>
-</section>
-    <section class="shell chapter-end">
-  <div class="sources-strip">
-    <div><span class="eyebrow">Material del capítulo</span><h2>Datos y video</h2></div>
-    <div class="actions"><a class="button outline" href="#catalogo">Consultar fuentes</a><span class="drive-state" data-drive="1">Carpeta de Drive pendiente</span></div>
-  </div>
-  <a class="next-card" href="solar.html"><img class="next-background" src="assets/media/caribe-portada.webp" loading="lazy" alt=""><span class="eyebrow">Siguiente capítulo</span><strong>Guardar el sol para la noche.</strong></a>
-</section>
-    <section class="shell section-space catalog" id="catalogo" aria-labelledby="catalog-title">
-      <div class="section-heading">
-        <div><h2 id="catalog-title">Catálogo de recursos</h2><p>Descarga los datos de los tres capítulos y consulta su cobertura y procedencia.</p></div>
-        <div class="catalog-exports"><a href="metadatos/catalogo.csv" download>Catálogo CSV</a><a href="metadatos/catalogo.json" download>Catálogo JSON</a></div>
+    <section class="section video-sec on-accent" id="video" aria-labelledby="video-title">
+      <div class="wrap video-grid">
+        <div class="video-copy">
+          <p class="kicker"><b>Pieza final</b> El embalse que se llena con gas</p>
+          <h2 id="video-title" data-split>Primero, mira el video.</h2>
+          <p class="lede" data-video-text="final">La pieza audiovisual del equipo, en el formato en que se publica. Después, abre cada capítulo y explora los datos que hay detrás de cada escena.</p>
+          <dl class="video-facts">
+            <div><dt>Formato</dt><dd>Vertical 9:16</dd></div>
+            <div><dt>Duración</dt><dd data-video-duration>—</dd></div>
+            <div><dt>Capítulo</dt><dd>01 · Agua</dd></div>
+          </dl>
+        </div>
+        <div class="phone" data-player="final" data-reveal></div>
       </div>
-      <div class="catalog-tools">
-        <label class="search-label">Buscar recursos<input id="search" type="search" placeholder="Ej. embalses, XM o GeoJSON"></label>
-        <label>Video<select id="video-filter"><option value="">Todos</option><option value="1">Video 1 · Agua</option><option value="2">Video 2 · Sol</option><option value="3">Video 3 · Red</option></select></label>
-        <label>Formato<select id="format-filter"><option value="">Todos</option></select></label>
-        <label>Acceso<select id="access-filter"><option value="">Todos</option><option value="github">Descarga directa</option><option value="drive">Archivos en Drive</option><option value="source">Fuente original</option></select></label>
+    </section>
+
+    <section class="section" id="capitulos" aria-labelledby="cap-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>Tres capítulos</b> Un tema por video</p>
+          <h2 class="display" id="cap-title" data-split>Agua, sol y red.</h2>
+          <p>Cada capítulo reúne las escenas del video con sus datos: mapas que cambian mes a mes, un relieve que puedes girar, comparadores satelitales y series horarias.</p>
+        </div>
+        <div class="stack">
+          <a class="stack-card c1" href="agua.html">
+            <div class="card-copy">
+              <span class="card-num num">01</span>
+              <div><h3>El Niño y la luz.</h3><p>Del calentamiento del Pacífico al embalse de Peñol–Guatapé: mapas mes a mes, un modelo 3D y el antes y después del agua.</p></div>
+              <div><div class="card-meta"><span>NOAA OISST</span><span>Sentinel-2</span><span>XM</span><span>CHIRPS</span></div><br><span class="card-go"><span aria-hidden="true">→</span>Entrar al capítulo</span></div>
+            </div>
+            <div class="card-media"><img src="assets/media/penol-blender.jpg" alt="" loading="lazy"><span class="coord">6,22° N · 75,18° O · Peñol–Guatapé</span></div>
+          </a>
+          <a class="stack-card c2" href="solar.html">
+            <div class="card-copy">
+              <span class="card-num num">02</span>
+              <div><h3>Guardar el sol para la noche.</h3><p>El sol entrega más energía a mediodía y la demanda sigue alta al anochecer. El reloj de la red, día y noche en el Caribe y el almacenamiento.</p></div>
+              <div><div class="card-meta"><span>XM horario</span><span>VIIRS</span><span>UPME</span></div><br><span class="card-go"><span aria-hidden="true">→</span>Entrar al capítulo</span></div>
+            </div>
+            <div class="card-media"><img src="assets/media/caribe-portada.webp" alt="" loading="lazy"><span class="coord">Caribe colombiano · Render de Blender</span></div>
+          </a>
+          <a class="stack-card c3" href="fronteras.html">
+            <div class="card-copy">
+              <span class="card-num num">03</span>
+              <div><h3>La red que cruza fronteras.</h3><p>Los intercambios de electricidad con los vecinos, los corredores de alta tensión y la crisis eléctrica de Ecuador en 2024.</p></div>
+              <div><div class="card-meta"><span>XM</span><span>OpenStreetMap</span><span>CENACE</span></div><br><span class="card-go"><span aria-hidden="true">→</span>Entrar al capítulo</span></div>
+            </div>
+            <div class="card-media"><img src="assets/media/frontera-portada.webp" alt="" loading="lazy"><span class="coord">Cordillera andina · Render de Blender</span></div>
+          </a>
+        </div>
       </div>
-      <div class="catalog-summary"><p id="result-count" role="status">Cargando catálogo…</p><button type="button" id="clear-filters" hidden>Limpiar filtros</button></div>
-      <div class="resource-list" id="results"></div>
-      <button class="button more" id="show-more" type="button" hidden></button>
-      <noscript><p>Descarga el catálogo CSV o JSON para consultar los recursos.</p></noscript>
+    </section>
+
+    <section class="section tight on-paper2" aria-labelledby="cifras-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>En cifras</b> Calculadas en vivo con los archivos del atlas</p>
+          <h2 class="display" id="cifras-title" data-split>Lo que dicen los datos.</h2>
+        </div>
+        <div class="stats" data-home-stats>
+          <article class="stat"><span class="num" data-stat="nino">—</span><p>Anomalía de la temperatura del mar en la región Niño 3.4 en <b data-stat-label="nino">—</b>, el valor mensual más alto desde 2023.</p><p class="fine">NOAA OISST v2.1</p></article>
+          <article class="stat"><span class="num" data-stat="penol">—</span><div class="bar" data-stat-bar><i></i></div><p>Volumen útil medio del embalse Peñol de agosto a octubre de 2026. Entre junio y diciembre de 2022 fue <b data-stat-label="penol">—</b>.</p><p class="fine">XM · Volumen útil diario</p></article>
+          <article class="stat"><span class="num" data-stat="meses">—</span><p>Mapas mensuales del Pacífico tropical para seguir El Niño de enero de 2023 a octubre de 2026.</p><p class="fine">Capítulo 01</p></article>
+          <article class="stat"><span class="num" data-stat="recursos">—</span><p>Archivos y fuentes con ficha de procedencia: series CSV, rásteres GeoTIFF y capas GeoJSON.</p><p class="fine">Catálogo de datos</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section on-ink" aria-labelledby="datos-title">
+      <div class="wrap open-data">
+        <div class="copy">
+          <p class="kicker"><b>Datos abiertos</b> Lo que ves se puede descargar</p>
+          <h2 id="datos-title" data-split>Úsalos. Compártelos.</h2>
+          <p class="lede">Cada gráfica y cada mapa del atlas sale de un archivo público con su fuente, su cobertura y su huella SHA-256.</p>
+        </div>
+        <nav class="format-list" aria-label="Formatos del catálogo">
+          <a href="datos.html?formato=CSV"><span class="fine">CSV</span>Series de XM, CHIRPS y NOAA<span aria-hidden="true">→</span></a>
+          <a href="datos.html?formato=GEOTIFF"><span class="fine">TIF</span>Rásteres satelitales<span aria-hidden="true">→</span></a>
+          <a href="datos.html?formato=GEOJSON"><span class="fine">JSON</span>Límites, líneas y subestaciones<span aria-hidden="true">→</span></a>
+          <a href="datos.html"><span class="fine">ALL</span>Catálogo completo<span aria-hidden="true">→</span></a>
+        </nav>
+      </div>
     </section>
   </main>
-  <footer class="footer"><div class="shell footer-inner">
-    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">ϟ</span><strong>DE WATTS A WOW</strong></a>
-    <a href="https://github.com/EzequielFP/video-isa-metadatos">Proyecto en GitHub</a>
-  </div></footer>
-  <dialog id="resource-dialog" aria-labelledby="detail-title">
-    <div class="dialog-shell">
-      <form method="dialog"><button class="close" aria-label="Cerrar ficha">×</button></form>
-      <p class="eyebrow" id="detail-type"></p>
-      <h2 id="detail-title"></h2>
-      <p id="detail-description"></p>
-      <dl id="detail-meta"></dl>
-      <p id="detail-notes" class="detail-notes" hidden></p>
-      <div class="detail-actions" id="detail-actions"></div>
-      <div id="detail-preview" hidden></div>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div><p class="kicker">De Watts a Wow</p><h2>Un atlas para entender la energía que usamos.</h2></div>
+        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li></ul></div>
+        <div><p class="kicker">Proyecto</p><ul><li><a href="datos.html">Catálogo de datos</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Metadatos y metodología</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos">Código en GitHub</a></li></ul></div>
+      </div>
+      <p class="foot-word" aria-hidden="true">Watts <i>a</i> Wow</p>
+      <div class="foot-bottom"><span>Fuentes: NOAA · Copernicus Sentinel-2 · XM · CHIRPS · UPME · OpenStreetMap</span><span>Las recreaciones hechas con IA están rotuladas en cada escena</span></div>
     </div>
-  </dialog>
+  </footer>
 </body>
 </html>

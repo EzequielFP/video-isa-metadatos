@@ -1,34 +1,61 @@
-# De Watts a Wow · Datos y fuentes
+# De Watts a Wow · Atlas interactivo
 
-[Abre la serie interactiva](https://ezequielfp.github.io/video-isa-metadatos/)
+[Abre el atlas](https://ezequielfp.github.io/video-isa-metadatos/)
 
-Tres recorridos visuales con escenas de la producción, controles de tiempo, mapas y fuentes descargables.
+La portada presenta la serie sobre un mapa topográfico vivo: las curvas de nivel son las del relieve real de Peñol–Guatapé y el cursor abre una linterna con la imagen Sentinel-2 de 2026. Debajo están el video final, los tres capítulos y las cifras principales, calculadas en el navegador con los archivos publicados.
 
-1. [El Niño y la luz](https://ezequielfp.github.io/video-isa-metadatos/) reúne la cronología de temperatura del Pacífico, el terreno 3D de Peñol–Guatapé, un comparador Sentinel-2 y las series de lluvia, embalses y generación.
-2. [Guardar el sol para la noche](https://ezequielfp.github.io/video-isa-metadatos/solar.html) combina las curvas de XM con un comparador del Caribe y una escena sobre el almacenamiento.
-3. [La red que cruza fronteras](https://ezequielfp.github.io/video-isa-metadatos/fronteras.html) permite explorar los intercambios observados de XM, los corredores regionales y el contexto ecuatoriano.
+1. [El Niño y la luz](https://ezequielfp.github.io/video-isa-metadatos/agua.html). Cronología mensual del Pacífico, modelo 3D de Peñol–Guatapé con cortina 2022/2026 sobre el relieve, comparador Sentinel-2 con lupa y parpadeo, volumen útil de XM y series de lluvia, embalses y generación.
+2. [Guardar el sol para la noche](https://ezequielfp.github.io/video-isa-metadatos/solar.html). Reloj horario de XM, comparador día y noche del Caribe y almacenamiento con baterías.
+3. [La red que cruza fronteras](https://ezequielfp.github.io/video-isa-metadatos/fronteras.html). Intercambios observados de XM, corredores regionales y contexto ecuatoriano.
 
+- [Catálogo de datos](https://ezequielfp.github.io/video-isa-metadatos/datos.html), también como [CSV](metadatos/catalogo.csv) y [JSON](metadatos/catalogo.json)
 - [Metadatos y metodología](metadatos/)
-- [Catálogo CSV](metadatos/catalogo.csv) y [catálogo JSON](metadatos/catalogo.json)
 - [Archivos descargables](archivos/)
+
+Los enlaces antiguos a `./?video=N#catalogo` y a las escenas del primer capítulo en la raíz redirigen a las páginas nuevas.
+
+## Agregar el video final
+
+El reproductor vertical de la portada y de cada capítulo lee [metadatos/videos.json](metadatos/videos.json). La clave `final` es la portada; `1`, `2` y `3` son los capítulos. Sin `src`, el reproductor muestra el aviso de video en edición.
+
+```
+python scripts/preparar_video.py <video editado.mp4> final --titulo "..." --descripcion "..."
+```
+
+El script usa ffmpeg para dejar el video a 720 px de ancho en H.264, con arranque rápido, guarda un póster y actualiza `videos.json`. GitHub rechaza archivos de más de 100 MB; si el resultado se acerca a ese límite, sube `--crf` (por ejemplo, a 27).
 
 ## Enlazar las carpetas de Google Drive
 
 Sube `VERSION_FINAL/VIDEO1`, `VERSION_FINAL/VIDEO2` y `VERSION_FINAL/VIDEO3` a Google Drive. En cada carpeta, configura el acceso que quieres dar a los visitantes. Para acceso público, elige **Cualquier persona con el enlace → Lector** y comprueba el enlace en una ventana privada.
 
-Edita [metadatos/drive.json](metadatos/drive.json) y pega los tres enlaces dentro de `videos`, en las claves `"1"`, `"2"` y `"3"`. Al guardar el cambio en `main`, GitHub Pages actualiza los botones.
+Edita [metadatos/drive.json](metadatos/drive.json) y pega los tres enlaces dentro de `videos`, en las claves `"1"`, `"2"` y `"3"`. Los botones aparecen en la página de datos.
 
-El bloque opcional `datos` acepta enlaces independientes para los GeoTIFF de mayor tamaño. Usa `"1"` para las exportaciones grandes del Video 1 y `"2-3"` para las dos capas VIIRS compartidas. Conserva sus nombres de archivo para que coincidan con las fichas.
+El bloque opcional `datos` acepta enlaces independientes para los GeoTIFF de mayor tamaño. Usa `"1"` para las exportaciones grandes del Video 1 y `"2-3"` para las dos capas VIIRS compartidas.
 
 ## Ver localmente
 
-Desde la raíz de este repositorio, ejecuta `python -m http.server 8000` y abre [localhost:8000](http://localhost:8000/). El portal usa HTML, CSS y JavaScript y se publica desde la raíz de `main` en GitHub Pages.
+Desde la raíz de este repositorio, ejecuta `python -m http.server 8000` y abre [localhost:8000](http://localhost:8000/). El sitio usa HTML, CSS y módulos de JavaScript sin paso de compilación y se publica desde la raíz de `main` en GitHub Pages.
+
+## Estructura
+
+- `assets/css/atlas.css`: sistema visual (papel claro, tinta, colores por capítulo y láminas con marcas de coordenadas).
+- `assets/js/app.js`: scroll suave, cortinas de color entre páginas, revelado de títulos, marquesina, contadores, tarjetas apiladas y carga diferida de cada escena.
+- `assets/js/topo.js`: portada en WebGL2 con curvas cada 25 m, maestras cada 100 m, barrido de altitud, lámina de agua y linterna satelital.
+- `assets/js/terreno.js`: maqueta 3D con laterales estratificados, imagen 2022 o 2026, relieve hipsométrico, curvas de nivel, cortina antes/después, sonda de coordenadas, etiquetas y recorrido de cámara.
+- `assets/js/comparador.js`: comparadores Sentinel-2, volumen útil semanal y tarjetas de Peñol–Guatapé, Guavio, Betania y Urrá.
+- `assets/js/reproductor.js`, `pacifico.js`, `graficas.js`, `region.js`, `catalogo.js`, `inicio.js`: video, Pacífico, series, mapa regional, catálogo y cifras de la portada.
 
 ## Procedencia de las escenas
 
-- [Exportación de Blender](scripts/exportar_penol.py). Abre la escena original `vuelo_penol.blend`, renderiza la vista panorámica y exporta una malla para navegador con el mismo desplazamiento, coordenadas UV y textura. Admite `--frames` para renderizar la secuencia del vuelo.
-- [Cronología del Pacífico](scripts/preparar_pacifico.py). Genera 46 mapas de enero de 2023 a octubre de 2026 con las bandas del GeoTIFF OISST v2.1 y la costa de Natural Earth. El valor visible de cada mes es la media del CSV diario Niño 3.4. El cambio entre mapas conserva las fechas de observación.
+- [Terreno de Peñol–Guatapé](scripts/preparar_terreno.py). Recorta el mapa de alturas de 16 bits de la escena de Blender a la caja de la exportación Sentinel-2 de GEE (75,05–75,25° O, 6,15–6,36° N), lo guarda como rejilla de 400 × 420 y copia las composiciones de 2022 y 2026. También resume el volumen útil diario de XM por semana para los cuatro embalses del comparador. La lámina de agua se detecta en el navegador como la superficie casi plana alrededor de 1900 m del modelo de alturas.
+- [Mapa regional claro](scripts/preparar_region.py). Recolorea el mapa base del Video 3.
+- [Exportación de Blender](scripts/exportar_penol.py). Renderiza la vista panorámica `penol-blender.jpg` de la escena original `vuelo_penol.blend`.
+- [Cronología del Pacífico](scripts/preparar_pacifico.py). Genera 46 mapas de enero de 2023 a octubre de 2026 con las bandas del GeoTIFF OISST v2.1 y la costa de Natural Earth.
 - [Clips web](scripts/preparar_clips.py). Usa los renders de Blender del proyecto y dos clips de Google Flow de la producción original, identificados en las páginas como recreaciones generadas con IA.
-- El visor utiliza Three.js 0.187.0 y la tipografía Barlow Condensed. Sus licencias están en [assets/vendor](assets/vendor/).
-- Las transiciones de escena y el progreso del recorrido usan GSAP 3.15.1 con ScrollTrigger. El módulo se sirve desde el sitio y respeta la preferencia de movimiento reducido. [Licencia estándar de GSAP](https://gsap.com/standard-license/)
-- La iluminación de los enlaces entre capítulos toma como referencia el efecto [Spotlight Card de React Bits](https://reactbits.dev/components/spotlight-card) y usa CSS y eventos del navegador.
+
+## Librerías y créditos
+
+- [Librerías empaquetadas](scripts/construir_vendor.mjs): Three.js 0.187.0 con OrbitControls (`three-lite.js`), GSAP 3.15.1 con ScrollTrigger y SplitText, y Lenis 1.3.27 para el scroll suave (`motion.js`). Se construyen con esbuild a partir de las copias locales de los repositorios. [Licencia estándar de GSAP](https://gsap.com/standard-license/) · [Licencia de Three.js](assets/vendor/three.LICENSE)
+- Tipografías Overused Grotesk, Azeret Mono y Barlow Condensed, con licencia SIL OFL. Detalle en [assets/vendor/fonts](assets/vendor/fonts/LICENCIAS.txt).
+- Efectos inspirados en [React Bits](https://reactbits.dev) (fondo Topography, ScrollVelocity, SplitText, Magnet, VariableProximity y ScrollStack), reescritos en JavaScript sin React.
+- Todo el movimiento respeta la preferencia de movimiento reducido del sistema.

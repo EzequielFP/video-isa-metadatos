@@ -1,0 +1,26 @@
+{
+  "final": {
+    "src": "assets/video/final.mp4",
+    "poster": "assets/video/final.webp",
+    "titulo": "El embalse que se llena con gas",
+    "descripcion": ""
+  },
+  "1": {
+    "src": "assets/video/final.mp4",
+    "poster": "assets/video/final.webp",
+    "titulo": "El embalse que se llena con gas",
+    "descripcion": ""
+  },
+  "2": {
+    "src": "",
+    "poster": "assets/media/caribe-dia.webp",
+    "titulo": "",
+    "descripcion": ""
+  },
+  "3": {
+    "src": "",
+    "poster": "assets/media/frontera-portada.webp",
+    "titulo": "",
+    "descripcion": ""
+  }
+}

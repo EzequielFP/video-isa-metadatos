@@ -1,0 +1,52 @@
+{
+ "grid": {
+  "width": 400,
+  "height": 420,
+  "file": "altura.bin",
+  "encoding": "uint16-le"
+ },
+ "bbox": [
+  -75.25,
+  6.15,
+  -75.05,
+  6.36
+ ],
+ "elevation": [
+  1024.7,
+  2569.1
+ ],
+ "places": [
+  {
+   "name": "Piedra del Peñol",
+   "lon": -75.17882,
+   "lat": 6.21967,
+   "elev": 2040,
+   "kind": "peak"
+  },
+  {
+   "name": "Guatapé",
+   "lon": -75.1614,
+   "lat": 6.2339,
+   "elev": 1913,
+   "kind": "town"
+  },
+  {
+   "name": "El Peñol",
+   "lon": -75.2428,
+   "lat": 6.2192,
+   "elev": 1988,
+   "kind": "town"
+  }
+ ],
+ "textures": {
+  "2022": {
+   "file": "s2-2022.webp",
+   "period": "junio a diciembre de 2022"
+  },
+  "2026": {
+   "file": "s2-2026.webp",
+   "period": "agosto a octubre de 2026"
+  }
+ },
+ "sources": "Alturas de la escena de Blender de la producción · Sentinel-2 SR, mediana de bandas B4, B3 y B2"
+}

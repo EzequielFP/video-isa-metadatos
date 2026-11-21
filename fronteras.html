@@ -1,91 +1,135 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#09141c">
-  <meta name="description" content="Sigue los intercambios de electricidad y explora los corredores que conectan a Colombia con sus vecinos.">
-  <title>Cruzar fronteras · De Watts a Wow</title>
+  <meta name="theme-color" content="#f2eee4">
+  <meta name="description" content="Sigue los intercambios de electricidad entre Colombia y sus vecinos, explora los corredores de alta tensión y la crisis eléctrica de Ecuador en 2024.">
+  <title>La red que cruza fronteras · De Watts a Wow</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/site.css">
-  <script type="module" src="assets/film.js"></script>
-
+  <link rel="preload" href="assets/vendor/fonts/overused-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/atlas.css">
+  <script>try{var c=JSON.parse(sessionStorage.getItem("atlas-cortina")||"null");if(c&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("is-arriving");document.documentElement.style.setProperty("--arrive",c.color)}}catch(e){}</script>
+  <script type="module" src="assets/js/app.js"></script>
 </head>
-<body class="red">
+<body class="tema-red">
   <a class="skip" href="#contenido">Saltar al contenido</a>
-  <header class="header">
-    <div class="shell header-inner">
-      <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">ϟ</span><strong>DE WATTS A WOW</strong></a>
-      <nav class="main-nav" aria-label="Capítulos"><a href="./"><span>01</span> El Niño y la luz</a><a href="solar.html"><span>02</span> Guardar el sol</a><a href="fronteras.html" aria-current="page"><span>03</span> Cruzar fronteras</a></nav>
-      <a class="catalog-link" href="./?video=3#catalogo">Datos</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="./" aria-label="De Watts a Wow, portada"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="var(--accent)" stroke="#13141a" stroke-width="2"/><path d="M3 23c4-1 6-5 11-5s7 4 15 2M3 14c4-2 7-6 12-6s8 3 14 1" fill="none" stroke="#13141a" stroke-width="1.6" opacity=".45"/><path d="M18 3l-6 14h5l-3 12 9-16h-5l4-10z" fill="var(--cobalt)" stroke="#13141a" stroke-width="1.5" stroke-linejoin="round"/></svg><span>De Watts <i>a</i> Wow</span></a>
+      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html" aria-current="page"><span>03</span>Red</a><a href="datos.html?video=3"><span>↓</span>Datos</a></nav>
+      <div class="geo-readout" data-geo-readout aria-hidden="true"></div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
     </div>
   </header>
+
   <main id="contenido">
-    <section class="hero" data-hero aria-labelledby="titulo">
-  <div class="hero-picture">
-    <img src="assets/media/frontera-portada.webp" alt="" fetchpriority="high">
-    <video data-scroll-video data-src="assets/media/frontera-vuelo.mp4" aria-hidden="true" muted playsinline preload="none"></video>
-  </div>
-  <div class="shell hero-inner">
-    <div class="hero-copy">
-      <p class="eyebrow"><span>Capítulo 03</span> Interconexiones eléctricas</p>
-      <h1 id="titulo">La red que cruza fronteras.</h1>
-      <p class="lede">Sigue los intercambios de electricidad y explora los corredores que conectan a Colombia con sus vecinos.</p>
-      <a class="button primary" href="#intercambios">Empezar el recorrido</a>
-    </div>
-    <p class="hero-credit">Cordillera andina · Render de Blender</p>
-  </div>
-  <div class="chapter-bar">
-    <nav class="shell" aria-label="Escenas de este capítulo"><a href="#intercambios"><span>01</span>Intercambios de 2024</a><a href="#mapa-red"><span>02</span>Mapa de corredores</a><a href="#ecuador"><span>03</span>La crisis de Ecuador</a></nav>
-  </div>
-</section>
-    <section class="scene data-scene" id="intercambios" aria-labelledby="exports-title">
-  <div class="shell">
-    <div class="scene-heading"><div><p class="eyebrow">XM · Flujos físicos</p><h2 id="exports-title">El pulso de 2024.</h2></div><p>Explora cómo cambiaron los intercambios eléctricos en los meses de la crisis de Ecuador. Las series corresponden al sistema colombiano.</p></div>
-    <div class="data-stage" data-observatory="red">
-      <div class="data-head"><div><h3 data-data-title>Intercambios internacionales</h3><div class="mode-buttons" role="group" aria-label="Meses de 2024"><button type="button" data-month="2024-10">Octubre</button><button type="button" data-month="2024-11">Noviembre</button><button type="button" data-month="2024-12">Diciembre</button></div></div><label class="period">Año<select data-data-year disabled><option>2024</option></select></label></div>
-      <canvas data-data-plot aria-hidden="true"></canvas>
-      <div class="observation"><label for="border-point">Mes del intercambio</label><input id="border-point" data-data-range type="range" min="0" max="11" value="9" disabled><p data-data-values role="status">Cargando datos…</p></div>
-      <p class="fine" data-data-note></p>
-    </div>
-  </div>
-</section>
-<section class="scene shell" id="mapa-red" aria-labelledby="network-title">
-  <div class="scene-heading"><div><p class="eyebrow">Norte de Sudamérica y Centroamérica</p><h2 id="network-title">Los cables de la frontera.</h2></div><p>Elige un corredor para ubicarlo y consultar qué representa.</p></div>
-  <div class="pair region" data-region>
-    <figure class="visual-frame regional-map"><img src="assets/media/base-regional.webp" alt="Mapa base de Colombia y los países vecinos" loading="lazy"><canvas data-region-map aria-hidden="true"></canvas></figure>
-    <div class="scene-copy">
-      <div class="mode-buttons corridors" role="group" aria-label="Corredor a explorar"><button type="button" data-route="ecuador" aria-pressed="true">Ecuador</button><button type="button" data-route="panama" aria-pressed="false">Panamá</button><button type="button" data-route="venezuela" aria-pressed="false">Venezuela</button></div>
-      <p data-region-status class="fine" role="status"></p>
-      <h3 data-route-title>Jamondino–Pomasqui</h3>
-      <p data-route-description>Corredor Colombia–Ecuador documentado a 230 kV. El límite de transferencia cambia con las condiciones operativas.</p>
-      <a class="text-link" data-route-source href="https://www.xm.com.co/noticias/evento-en-el-sistema-interconectado-nacional">Consultar fuente</a>
-      <p class="fine">Trazos verdes cartográficos de <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>. El trazo punteado señala el corredor de forma esquemática.</p>
-    </div>
-  </div>
-</section>
-<section class="scene editorial" id="ecuador" aria-labelledby="ecuador-title">
-  <div class="shell pair">
-    <figure class="flow-film"><video controls playsinline preload="none" poster="assets/media/flow-ecuador.webp" src="assets/media/flow-ecuador.mp4" aria-label="Ilustración generada con Flow de una ciudad andina durante un corte eléctrico" muted></video><figcaption>Recreación visual generada con IA · Google Flow</figcaption></figure>
-    <div class="scene-copy"><p class="eyebrow">Ecuador · 2024</p><h2 id="ecuador-title">Cuando faltó el agua.</h2><p>El informe anual del operador ecuatoriano vincula los racionamientos de 2024 con el déficit hidroeléctrico y los bajos niveles de los embalses.</p>
-      <a class="text-link" href="https://www.cenace.gob.ec/wp-content/uploads/downloads/2025/04/Informe-Anual-CENACE-2024-vf-1-88_c.pdf">Informe anual de CENACE</a>
-      <a class="text-link" href="https://contenido.bce.fin.ec/documentos/PublicacionesNotas/Catalogo/Apuntes/ae77.pdf">Cronología del Banco Central del Ecuador</a>
-    </div>
-  </div>
-</section>
-    <section class="shell chapter-end">
-  <div class="sources-strip">
-    <div><span class="eyebrow">Material del capítulo</span><h2>Datos y video</h2></div>
-    <div class="actions"><a class="button outline" href="./?video=3#catalogo">Consultar fuentes</a><span class="drive-state" data-drive="3">Carpeta de Drive pendiente</span></div>
-  </div>
-  <a class="next-card" href="./"><img class="next-background" src="assets/media/penol-blender.jpg" loading="lazy" alt=""><span class="eyebrow">Volver al primer capítulo</span><strong>El Niño y la luz.</strong></a>
-</section>
+    <section class="ch-hero" data-expand aria-labelledby="titulo">
+      <div class="ch-hero-pin">
+        <div class="ch-hero-media">
+          <img src="assets/media/frontera-portada.webp" alt="" fetchpriority="high">
+          <video data-src="assets/media/frontera-vuelo.mp4" muted playsinline preload="none" aria-hidden="true"></video>
+        </div>
+        <div class="ch-hero-title">
+          <p class="kicker"><b>Capítulo 03</b> Interconexiones eléctricas</p>
+          <h1 id="titulo"><span class="row">La red que</span> <span class="row">cruza fronteras.</span></h1>
+        </div>
+        <div class="ch-hero-sub">
+          <div><p>Sigue los intercambios de electricidad y explora los corredores que conectan a Colombia con sus vecinos.</p><p class="fine">Cordillera andina · Vuelo renderizado en Blender</p></div>
+          <nav class="ch-jumps" aria-label="Escenas del capítulo"><a href="#video-3"><span>01</span>Video</a><a href="#intercambios"><span>02</span>Intercambios 2024</a><a href="#mapa-red"><span>03</span>Corredores</a><a href="#ecuador"><span>04</span>Ecuador</a></nav>
+        </div>
+      </div>
+    </section>
 
+    <section class="section video-sec on-accent" id="video-3" aria-labelledby="video-title">
+      <div class="wrap video-grid">
+        <div class="video-copy">
+          <p class="kicker"><b>01 · El video</b> Capítulo 03</p>
+          <h2 id="video-title" data-split>La red que cruza fronteras.</h2>
+          <p class="lede" data-video-text="3">Los cables de alta tensión no se detienen en la frontera. Míralo y luego sigue los intercambios de 2024 y los corredores con Ecuador, Panamá y Venezuela.</p>
+          <dl class="video-facts">
+            <div><dt>Formato</dt><dd>Vertical 9:16</dd></div>
+            <div><dt>Duración</dt><dd data-video-duration>—</dd></div>
+            <div><dt>Capítulo</dt><dd>03 · Red</dd></div>
+          </dl>
+        </div>
+        <div class="phone" data-player="3" data-reveal></div>
+      </div>
+    </section>
+
+    <section class="section" id="intercambios" aria-labelledby="exports-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>02 · XM</b> Flujos físicos</p>
+          <h2 class="display" id="exports-title" data-split>El pulso de 2024.</h2>
+          <p>Explora cómo cambiaron los intercambios eléctricos en los meses de la crisis de Ecuador. Las series corresponden al sistema colombiano.</p>
+        </div>
+        <div class="obs" data-observatory="red">
+          <div class="obs-head"><div class="obs-title"><h3 data-data-title>Intercambios internacionales</h3><div class="chip-group" role="group" aria-label="Meses de 2024"><button class="chip" type="button" data-month="2024-10">Octubre</button><button class="chip" type="button" data-month="2024-11">Noviembre</button><button class="chip" type="button" data-month="2024-12">Diciembre</button></div></div><label class="period">Año<select data-data-year disabled><option>2024</option></select></label></div>
+          <canvas data-data-plot aria-hidden="true"></canvas>
+          <div class="observation"><label for="border-point">Mes del intercambio</label><input class="range" id="border-point" data-data-range type="range" min="0" max="11" value="9" disabled><p data-data-values role="status">Cargando datos…</p></div>
+          <p class="fine" data-data-note></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section on-paper2" id="mapa-red" aria-labelledby="network-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>03 · Mapa</b> Norte de Sudamérica y Centroamérica</p>
+          <h2 class="display" id="network-title" data-split>Los cables de la frontera.</h2>
+          <p>Elige un corredor para ubicarlo y consultar qué representa.</p>
+        </div>
+        <div class="pair region" data-region>
+          <figure class="lamina">
+            <div class="region-map"><img src="assets/media/base-regional-clara.webp" alt="Mapa base de Colombia y los países vecinos" loading="lazy"><canvas data-region-map aria-hidden="true"></canvas></div>
+            <figcaption class="lamina-cap"><span><b>FIG. 03</b> 84–62° O · 8° S–16° N</span><span>Líneas © OpenStreetMap contributors</span></figcaption>
+          </figure>
+          <div class="copy">
+            <div class="chip-group" role="group" aria-label="Corredor a explorar"><button class="chip" type="button" data-route="ecuador" aria-pressed="true"><span class="swatch" style="--sw:#2b3bff"></span>Ecuador</button><button class="chip" type="button" data-route="panama" aria-pressed="false"><span class="swatch" style="--sw:#ff5b3a"></span>Panamá</button><button class="chip" type="button" data-route="venezuela" aria-pressed="false"><span class="swatch" style="--sw:#7a2fd0"></span>Venezuela</button></div>
+            <p data-region-status class="fine" role="status"></p>
+            <h3 class="route-title" data-route-title>Jamondino–Pomasqui</h3>
+            <p data-route-description>Corredor Colombia–Ecuador documentado a 230 kV. El límite de transferencia cambia con las condiciones operativas.</p>
+            <a class="text-link" data-route-source href="https://www.xm.com.co/noticias/evento-en-el-sistema-interconectado-nacional">Consultar fuente ↗</a>
+            <p class="fine">Trazos verdes: líneas de transmisión cartografiadas en OpenStreetMap. El trazo punteado señala el corredor de forma esquemática.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ecuador" aria-labelledby="ecuador-title">
+      <div class="wrap pair">
+        <figure class="flow-film" data-reveal><video controls playsinline preload="none" poster="assets/media/flow-ecuador.webp" src="assets/media/flow-ecuador.mp4" aria-label="Ilustración generada con Flow de una ciudad andina durante un corte eléctrico" muted></video><figcaption>Recreación visual generada con IA · Google Flow</figcaption></figure>
+        <div class="copy">
+          <p class="kicker"><b>04 · Ecuador</b> 2024</p>
+          <h2 id="ecuador-title" data-split>Cuando faltó el agua.</h2>
+          <p>El informe anual del operador ecuatoriano vincula los racionamientos de 2024 con el déficit hidroeléctrico y los bajos niveles de los embalses.</p>
+          <a class="text-link" href="https://www.cenace.gob.ec/wp-content/uploads/downloads/2025/04/Informe-Anual-CENACE-2024-vf-1-88_c.pdf">Informe anual de CENACE ↗</a>
+          <a class="text-link" href="https://contenido.bce.fin.ec/documentos/PublicacionesNotas/Catalogo/Apuntes/ae77.pdf">Cronología del Banco Central del Ecuador ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <a class="next-ch" href="datos.html">
+      <img src="assets/media/penol-blender.jpg" alt="" loading="lazy">
+      <div class="wrap">
+        <p class="kicker"><b>Fin del recorrido</b> Datos abiertos</p>
+        <div><h2>Descarga los datos.</h2><br><span class="card-go"><span aria-hidden="true">→</span>Abrir el catálogo</span></div>
+      </div>
+    </a>
   </main>
-  <footer class="footer"><div class="shell footer-inner">
-    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">ϟ</span><strong>DE WATTS A WOW</strong></a>
-    <a href="https://github.com/EzequielFP/video-isa-metadatos">Proyecto en GitHub</a>
-  </div></footer>
 
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div><p class="kicker">De Watts a Wow</p><h2>Un atlas para entender la energía que usamos.</h2></div>
+        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li></ul></div>
+        <div><p class="kicker">Proyecto</p><ul><li><a href="datos.html">Catálogo de datos</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Metadatos y metodología</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos">Código en GitHub</a></li></ul></div>
+      </div>
+      <p class="foot-word" aria-hidden="true">Watts <i>a</i> Wow</p>
+      <div class="foot-bottom"><span>Fuentes: NOAA · Copernicus Sentinel-2 · XM · CHIRPS · UPME · OpenStreetMap</span><span>Las recreaciones hechas con IA están rotuladas en cada escena</span></div>
+    </div>
+  </footer>
 </body>
 </html>

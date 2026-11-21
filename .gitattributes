@@ -1,5 +1,6 @@
 * text=auto eol=lf
 archivos/** -text -whitespace
 metadatos/catalogo.csv -text whitespace=cr-at-eol
-assets/vendor/three-web.js -whitespace linguist-vendored
-assets/vendor/gsap-web.js -whitespace linguist-vendored
+assets/vendor/three-lite.js -whitespace linguist-vendored
+assets/vendor/motion.js -whitespace linguist-vendored
+*.bin binary

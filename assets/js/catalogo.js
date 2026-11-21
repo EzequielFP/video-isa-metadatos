@@ -1,4 +1,4 @@
-import { readCsv } from "./csv.js";
+import { readCsv } from "./util.js";
 
 const find = (id) => document.getElementById(id);
 const list = find("results");
@@ -191,7 +191,7 @@ async function previewCsv(entry, button) {
   }
 }
 
-async function setupCatalog() {
+async function loadCatalog() {
   try {
     const data = await readJson("metadatos/catalogo.json");
     entries = data.map((entry) => ({
@@ -201,8 +201,10 @@ async function setupCatalog() {
     const formats = [...new Set(entries.map((entry) => entry.format))];
     formats.sort((a, b) => formatLabel(a).localeCompare(formatLabel(b), "es"));
     filters[1].append(...formats.map((format) => new Option(formatLabel(format), format)));
-    const chapter = new URLSearchParams(window.location.search).get("video");
+    const params = new URLSearchParams(window.location.search);
+    const chapter = params.get("video");
     if (["1", "2", "3"].includes(chapter)) filters[0].value = chapter;
+    if (formats.includes(params.get("formato"))) filters[1].value = params.get("formato");
     resetPage();
     search.addEventListener("input", resetPage);
     filters.forEach((filter) => filter.addEventListener("change", resetPage));
@@ -226,13 +228,19 @@ async function setupDrive() {
   try {
     drive = await readJson("metadatos/drive.json");
     if (entries.length) render();
+    for (const placeholder of document.querySelectorAll("[data-drive]")) {
+      const url = driveUrl(drive.videos?.[placeholder.dataset.drive] || "");
+      if (url) placeholder.replaceWith(link("Abrir carpeta de Drive ↗", url, { className: "btn small solid" }));
+    }
   } catch {
     // El acceso a los archivos directos permanece disponible.
   }
 }
 
-dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) dialog.close();
-});
-setupCatalog();
-setupDrive();
+export function setupCatalog() {
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  loadCatalog();
+  setupDrive();
+}

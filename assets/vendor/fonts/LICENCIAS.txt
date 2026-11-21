@@ -1,0 +1,10 @@
+Fuentes del sitio
+
+- Overused Grotesk (variable, 300–900) · RandomMaerks · SIL Open Font License 1.1
+  https://github.com/RandomMaerks/Overused-Grotesk
+- Azeret Mono (variable, 100–900) · Displaay Type Foundry · SIL Open Font License 1.1
+  https://github.com/displaay/azeret
+- Barlow Condensed 800 · Jeremy Tribby · SIL Open Font License 1.1 (ver ../barlow.LICENSE)
+
+Las dos primeras se copiaron de la carpeta public/fonts del repositorio Fancy Components
+(github.com/danielpetho/fancy). Texto de la licencia: https://openfontlicense.org

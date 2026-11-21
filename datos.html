@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2eee4">
+  <meta name="description" content="Catálogo de datos abiertos de De Watts a Wow: series de XM, CHIRPS y NOAA, rásteres satelitales y capas geográficas con su procedencia.">
+  <title>Datos abiertos · De Watts a Wow</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/vendor/fonts/overused-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/atlas.css">
+  <script>try{var c=JSON.parse(sessionStorage.getItem("atlas-cortina")||"null");if(c&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("is-arriving");document.documentElement.style.setProperty("--arrive",c.color)}}catch(e){}</script>
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body class="tema-agua">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="./" aria-label="De Watts a Wow, portada"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="var(--accent)" stroke="#13141a" stroke-width="2"/><path d="M3 23c4-1 6-5 11-5s7 4 15 2M3 14c4-2 7-6 12-6s8 3 14 1" fill="none" stroke="#fff" stroke-width="1.6" opacity=".75"/><path d="M18 3l-6 14h5l-3 12 9-16h-5l4-10z" fill="var(--sun)" stroke="#13141a" stroke-width="1.5" stroke-linejoin="round"/></svg><span>De Watts <i>a</i> Wow</span></a>
+      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html"><span>03</span>Red</a><a href="datos.html" aria-current="page"><span>↓</span>Datos</a></nav>
+      <div class="geo-readout" data-geo-readout aria-hidden="true"></div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <header class="page-head wrap">
+      <p class="kicker"><b>Datos abiertos</b> Catálogo de recursos</p>
+      <h1 data-split>Todo lo que ves, descargable.</h1>
+      <p class="lede">Las series, los rásteres y las capas de los tres capítulos, con su fuente, su cobertura temporal y su huella SHA-256 para verificar cada archivo.</p>
+    </header>
+
+    <section class="wrap section tight" style="padding-top:0" id="catalogo" data-catalog aria-labelledby="catalog-title">
+      <h2 class="sr-only" id="catalog-title">Catálogo de recursos</h2>
+      <div class="catalog-tools">
+        <label class="search-label">Buscar recursos<input id="search" type="search" placeholder="Ej. embalses, XM o GeoJSON"></label>
+        <label>Video<select id="video-filter"><option value="">Todos</option><option value="1">Video 1 · Agua</option><option value="2">Video 2 · Sol</option><option value="3">Video 3 · Red</option></select></label>
+        <label>Formato<select id="format-filter"><option value="">Todos</option></select></label>
+        <label>Acceso<select id="access-filter"><option value="">Todos</option><option value="github">Descarga directa</option><option value="drive">Archivos en Drive</option><option value="source">Fuente original</option></select></label>
+      </div>
+      <div class="catalog-summary"><p id="result-count" role="status">Cargando catálogo…</p><div class="catalog-exports"><button type="button" id="clear-filters" hidden>Limpiar filtros</button><a class="chip" href="metadatos/catalogo.csv" download>Catálogo CSV</a><a class="chip" href="metadatos/catalogo.json" download>Catálogo JSON</a></div></div>
+      <div class="resource-list" id="results"></div>
+      <button class="btn more" id="show-more" type="button" hidden></button>
+      <noscript><p>Descarga el catálogo CSV o JSON para consultar los recursos.</p></noscript>
+    </section>
+
+    <section class="section on-paper2" aria-labelledby="drive-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>Material de producción</b> Videos, series y guiones</p>
+          <h2 class="display" id="drive-title" data-split>Las carpetas de cada video.</h2>
+          <p>Los archivos más pesados de cada capítulo se comparten en carpetas de Drive.</p>
+        </div>
+        <div class="stats">
+          <article class="stat"><span class="num">01</span><p>El Niño y la luz</p><span class="fine" data-drive="1">Carpeta de Drive pendiente</span></article>
+          <article class="stat"><span class="num">02</span><p>Guardar el sol para la noche</p><span class="fine" data-drive="2">Carpeta de Drive pendiente</span></article>
+          <article class="stat"><span class="num">03</span><p>La red que cruza fronteras</p><span class="fine" data-drive="3">Carpeta de Drive pendiente</span></article>
+          <article class="stat"><span class="num">i</span><p>Metadatos y metodología: scripts de Earth Engine, auditorías de XM y verificación de OpenStreetMap.</p><a class="text-link" href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Ver en GitHub ↗</a></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div><p class="kicker">De Watts a Wow</p><h2>Un atlas para entender la energía que usamos.</h2></div>
+        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li></ul></div>
+        <div><p class="kicker">Proyecto</p><ul><li><a href="datos.html">Catálogo de datos</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Metadatos y metodología</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos">Código en GitHub</a></li></ul></div>
+      </div>
+      <p class="foot-word" aria-hidden="true">Watts <i>a</i> Wow</p>
+      <div class="foot-bottom"><span>Fuentes: NOAA · Copernicus Sentinel-2 · XM · CHIRPS · UPME · OpenStreetMap</span><span>Las recreaciones hechas con IA están rotuladas en cada escena</span></div>
+    </div>
+  </footer>
+
+  <dialog id="resource-dialog" aria-labelledby="detail-title">
+    <div class="dialog-shell">
+      <form method="dialog"><button class="close" aria-label="Cerrar ficha">×</button></form>
+      <p class="kicker" id="detail-type"></p>
+      <h2 id="detail-title"></h2>
+      <p id="detail-description"></p>
+      <dl id="detail-meta"></dl>
+      <p id="detail-notes" class="detail-notes" hidden></p>
+      <div class="detail-actions" id="detail-actions"></div>
+      <div id="detail-preview" hidden></div>
+    </div>
+  </dialog>
+</body>
+</html>
