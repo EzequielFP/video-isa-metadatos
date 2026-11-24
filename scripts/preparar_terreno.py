@@ -5,9 +5,9 @@
 Entradas (dentro del proyecto de producción):
 - PRODUCCION_3D/blender/data/penol_height.png: alturas de 16 bits de la escena de Blender,
   caja -75,30 a -75,00 de longitud y 6,10 a 6,40 de latitud, de 1003,09 a 2572,20 m.
-- VIDEO1/PRODUCCION/proyecto/assets/s2_penol_{antes,ahora}.webp: composiciones Sentinel-2
+- GRUPO_1/VIDEO1/PRODUCCION/proyecto/assets/s2_penol_{antes,ahora}.webp: composiciones Sentinel-2
   de la exportación 08 de GEE, caja -75,25 a -75,05 y 6,15 a 6,36.
-- VIDEO1/PRODUCCION/proyecto/assets/s2_thumb_*.webp: miniaturas de los otros embalses.
+- GRUPO_1/VIDEO1/PRODUCCION/proyecto/assets/s2_thumb_*.webp: miniaturas de los otros embalses.
 - archivos/video-1/03_embalses_individuales.csv: volumen útil diario de XM.
 
 Salidas en assets/media/penol y assets/media/embalses:
@@ -86,7 +86,7 @@ meta = {
 }
 (out / "penol.json").write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
 
-assets = root / "VIDEO1/PRODUCCION/proyecto/assets"
+assets = root / "GRUPO_1/VIDEO1/PRODUCCION/proyecto/assets"
 for period, name in (("2022", "antes"), ("2026", "ahora")):
     Image.open(assets / f"s2_penol_{name}.webp").convert("RGB").save(out / f"s2-{period}.webp", quality=80, method=6)
 for reservoir in ("guavio", "betania", "urra"):

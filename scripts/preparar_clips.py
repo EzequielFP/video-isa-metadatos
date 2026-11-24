@@ -6,7 +6,7 @@ import subprocess
 from tempfile import TemporaryDirectory
 
 site = Path(__file__).resolve().parents[1]
-production = site.parent / "PRODUCCION_3D"
+production = site.parents[1] / "PRODUCCION_3D"
 output = site / "assets" / "media"
 output.mkdir(parents=True, exist_ok=True)
 

@@ -26,7 +26,7 @@ El script usa ffmpeg para dejar el video a 720 px de ancho en H.264, con arranqu
 
 ## Enlazar las carpetas de Google Drive
 
-Sube `VERSION_FINAL/VIDEO1`, `VERSION_FINAL/VIDEO2` y `VERSION_FINAL/VIDEO3` a Google Drive. En cada carpeta, configura el acceso que quieres dar a los visitantes. Para acceso público, elige **Cualquier persona con el enlace → Lector** y comprueba el enlace en una ventana privada.
+Sube `GRUPO_1/VERSION_FINAL/VIDEO1`, `GRUPO_1/VERSION_FINAL/VIDEO2` y `GRUPO_1/VERSION_FINAL/VIDEO3` a Google Drive. En cada carpeta, configura el acceso que quieres dar a los visitantes. Para acceso público, elige **Cualquier persona con el enlace → Lector** y comprueba el enlace en una ventana privada.
 
 Edita [metadatos/drive.json](metadatos/drive.json) y pega los tres enlaces dentro de `videos`, en las claves `"1"`, `"2"` y `"3"`. Los botones aparecen en la página de datos.
 
