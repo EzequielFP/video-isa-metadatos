@@ -18,9 +18,9 @@
     "descripcion": ""
   },
   "3": {
-    "src": "",
-    "poster": "assets/media/frontera-portada.webp",
-    "titulo": "",
+    "src": "assets/video/3.mp4",
+    "poster": "assets/video/3.webp",
+    "titulo": "La red que cruza fronteras",
     "descripcion": ""
   }
 }
