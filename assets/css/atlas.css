@@ -226,6 +226,11 @@ html.is-arriving body::after { content: ""; position: fixed; inset: 0; z-index: 
 .player-bar svg { width: 16px; height: 16px; }
 .player-bar .range { height: 20px; }
 .player-time { font: 600 .66rem var(--mono); font-variant-numeric: tabular-nums; }
+/* Pantalla completa: el video vertical se ve entero (contain) y los controles siguen su ancho, no el del monitor */
+.phone.is-full { border: 0; box-shadow: none; background: #000; --vw-video: min(100%, 100vh * 9 / 16); }
+.phone.is-full video, .phone.is-full .poster { object-fit: contain; }
+.phone.is-full .player-bar { left: 0; right: 0; width: calc(var(--vw-video) - 20px); margin-inline: auto; }
+.phone.is-full .player-big { left: calc((100% - var(--vw-video)) / 2 + 14px); }
 
 /* ---------- Capítulos en pila ---------- */
 .stack { display: grid; gap: 0; }

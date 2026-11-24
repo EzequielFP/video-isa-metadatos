@@ -92,8 +92,12 @@ export async function setupPlayer(root) {
     mute.setAttribute("aria-label", video.muted ? "Activar sonido" : "Silenciar");
   });
   full.addEventListener("click", () => {
-    if (root.requestFullscreen) root.requestFullscreen().catch(() => video.webkitEnterFullscreen?.());
+    if (document.fullscreenElement === root) document.exitFullscreen();
+    else if (root.requestFullscreen) root.requestFullscreen().catch(() => video.webkitEnterFullscreen?.());
     else video.webkitEnterFullscreen?.();
   });
+  // En pantalla completa el marco ocupa toda la pantalla (horizontal en PC): la clase is-full
+  // hace que el video vertical se vea entero, sin recorte (ver .phone.is-full en atlas.css).
+  document.addEventListener("fullscreenchange", () => root.classList.toggle("is-full", document.fullscreenElement === root));
   new IntersectionObserver(([item]) => { if (!item.isIntersecting) video.pause(); }, { threshold: 0.15 }).observe(root);
 }
