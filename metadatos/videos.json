@@ -22,5 +22,15 @@
     "poster": "assets/video/3.webp",
     "titulo": "La red que cruza fronteras",
     "descripcion": ""
+  },
+  "4": {
+    "src": "assets/video/4.mp4",
+    "poster": "assets/video/4.webp",
+    "titulo": "La costa no duerme"
+  },
+  "5": {
+    "src": "assets/video/5.mp4",
+    "poster": "assets/video/5.webp",
+    "titulo": "Seis horas de luz"
   }
 }

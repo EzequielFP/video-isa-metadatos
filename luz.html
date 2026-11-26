@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f2eee4">
+  <meta name="description" content="En Colombia hay pueblos donde la luz llega seis horas al día. Explora el horario de las 162 localidades no interconectadas, la distancia a la red, el costo del diésel y lo que cambia con el sol.">
+  <title>Seis horas de luz · De Watts a Wow</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/vendor/fonts/overused-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/atlas.css">
+  <script>try{var c=JSON.parse(sessionStorage.getItem("atlas-cortina")||"null");if(c&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("is-arriving");document.documentElement.style.setProperty("--arrive",c.color)}}catch(e){}</script>
+  <script type="module" src="assets/js/app.js"></script>
+</head>
+<body class="tema-luz">
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="./" aria-label="De Watts a Wow, portada"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="var(--accent)" stroke="#13141a" stroke-width="2"/><path d="M3 23c4-1 6-5 11-5s7 4 15 2M3 14c4-2 7-6 12-6s8 3 14 1" fill="none" stroke="#13141a" stroke-width="1.6" opacity=".45"/><path d="M18 3l-6 14h5l-3 12 9-16h-5l4-10z" fill="#fff" stroke="#13141a" stroke-width="1.5" stroke-linejoin="round"/></svg><span>De Watts <i>a</i> Wow</span></a>
+      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html"><span>03</span>Red</a><a href="costa.html"><span>04</span>Costa</a><a href="luz.html" aria-current="page"><span>05</span>Luz</a><a href="datos.html?video=5"><span>↓</span>Datos</a></nav>
+      <div class="geo-readout" data-geo-readout aria-hidden="true"></div>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="ch-hero" data-expand aria-labelledby="titulo">
+      <div class="ch-hero-pin">
+        <div class="ch-hero-media">
+          <img src="assets/media/luz-portada.webp" alt="" fetchpriority="high">
+          <video data-src="assets/media/luz-vuelo.mp4" muted playsinline preload="none" aria-hidden="true"></video>
+        </div>
+        <div class="ch-hero-title">
+          <p class="kicker"><b>Capítulo 05</b> Zonas no interconectadas</p>
+          <h1 id="titulo"><span class="row">Seis horas</span> <span class="row">de luz.</span></h1>
+        </div>
+        <div class="ch-hero-sub">
+          <div><p>En Colombia hay pueblos donde la luz llega seis horas al día. No es un apagón: es el horario. Recorre las 162 localidades medidas, la distancia a la red, la cuenta del diésel y lo que cambia con el sol.</p><p class="fine">Darién de noche · Vuelo renderizado en Blender</p></div>
+          <nav class="ch-jumps" aria-label="Escenas del capítulo"><a href="#video-5"><span>01</span>Video</a><a href="#horario"><span>02</span>Horario</a><a href="#red"><span>03</span>La red</a><a href="#diesel"><span>04</span>Diésel</a><a href="#sol"><span>05</span>Sol</a><a href="#plata"><span>06</span>Decisión</a></nav>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee accent" data-marquee="44" aria-hidden="true">
+      <div class="marquee-track"><div class="marquee-item">
+        <span>6 horas</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4M3 3l3 3M14 14l3 3M17 3l-3 3M6 14l-3 3" stroke="currentColor" stroke-width="2"/></svg>
+        <span>120 de 162</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4M3 3l3 3M14 14l3 3M17 3l-3 3M6 14l-3 3" stroke="currentColor" stroke-width="2"/></svg>
+        <span>89,7 % cerca</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4M3 3l3 3M14 14l3 3M17 3l-3 3M6 14l-3 3" stroke="currentColor" stroke-width="2"/></svg>
+        <span>× 2,5 subsidio</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4M3 3l3 3M14 14l3 3M17 3l-3 3M6 14l-3 3" stroke="currentColor" stroke-width="2"/></svg>
+        <span>24 de 25</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4M3 3l3 3M14 14l3 3M17 3l-3 3M6 14l-3 3" stroke="currentColor" stroke-width="2"/></svg>
+        <span>89 % solar</span><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="4" fill="currentColor"/><path d="M10 0v4M10 16v4M0 10h4M16 10h4M3 3l3 3M14 14l3 3M17 3l-3 3M6 14l-3 3" stroke="currentColor" stroke-width="2"/></svg>
+      </div></div>
+    </div>
+
+    <section class="section video-sec on-accent" id="video-5" aria-labelledby="video-title">
+      <div class="wrap video-grid">
+        <div class="video-copy">
+          <p class="kicker"><b>01 · El video</b> Capítulo 05</p>
+          <h2 id="video-title" data-split>Seis horas de luz.</h2>
+          <p class="lede" data-video-text="5">La luz no falta por la distancia: falta por plata y por decisión. Míralo y luego enciende el reloj de las localidades, mide la red y haz la cuenta del sol.</p>
+          <dl class="video-facts">
+            <div><dt>Formato</dt><dd>Vertical 9:16</dd></div>
+            <div><dt>Duración</dt><dd data-video-duration>—</dd></div>
+            <div><dt>Capítulo</dt><dd>05 · Luz</dd></div>
+          </dl>
+        </div>
+        <div class="phone" data-player="5" data-reveal></div>
+      </div>
+    </section>
+
+    <section class="section" id="horario" aria-labelledby="horario-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>02 · IPSE</b> 162 localidades con telemetría</p>
+          <h2 class="display" id="horario-title" data-split>No es un apagón: es el horario.</h2>
+          <p>Cada punto es una localidad no interconectada con su planta medida. Deja correr el día y mira cuántas tienen luz a cada hora. Tres de cada cuatro reciben menos de doce horas.</p>
+        </div>
+        <div class="lab" data-horario>
+          <div class="lab-head"><h3>Localidades con luz a esta hora</h3><button class="chip" type="button" data-play aria-pressed="true">Pausar</button></div>
+          <div class="horario-grid">
+            <div class="lab-fig"><canvas data-mapa aria-label="Mapa nocturno de Colombia con las 162 localidades no interconectadas encendiéndose según sus horas de servicio"></canvas></div>
+            <div class="horario-side">
+              <canvas data-hist aria-label="Histograma de horas de servicio al día"></canvas>
+              <div>
+                <p class="kicker"><b>CREG</b> Horas de servicio por tamaño</p>
+                <table class="horas">
+                  <thead><tr><th>Usuarios de la localidad</th><th>Horas al día</th></tr></thead>
+                  <tbody><tr><td>Más de 300</td><td>24</td></tr><tr><td>151 a 300</td><td>10</td></tr><tr><td>51 a 151*</td><td>8</td></tr><tr><td>Hasta 50</td><td>6</td></tr></tbody>
+                </table>
+                <p class="fine">* Así aparece en el documento CREG 901 299 de 2025, que repite 151 en dos tramos.</p>
+              </div>
+            </div>
+          </div>
+          <div class="observation"><label for="horario-hora">Hora</label><input class="range" id="horario-hora" data-hora type="range" min="0" max="23.95" step="0.05" value="18"><p data-lectura role="status">Cargando datos…</p></div>
+          <p class="fine lab-note">IPSE, telemetría de octubre de 2025 a septiembre de 2026: horas promedio de servicio al día. La telemetría no dice a qué hora: el horario del mapa es ilustrativo y centra el servicio en la noche.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section on-paper2" id="red" aria-labelledby="red-title">
+      <div class="wrap pair">
+        <div class="copy">
+          <p class="kicker"><b>03 · UPME</b> ICEE 2024 y red de transmisión</p>
+          <h2 id="red-title" data-split>Más cerca de la red de lo que parece.</h2>
+          <p>Casi <b>1,46 millones</b> de viviendas no tienen electricidad. Uno pensaría que están en la selva, lejos de todo. Arrastra la cortina: de un lado, las luces de noche; del otro, dónde están las viviendas rurales sin servicio y los municipios con localidades no interconectadas.</p>
+          <p class="fine">Cada punto naranja representa 400 viviendas rurales sin servicio, ubicado dentro de su municipio · UPME, ICEE 2024 · NOAA VIIRS</p>
+        </div>
+        <figure class="lamina cmp compare-tall" data-compare data-mode="curtain">
+          <div class="cmp-view">
+            <img src="assets/media/luz-sin-servicio.webp" alt="Viviendas rurales sin servicio y municipios con zonas no interconectadas" loading="lazy">
+            <img class="cmp-top" src="assets/media/luz-noche.webp" alt="Luces nocturnas de Colombia según VIIRS" loading="lazy">
+            <span class="cmp-handle" aria-hidden="true"><i></i><b></b></span>
+            <span class="cmp-tag a">Luces de noche</span><span class="cmp-tag b">Sin servicio</span>
+            <div class="cmp-lens" aria-hidden="true"></div>
+          </div>
+          <div class="cmp-tools">
+            <div class="chip-group" role="group" aria-label="Modo de comparación"><button class="chip" type="button" data-cmp-mode="curtain" aria-pressed="true">Cortina</button><button class="chip" type="button" data-cmp-mode="blink" aria-pressed="false">Parpadeo</button><button class="chip" type="button" data-cmp-lens aria-pressed="false">Lupa ×3</button></div>
+            <label class="cmp-slider"><span class="sr-only">Posición de la cortina</span><input class="range" type="range" min="0" max="100" value="50"></label>
+          </div>
+          <figcaption class="lamina-cap"><span><b>FIG. 03</b> VIIRS · ICEE 2024 · zonas no interconectadas</span><span>Relieve Copernicus</span></figcaption>
+        </figure>
+      </div>
+      <div class="wrap" style="margin-top: clamp(60px, 9vw, 120px)">
+        <div class="lab anillos" data-anillos>
+          <div class="lab-head"><h3>Anillos alrededor de las 460 subestaciones de la UPME</h3><span class="fine">Mueve el radio</span></div>
+          <div class="lab-fig"><canvas aria-label="Mapa de viviendas rurales sin servicio y anillos de distancia a las subestaciones"></canvas></div>
+          <div class="observation"><label for="anillos-km">Radio</label><input class="range" id="anillos-km" data-km type="range" min="0" max="150" step="1" value="0"><p data-lectura role="status">Cargando datos…</p></div>
+          <p class="fine lab-note">La distancia se mide desde la cabecera de cada municipio hasta la subestación más cercana (UPME), no desde cada casa. Con 50 km el cálculo municipal da el 89,7 % de 1.026.550 viviendas rurales sin servicio analizadas.</p>
+        </div>
+        <div class="stats" style="margin-top: clamp(36px, 5vw, 64px)">
+          <article class="stat"><span class="num"><span data-count="89.7" data-decimals="1">89,7</span><small>%</small></span><p>De las viviendas rurales sin luz está en municipios cuya cabecera queda a menos de 50 km de una subestación.</p><p class="fine">UPME · cálculo propio</p></article>
+          <article class="stat"><span class="num"><span data-count="88.8" data-decimals="1">88,8</span><small>%</small></span><div class="bar"><i style="--v:88.8%"></i></div><p>De cobertura rural donde la cabecera está a más de 2.000 m; por debajo de 200 m, <b>62,7 %</b>. La montaña está mejor conectada.</p><p class="fine">UPME · ICEE 2024 · Copernicus DEM</p></article>
+          <article class="stat"><span class="num"><span data-count="46.4" data-decimals="1">46,4</span><small>%</small></span><p>Del hueco rural está en el Caribe. Y el 21 % de sus edificaciones se ve a oscuras de noche.</p><p class="fine">UPME · Open Buildings y VIIRS (GEE)</p></article>
+          <article class="stat"><span class="num"><span data-count="73">73</span><small>%</small></span><p>De las casas rurales sin luz está en municipios donde al menos la mitad de la gente del campo es pobre.</p><p class="fine">DANE · IPM municipal 2018</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diesel" aria-labelledby="diesel-title">
+      <div class="wrap pair">
+        <figure class="flow-film" data-reveal><video controls playsinline preload="none" poster="assets/media/flow-caseta-diesel.webp" src="assets/media/flow-caseta-diesel.mp4" aria-label="Ilustración generada con Flow de una operadora revisando la planta diésel de un pueblo del Pacífico" muted></video><figcaption>Recreación visual generada con IA · Google Flow</figcaption></figure>
+        <div class="copy">
+          <p class="kicker"><b>04 · SUI-Superservicios</b> Facturación de las zonas no interconectadas</p>
+          <h2 id="diesel-title" data-split>Esa luz es carísima.</h2>
+          <p>Más allá de la red, los pueblos del Pacífico, la Amazonía y la Orinoquía generan su luz con plantas diésel. Por cada kilovatio hora residencial, el Estado pone en subsidio <span class="mark">dos veces y media</span> lo que pagan los propios usuarios.</p>
+          <div class="subsidio" data-subsidio></div>
+          <p>En Mitú el subsidio llegó a <b>2.285 pesos por kWh</b> en 2025.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section on-paper2" id="sol" aria-labelledby="sol-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>05 · Modelo propio</b> 25 cabeceras, hora por hora</p>
+          <h2 class="display" id="sol-title" data-split>El sol cambia la cuenta.</h2>
+          <p>Hicimos las cuentas hora por hora, con el sol de cada pueblo y con lo que de verdad les cuesta hoy la energía. En 24 de las 25 cabeceras, sumar paneles y baterías sale más barato que el diésel. Pasa el cursor por cada una.</p>
+        </div>
+        <div class="lab diesel" data-diesel>
+          <div class="lab-head"><h3>Costo de la energía · pesos por kWh</h3><span class="leyenda"><span style="color:#8a5a12">●</span> diésel hoy <span style="color:#ffb21c">●</span> híbrido solar <span style="color:var(--aqua)">●</span> línea a la red <span style="color:#9aa3ad">●</span> PCH</span></div>
+          <div class="lab-fig"><canvas aria-label="Costo por kWh en 25 cabeceras: diésel frente a híbrido solar con baterías"></canvas></div>
+          <p class="fine lab-note">Modelo ZNI v8: NASA POWER y ERA5 para el sol; costo real de generación de la Superservicios (Q1-2026) y eficiencia medida de 13 a 16 kWh por galón. Bahía Solano genera sobre todo con la PCH Mutatá. Es un escenario modelado, no una instalación existente.</p>
+        </div>
+        <div class="stats" style="margin-top: clamp(36px, 5vw, 64px)">
+          <article class="stat"><span class="num"><span data-count="24">24</span><small>de 25</small></span><p>Cabeceras donde el híbrido solar con baterías abarata el diésel.</p><p class="fine">Modelo propio</p></article>
+          <article class="stat"><span class="num"><span data-count="4.5" data-decimals="1">4,5</span><small>años</small></span><p>Para pagar la inversión (mediana; entre 3,9 y 5,8 años). Son unos <b>652.000 millones</b> de pesos.</p><p class="fine">Modelo propio</p></article>
+          <article class="stat"><span class="num"><span data-count="8.7" data-decimals="1">8,7</span><small>M gal</small></span><p>Galones de diésel que se dejarían de quemar cada año, unas <b>88.000 toneladas</b> de CO₂.</p><p class="fine">Modelo propio</p></article>
+          <article class="stat"><span class="num"><span data-count="89">89</span><small>%</small></span><div class="bar"><i style="--v:89%;--c:#ffb21c"></i></div><p>De la energía de Mitú podría venir del sol. El diésel llega por río y, en las sequías, en avión.</p><p class="fine">Modelo propio · Mitú, Vaupés</p></article>
+        </div>
+      </div>
+      <div class="wrap pair" style="margin-top: clamp(60px, 9vw, 120px)">
+        <div class="copy">
+          <p class="kicker"><b>Y la red</b> Trazado de menor costo · DEM de 12,5 m</p>
+          <h2 data-split>Donde gana la línea.</h2>
+          <p>En el modelo, la conexión a la red gana solo en dos pueblos: <b>Nuquí</b> y <b>Unguía</b>. La línea de Nuquí a Quibdó tendría 73 km, y el 97 % de su franja pasa por bosque.</p>
+          <p class="fine">Trazado propio sobre el DEM de 12,5 m · ESA WorldCover y Hansen en Google Earth Engine</p>
+        </div>
+        <figure class="flow-film" data-reveal><video controls playsinline preload="none" poster="assets/media/flow-microrred.webp" src="assets/media/flow-microrred.mp4" aria-label="Ilustración generada con Flow de una microrred solar con baterías junto a casas de la Amazonía" muted></video><figcaption>Microrred ilustrativa para Mitú · Recreación visual generada con IA · Google Flow</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section on-ink" id="plata" aria-labelledby="plata-title">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker"><b>06 · UPME</b> Plan Indicativo de Expansión de Cobertura 2024–2028</p>
+          <h2 class="display" id="plata-title" data-split>Plata y decisión.</h2>
+          <p>Conectar a todas las viviendas cuesta treinta y dos billones de pesos. Y la solución más usada no es extender cables: son las microrredes.</p>
+        </div>
+        <div class="stats">
+          <article class="stat"><span class="num"><span data-count="32.2" data-decimals="1">32,2</span><small>billones</small></span><p>De pesos para llevar la luz a todas las viviendas que faltan.</p><p class="fine">UPME · PIEC 2024–2028</p></article>
+          <article class="stat"><span class="num"><span data-count="23.5" data-decimals="1">23,5</span><small>M</small></span><p>Millones de pesos en promedio por cada vivienda conectada.</p><p class="fine">UPME · PIEC</p></article>
+          <article class="stat"><span class="num"><span data-count="46.8" data-decimals="1">46,8</span><small>%</small></span><p>De la inversión del plan va a microrredes, que atienden el <b>47,4 %</b> de las viviendas.</p><p class="fine">UPME · PIEC</p></article>
+          <article class="stat"><span class="num">× <span data-count="2.5" data-decimals="1">2,5</span></span><p>El subsidio frente a lo que pagan los usuarios de las zonas no interconectadas en 2025.</p><p class="fine">SUI · Superservicios</p></article>
+        </div>
+        <p class="cierre" style="margin-top: clamp(56px, 8vw, 110px)">La luz no falta por la distancia. <span class="acento">Falta por plata y por decisión.</span></p>
+      </div>
+    </section>
+
+    <a class="next-ch" href="./">
+      <img src="assets/media/costa-portada.webp" alt="" loading="lazy">
+      <div class="wrap">
+        <p class="kicker"><b>Volver</b> Portada del atlas</p>
+        <div><h2>De Watts a Wow.</h2><br><span class="card-go"><span aria-hidden="true">→</span>Ver todos los capítulos</span></div>
+      </div>
+    </a>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div><p class="kicker">De Watts a Wow</p><h2>Un atlas para entender la energía que usamos.</h2></div>
+        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li><li><a href="costa.html">04 · La costa no duerme</a></li><li><a href="luz.html">05 · Seis horas de luz</a></li></ul></div>
+        <div><p class="kicker">Proyecto</p><ul><li><a href="datos.html">Catálogo de datos</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Metadatos y metodología</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos">Código en GitHub</a></li></ul></div>
+      </div>
+      <p class="foot-word" aria-hidden="true">Watts <i>a</i> Wow</p>
+      <div class="foot-bottom"><span>Fuentes: IPSE · CREG · UPME · DANE · SUI-Superservicios · NASA POWER · ERA5 · NOAA VIIRS · Copernicus · Música del video: «Run», Kai Engel (CC BY 4.0)</span><span>Las recreaciones hechas con IA están rotuladas en cada escena</span></div>
+    </div>
+  </footer>
+</body>
+</html>

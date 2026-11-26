@@ -36,6 +36,8 @@ const themes = {
   "agua.html": { color: "#2b3bff", ink: "#ffffff", num: "01", label: "Agua · El Niño y la luz" },
   "solar.html": { color: "#ffc21c", ink: "#13141a", num: "02", label: "Sol · Guardar el sol" },
   "fronteras.html": { color: "#c8f04c", ink: "#13141a", num: "03", label: "Red · Cruzar fronteras" },
+  "costa.html": { color: "#ff5b3a", ink: "#13141a", num: "04", label: "Costa · La costa no duerme" },
+  "luz.html": { color: "#7b5cff", ink: "#ffffff", num: "05", label: "Luz · Seis horas de luz" },
   "datos.html": { color: "#13141a", ink: "#f2eee4", num: "→", label: "Datos abiertos" },
 };
 const curtain = document.createElement("div");
@@ -355,6 +357,15 @@ const scenes = [
   ["[data-catalog]", () => import("./catalogo.js"), "setupCatalog"],
   ["[data-home-stats]", () => import("./inicio.js"), "setupStats"],
   ["[data-figure]", (el) => FIGURES[el.dataset.figure]?.(), "setupFigure"],
+  ["[data-reloj]", () => import("./costa.js"), "setupReloj"],
+  ["[data-waffle]", () => import("./costa.js"), "setupWaffle"],
+  ["[data-bosque]", () => import("./costa.js"), "setupBosque"],
+  ["[data-calor]", () => import("./costa.js"), "setupCalor"],
+  ["[data-crece]", () => import("./costa.js"), "setupCrece"],
+  ["[data-horario]", () => import("./luz.js"), "setupHorario"],
+  ["[data-anillos]", () => import("./luz.js"), "setupAnillos"],
+  ["[data-diesel]", () => import("./luz.js"), "setupDiesel"],
+  ["[data-subsidio]", () => import("./luz.js"), "setupSubsidio"],
 ];
 function loadScenes() {
   const near = new IntersectionObserver((entries) => {

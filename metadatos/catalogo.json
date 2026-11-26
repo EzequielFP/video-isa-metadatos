@@ -1075,5 +1075,400 @@
     "sourceUrl": "https://eprsiepac.com/linea-siepac/",
     "storage": "source",
     "format": "WEB"
+  },
+  {
+    "id": "recurso-58",
+    "videos": [
+      4
+    ],
+    "title": "Demanda por hora de cuatro mercados",
+    "description": "Promedio por hora de la demanda comercial regulada en enero de 2024, en MWh y hora de Colombia. Es la base del reloj de 24 horas.",
+    "source": "XM, SUI, DANE, UPME y ERA5-Land",
+    "storage": "github",
+    "filename": "demanda_horaria_mercados_2024-01.csv",
+    "format": "CSV",
+    "path": "archivos/video-4/demanda_horaria_mercados_2024-01.csv",
+    "sha256": "7893412c8dc0c15958378bdb00edc0d52c1f348542234dc2ac6fe8a5b070a404",
+    "columns": [
+      "hora",
+      "Cali-Yumbo_MWh",
+      "Bogotá-Cundinamarca_MWh",
+      "Antioquia_MWh",
+      "Caribe_MWh"
+    ],
+    "rows": 24,
+    "bytes": 762,
+    "period": "2024-01"
+  },
+  {
+    "id": "recurso-59",
+    "videos": [
+      4
+    ],
+    "title": "Consumo, cobertura y calor por municipio",
+    "description": "Consumo residencial por persona y día (SUI y DANE, ene–feb 2024), cobertura de energía (ICEE 2024) y temperatura a las 3 a. m. (ERA5-Land, muestreada en la cabecera).",
+    "source": "XM, SUI, DANE, UPME y ERA5-Land",
+    "storage": "github",
+    "filename": "municipios_consumo_cobertura_temperatura.csv",
+    "format": "CSV",
+    "path": "archivos/video-4/municipios_consumo_cobertura_temperatura.csv",
+    "sha256": "83d5236470db6aeb0e65b3f5b84cabebc7c4a5fbbd9dbe4fe0e71e90eabc8a93",
+    "columns": [
+      "cod_dane",
+      "municipio",
+      "departamento",
+      "lon",
+      "lat",
+      "kwh_persona_dia",
+      "icee_pct",
+      "poblacion",
+      "temp_03h_C"
+    ],
+    "rows": 1064,
+    "bytes": 65423,
+    "period": "2024"
+  },
+  {
+    "id": "recurso-60",
+    "videos": [
+      4
+    ],
+    "title": "Demanda diaria por mercado, 2021–2026",
+    "description": "Demanda comercial media por día, de enero a octubre de cada año, en GWh. El Caribe incluye a Cesar desde agosto de 2026.",
+    "source": "XM, SUI, DANE, UPME y ERA5-Land",
+    "storage": "github",
+    "filename": "demanda_diaria_por_mercado_2021_2026.csv",
+    "format": "CSV",
+    "path": "archivos/video-4/demanda_diaria_por_mercado_2021_2026.csv",
+    "sha256": "7f7f899da487fb64f662c87c42b47f7e3278f3e1a011df6cc3c9a35a1fbead70",
+    "columns": [
+      "anio",
+      "Caribe_GWh_dia",
+      "Bogotá-Cundinamarca_GWh_dia",
+      "Antioquia_GWh_dia",
+      "Cali-Yumbo_GWh_dia",
+      "Nacional_GWh_dia"
+    ],
+    "rows": 6,
+    "bytes": 435,
+    "period": "2021 a 2026 (ene–oct)"
+  },
+  {
+    "id": "recurso-61",
+    "videos": [
+      4
+    ],
+    "title": "Datos de la página del capítulo 04",
+    "description": "Todo lo que dibujan las escenas interactivas, en un solo archivo: series, municipios, puntos y el contorno de Colombia.",
+    "source": "XM (demanda por mercado, ene-2024; demanda comercial 2021–2026) · SUI y DANE (consumo residencial ene–feb 2024) · UPME (ICEE 2024; proyección de demanda rev. jul-2026; Res. 355 de 2004) · ECMWF ERA5-Land (GEE)",
+    "storage": "github",
+    "filename": "costa.json",
+    "format": "JSON",
+    "path": "assets/datos/costa.json",
+    "sha256": "68bed90e1f6641c5ed6c9178eb76087b10162905751ca335d8cf805865c2f6ed",
+    "bytes": 90529,
+    "period": "2021 a 2026"
+  },
+  {
+    "id": "recurso-62",
+    "videos": [
+      4
+    ],
+    "title": "Demanda comercial por mercado",
+    "description": "Demanda horaria por mercado de comercialización, consultada en la API de XM. Base de los perfiles de 24 horas y del crecimiento 2021–2026.",
+    "source": "XM · Sinergox",
+    "sourceUrl": "https://sinergox.xm.com.co/",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2021-01 a 2026-10"
+  },
+  {
+    "id": "recurso-63",
+    "videos": [
+      4
+    ],
+    "title": "Índice de Cobertura de Energía Eléctrica 2024",
+    "description": "Boletín del ICEE por municipio: cobertura total, urbana y rural.",
+    "source": "UPME · SIMEC",
+    "sourceUrl": "https://docs.upme.gov.co/SIMEC/Energia%20Electrica/Documents/Informes_cobertura/Boletin_ICEE_2024.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "2024"
+  },
+  {
+    "id": "recurso-64",
+    "videos": [
+      4
+    ],
+    "title": "Proyección de demanda de energía eléctrica",
+    "description": "Revisión de julio de 2026 de la proyección de demanda y potencia máxima.",
+    "source": "UPME",
+    "sourceUrl": "https://docs.upme.gov.co/DemandayEficiencia/Documents/Proyecciones_demanda_Energia_Electrica_y_Potencia_Maxima_Rev_Julio_2026_VRF.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "Julio de 2026"
+  },
+  {
+    "id": "recurso-65",
+    "videos": [
+      4
+    ],
+    "title": "Consumo de subsistencia · Resolución UPME 355 de 2004",
+    "description": "Define el consumo de subsistencia según la altura del municipio (por debajo o por encima de 1.000 m).",
+    "source": "UPME · gestor normativo de la CREG",
+    "sourceUrl": "https://gestornormativo.creg.gov.co/gestor/entorno/docs/resolucion_upme_0355_2004.htm",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2004"
+  },
+  {
+    "id": "recurso-66",
+    "videos": [
+      4
+    ],
+    "title": "ERA5-Land por hora",
+    "description": "Temperatura del aire a 2 m. El capítulo usa la media de las 3 a. m. de enero y febrero de 2024, exportada desde Earth Engine.",
+    "source": "ECMWF · Google Earth Engine",
+    "sourceUrl": "https://developers.google.com/earth-engine/datasets/catalog/ECMWF_ERA5_LAND_HOURLY",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2024-01 a 2024-02"
+  },
+  {
+    "id": "recurso-67",
+    "videos": [
+      4
+    ],
+    "title": "Sistema Único de Información",
+    "description": "Consumo residencial facturado por municipio, enero y febrero de 2024. Se divide por la población del DANE.",
+    "source": "Superservicios · SUI",
+    "sourceUrl": "https://sui.superservicios.gov.co/",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2024-01 a 2024-02"
+  },
+  {
+    "id": "recurso-68",
+    "videos": [
+      5
+    ],
+    "title": "Horas de luz por localidad",
+    "description": "Horas de servicio por día en las 162 localidades de las Zonas No Interconectadas con telemetría del IPSE.",
+    "source": "IPSE, CREG, UPME, Superservicios y modelo propio",
+    "storage": "github",
+    "filename": "localidades_zni_horas_servicio.csv",
+    "format": "CSV",
+    "path": "archivos/video-5/localidades_zni_horas_servicio.csv",
+    "sha256": "9630d6631856793ee71a6f1a15ab48b19f5b3293babfd98af3ce5361b22714c8",
+    "columns": [
+      "localidad",
+      "lon",
+      "lat",
+      "horas_dia"
+    ],
+    "rows": 162,
+    "bytes": 5254,
+    "period": "2025-10 a 2026-09"
+  },
+  {
+    "id": "recurso-69",
+    "videos": [
+      5
+    ],
+    "title": "Horarios mínimos de la CREG",
+    "description": "Horas de servicio exigidas según el número de usuarios de la localidad.",
+    "source": "IPSE, CREG, UPME, Superservicios y modelo propio",
+    "storage": "github",
+    "filename": "horarios_creg_zni.csv",
+    "format": "CSV",
+    "path": "archivos/video-5/horarios_creg_zni.csv",
+    "sha256": "dea4a26fb97d0d1692afd06dc299623250428098f0a67cea466c25def1b2035c",
+    "columns": [
+      "usuarios_localidad",
+      "horas_dia"
+    ],
+    "rows": 4,
+    "bytes": 69,
+    "period": "2025"
+  },
+  {
+    "id": "recurso-70",
+    "videos": [
+      5
+    ],
+    "title": "Distancia a la red y viviendas sin servicio",
+    "description": "Distancia de cada cabecera municipal a la subestación más cercana de la UPME y viviendas rurales sin servicio (PIEC). Con esta tabla se calcula el anillo de 50 km.",
+    "source": "IPSE, CREG, UPME, Superservicios y modelo propio",
+    "storage": "github",
+    "filename": "municipios_distancia_subestacion.csv",
+    "format": "CSV",
+    "path": "archivos/video-5/municipios_distancia_subestacion.csv",
+    "sha256": "7c29e39ee25e9205b35b191f41a2e259306bac3ce277f41b7b581f57f0ca6a9d",
+    "columns": [
+      "cod_dane",
+      "municipio",
+      "departamento",
+      "km_cabecera_subestacion",
+      "viviendas_rurales_sin_servicio"
+    ],
+    "rows": 791,
+    "bytes": 27651,
+    "period": "2024"
+  },
+  {
+    "id": "recurso-71",
+    "videos": [
+      5
+    ],
+    "title": "Costo de la energía en 25 cabeceras",
+    "description": "Modelo propio, hora por hora: costo actual con diésel y costo con un híbrido solar o con una línea a la red, en pesos por kWh.",
+    "source": "IPSE, CREG, UPME, Superservicios y modelo propio",
+    "storage": "github",
+    "filename": "cabeceras_hibrido_solar.csv",
+    "format": "CSV",
+    "path": "archivos/video-5/cabeceras_hibrido_solar.csv",
+    "sha256": "4cffb1478252aa31222320a0a084634c0024c8f20ea0ac2c23af78c83e382f77",
+    "columns": [
+      "cod_dane",
+      "cabecera",
+      "lon",
+      "lat",
+      "fraccion_solar",
+      "diesel_COP_kWh",
+      "hibrido_COP_kWh",
+      "linea_COP_kWh",
+      "galones_ahorrados_ano",
+      "mejor_opcion"
+    ],
+    "rows": 25,
+    "bytes": 1972,
+    "period": "2026"
+  },
+  {
+    "id": "recurso-72",
+    "videos": [
+      5
+    ],
+    "title": "Lo que paga el usuario y el subsidio",
+    "description": "Promedio por kWh en las Zonas No Interconectadas: lo que paga el usuario y lo que pone el Estado.",
+    "source": "IPSE, CREG, UPME, Superservicios y modelo propio",
+    "storage": "github",
+    "filename": "facturacion_subsidio_zni.csv",
+    "format": "CSV",
+    "path": "archivos/video-5/facturacion_subsidio_zni.csv",
+    "sha256": "2435f2b644901eefb457a06bda9a5dacff833c72646ca43a95af1fe6da7235ab",
+    "columns": [
+      "anio",
+      "paga_usuario_COP_kWh",
+      "subsidio_COP_kWh"
+    ],
+    "rows": 3,
+    "bytes": 97,
+    "period": "2023 a 2025"
+  },
+  {
+    "id": "recurso-73",
+    "videos": [
+      5
+    ],
+    "title": "Datos de la página del capítulo 05",
+    "description": "Todo lo que dibujan las escenas interactivas, en un solo archivo: series, municipios, puntos y el contorno de Colombia.",
+    "source": "IPSE (telemetría oct-2025 a sep-2026) · CREG (Doc. 901 299 de 2025) · UPME (ICEE 2024, red y subestaciones, PIEC 2024–2028) · DANE (IPM 2018) · SUI-Superservicios (facturación ZNI) · modelo propio con NASA POWER y ERA5",
+    "storage": "github",
+    "filename": "luz.json",
+    "format": "JSON",
+    "path": "assets/datos/luz.json",
+    "sha256": "ff90df20d83bead3613cbbb9e969ee1da84c449a21a00666a260e48335b9a833",
+    "bytes": 114478,
+    "period": "2018 a 2026"
+  },
+  {
+    "id": "recurso-74",
+    "videos": [
+      5
+    ],
+    "title": "Informes de telemetría de las ZNI",
+    "description": "Horas de servicio diarias de las localidades monitoreadas por el Centro Nacional de Monitoreo.",
+    "source": "IPSE",
+    "sourceUrl": "https://ipse.gov.co/",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2025-10 a 2026-09"
+  },
+  {
+    "id": "recurso-75",
+    "videos": [
+      5
+    ],
+    "title": "Documento CREG 901 299 de 2025",
+    "description": "Horarios mínimos de prestación según el número de usuarios de cada localidad.",
+    "source": "CREG",
+    "sourceUrl": "https://gestornormativo.creg.gov.co/gestor/entorno/docs/originales/Proyecto_Resoluci%C3%B3n_CREG_701_113_2025/Documento_CREG_901_299_2025.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "2025"
+  },
+  {
+    "id": "recurso-76",
+    "videos": [
+      5
+    ],
+    "title": "Plan Indicativo de Expansión de Cobertura 2024–2028",
+    "description": "Viviendas sin servicio, inversión estimada y solución propuesta (red, microrred o solución individual).",
+    "source": "UPME",
+    "sourceUrl": "https://docs.upme.gov.co/SIMEC/Energia%20Electrica/PIEC/2024-2028/PIEC_2024-2028_Vfinal.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "2024–2028"
+  },
+  {
+    "id": "recurso-77",
+    "videos": [
+      5
+    ],
+    "title": "Capa del PIEC en el geoportal",
+    "description": "Servicio de mapas de la UPME con las capas del plan de cobertura.",
+    "source": "UPME · geoportal",
+    "sourceUrl": "https://geo.upme.gov.co/server/rest/services/Capas_EnergiaElectrica/plan_indicativo_expansion_cobertura/FeatureServer/32",
+    "storage": "source",
+    "format": "WEB"
+  },
+  {
+    "id": "recurso-78",
+    "videos": [
+      5
+    ],
+    "title": "Boletín tarifario de las ZNI",
+    "description": "Tarifa, subsidio y consumo facturado por localidad. Base del cálculo de cuánto pone el Estado por cada kWh.",
+    "source": "Superservicios",
+    "sourceUrl": "https://www.superservicios.gov.co/sites/default/files/inline-files/Boletin-Tarifario-ZNI-III-Trimestre-de-2025_1.pdf",
+    "storage": "source",
+    "format": "PDF",
+    "period": "III trimestre de 2025"
+  },
+  {
+    "id": "recurso-79",
+    "videos": [
+      5
+    ],
+    "title": "Medida de pobreza multidimensional de fuente censal",
+    "description": "IPM rural por municipio, CNPV 2018.",
+    "source": "DANE",
+    "sourceUrl": "https://www.dane.gov.co/index.php/estadisticas-por-tema/pobreza-y-condiciones-de-vida/pobreza-y-desigualdad/medida-de-pobreza-multidimensional-de-fuente-censal",
+    "storage": "source",
+    "format": "WEB",
+    "period": "2018"
+  },
+  {
+    "id": "recurso-80",
+    "videos": [
+      5
+    ],
+    "title": "NASA POWER",
+    "description": "Radiación solar diaria en superficie para dimensionar el híbrido solar de cada cabecera.",
+    "source": "NASA Langley",
+    "sourceUrl": "https://power.larc.nasa.gov/",
+    "storage": "source",
+    "format": "WEB"
   }
 ]

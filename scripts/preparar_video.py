@@ -2,7 +2,7 @@
 
     python scripts/preparar_video.py <video de entrada> <clave> [--titulo "..."] [--descripcion "..."]
 
-<clave> es "final" (portada) o "1", "2", "3" (capítulos). Requiere ffmpeg en el PATH.
+<clave> es "final" (portada) o "1" a "5" (capítulos). Requiere ffmpeg en el PATH.
 
 Salidas:
 - assets/video/<clave>.mp4: H.264 de 720 px de ancho, CRF 24, AAC 128 kb/s y arranque rápido,
@@ -17,7 +17,7 @@ import subprocess
 
 parser = argparse.ArgumentParser()
 parser.add_argument("entrada", type=Path)
-parser.add_argument("clave", choices=["final", "1", "2", "3"])
+parser.add_argument("clave", choices=["final", "1", "2", "3", "4", "5"])
 parser.add_argument("--titulo", default=None)
 parser.add_argument("--descripcion", default=None)
 parser.add_argument("--crf", type=int, default=24)

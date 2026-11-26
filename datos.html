@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f2eee4">
-  <meta name="description" content="Catálogo de datos abiertos de De Watts a Wow: series de XM, CHIRPS y NOAA, rásteres satelitales y capas geográficas con su procedencia.">
+  <meta name="description" content="Catálogo de datos abiertos de De Watts a Wow: series de XM, CHIRPS y NOAA, rásteres satelitales, capas geográficas y tablas municipales de consumo, cobertura y zonas no interconectadas, con su procedencia.">
   <title>Datos abiertos · De Watts a Wow</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/vendor/fonts/overused-grotesk.woff2" as="font" type="font/woff2" crossorigin>
@@ -18,7 +18,7 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="logo" href="./" aria-label="De Watts a Wow, portada"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="var(--accent)" stroke="#13141a" stroke-width="2"/><path d="M3 23c4-1 6-5 11-5s7 4 15 2M3 14c4-2 7-6 12-6s8 3 14 1" fill="none" stroke="#fff" stroke-width="1.6" opacity=".75"/><path d="M18 3l-6 14h5l-3 12 9-16h-5l4-10z" fill="var(--sun)" stroke="#13141a" stroke-width="1.5" stroke-linejoin="round"/></svg><span>De Watts <i>a</i> Wow</span></a>
-      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html"><span>03</span>Red</a><a href="datos.html" aria-current="page"><span>↓</span>Datos</a></nav>
+      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html"><span>03</span>Red</a><a href="costa.html"><span>04</span>Costa</a><a href="luz.html"><span>05</span>Luz</a><a href="datos.html" aria-current="page"><span>↓</span>Datos</a></nav>
       <div class="geo-readout" data-geo-readout aria-hidden="true"></div>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
     </div>
@@ -28,14 +28,14 @@
     <header class="page-head wrap">
       <p class="kicker"><b>Datos abiertos</b> Catálogo de recursos</p>
       <h1 data-split>Todo lo que ves, descargable.</h1>
-      <p class="lede">Las series, los rásteres y las capas de los tres capítulos, con su fuente, su cobertura temporal y su huella SHA-256 para verificar cada archivo.</p>
+      <p class="lede">Las series, los rásteres y las capas de los cinco capítulos, con su fuente, su cobertura temporal y su huella SHA-256 para verificar cada archivo.</p>
     </header>
 
     <section class="wrap section tight" style="padding-top:0" id="catalogo" data-catalog aria-labelledby="catalog-title">
       <h2 class="sr-only" id="catalog-title">Catálogo de recursos</h2>
       <div class="catalog-tools">
         <label class="search-label">Buscar recursos<input id="search" type="search" placeholder="Ej. embalses, XM o GeoJSON"></label>
-        <label>Video<select id="video-filter"><option value="">Todos</option><option value="1">Video 1 · Agua</option><option value="2">Video 2 · Sol</option><option value="3">Video 3 · Red</option></select></label>
+        <label>Video<select id="video-filter"><option value="">Todos</option><option value="1">Video 1 · Agua</option><option value="2">Video 2 · Sol</option><option value="3">Video 3 · Red</option><option value="4">Video 4 · Costa</option><option value="5">Video 5 · Luz</option></select></label>
         <label>Formato<select id="format-filter"><option value="">Todos</option></select></label>
         <label>Acceso<select id="access-filter"><option value="">Todos</option><option value="github">Descarga directa</option><option value="drive">Archivos en Drive</option><option value="source">Fuente original</option></select></label>
       </div>
@@ -66,7 +66,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div><p class="kicker">De Watts a Wow</p><h2>Un atlas para entender la energía que usamos.</h2></div>
-        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li></ul></div>
+        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li><li><a href="costa.html">04 · La costa no duerme</a></li><li><a href="luz.html">05 · Seis horas de luz</a></li></ul></div>
         <div><p class="kicker">Proyecto</p><ul><li><a href="datos.html">Catálogo de datos</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Metadatos y metodología</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos">Código en GitHub</a></li></ul></div>
       </div>
       <p class="foot-word" aria-hidden="true">Watts <i>a</i> Wow</p>

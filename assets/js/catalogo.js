@@ -203,7 +203,7 @@ async function loadCatalog() {
     filters[1].append(...formats.map((format) => new Option(formatLabel(format), format)));
     const params = new URLSearchParams(window.location.search);
     const chapter = params.get("video");
-    if (["1", "2", "3"].includes(chapter)) filters[0].value = chapter;
+    if (["1", "2", "3", "4", "5"].includes(chapter)) filters[0].value = chapter;
     if (formats.includes(params.get("formato"))) filters[1].value = params.get("formato");
     resetPage();
     search.addEventListener("input", resetPage);

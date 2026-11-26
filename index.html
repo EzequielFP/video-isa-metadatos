@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f2eee4">
-  <meta name="description" content="Atlas interactivo de De Watts a Wow: el agua, el sol y la red eléctrica de Colombia contados con imágenes de satélite, series de XM y vuelos 3D.">
+  <meta name="description" content="Atlas interactivo de De Watts a Wow: el agua, el sol, la red, el calor de la costa y la luz de las zonas no interconectadas de Colombia, contados con imágenes de satélite, series de XM y vuelos 3D.">
   <title>De Watts a Wow · Atlas de la energía en Colombia</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/vendor/fonts/overused-grotesk.woff2" as="font" type="font/woff2" crossorigin>
@@ -19,7 +19,7 @@
   <header class="topbar">
     <div class="topbar-inner">
       <a class="logo" href="./" aria-label="De Watts a Wow, portada"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" fill="var(--accent)" stroke="#13141a" stroke-width="2"/><path d="M3 23c4-1 6-5 11-5s7 4 15 2M3 14c4-2 7-6 12-6s8 3 14 1" fill="none" stroke="#fff" stroke-width="1.6" opacity=".75"/><path d="M18 3l-6 14h5l-3 12 9-16h-5l4-10z" fill="var(--sun)" stroke="#13141a" stroke-width="1.5" stroke-linejoin="round"/></svg><span>De Watts <i>a</i> Wow</span></a>
-      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html"><span>03</span>Red</a><a href="datos.html"><span>↓</span>Datos</a></nav>
+      <nav class="topnav" id="menu" aria-label="Capítulos"><a href="agua.html"><span>01</span>Agua</a><a href="solar.html"><span>02</span>Sol</a><a href="fronteras.html"><span>03</span>Red</a><a href="costa.html"><span>04</span>Costa</a><a href="luz.html"><span>05</span>Luz</a><a href="datos.html"><span>↓</span>Datos</a></nav>
       <div class="geo-readout" data-geo-readout aria-hidden="true"></div>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
     </div>
@@ -31,7 +31,7 @@
       <div class="wrap hero-copy">
         <p class="kicker"><b>Atlas interactivo</b> Energía, clima y territorio en Colombia</p>
         <h1 class="hero-title" id="titulo" data-hero-title><span class="row">De Watts</span><span class="row indent"><i>a</i> Wow</span></h1>
-        <p class="hero-lede">Tres historias de la electricidad colombiana contadas con imágenes de satélite, series de XM y vuelos 3D: el agua, el sol y la red.</p>
+        <p class="hero-lede">Cinco historias de la electricidad colombiana contadas con imágenes de satélite, series de XM y vuelos 3D: el agua, el sol, la red, la costa que no duerme y los pueblos con seis horas de luz.</p>
         <div class="hero-actions">
           <a class="btn solid" href="#video" data-magnet>Ver el video <span class="arrow" aria-hidden="true">↓</span></a>
           <a class="btn" href="#capitulos" data-magnet>Explorar capítulos <span class="arrow" aria-hidden="true">→</span></a>
@@ -87,9 +87,9 @@
     <section class="section" id="capitulos" aria-labelledby="cap-title">
       <div class="wrap">
         <div class="section-head">
-          <p class="kicker"><b>Tres capítulos</b> Un tema por video</p>
-          <h2 class="display" id="cap-title" data-split>Agua, sol y red.</h2>
-          <p>Cada capítulo reúne las escenas del video con sus datos: mapas que cambian mes a mes, un relieve que puedes girar, comparadores satelitales y series horarias.</p>
+          <p class="kicker"><b>Cinco capítulos</b> Un tema por video</p>
+          <h2 class="display" id="cap-title" data-split>Agua, sol, red, calor y luz.</h2>
+          <p>Cada capítulo reúne las escenas del video con sus datos: mapas que cambian mes a mes, un relieve que puedes girar, comparadores satelitales, el reloj de la red y las localidades que se encienden con su horario.</p>
         </div>
         <div class="stack">
           <a class="stack-card c1" href="agua.html">
@@ -115,6 +115,22 @@
               <div><div class="card-meta"><span>XM</span><span>OpenStreetMap</span><span>CENACE</span></div><br><span class="card-go"><span aria-hidden="true">→</span>Entrar al capítulo</span></div>
             </div>
             <div class="card-media"><img src="assets/media/frontera-portada.webp" alt="" loading="lazy"><span class="coord">Cordillera andina · Render de Blender</span></div>
+          </a>
+          <a class="stack-card c4" href="costa.html">
+            <div class="card-copy">
+              <span class="card-num num">04</span>
+              <div><h3>La costa no duerme.</h3><p>A las tres de la mañana la costa Caribe gasta más del doble que Bogotá. El reloj del país, el calor de la noche y la factura de 1.064 municipios.</p></div>
+              <div><div class="card-meta"><span>XM horario</span><span>SUI</span><span>ERA5-Land</span><span>ICEE</span></div><br><span class="card-go"><span aria-hidden="true">→</span>Entrar al capítulo</span></div>
+            </div>
+            <div class="card-media"><img src="assets/media/costa-portada.webp" alt="" loading="lazy"><span class="coord">Atlántico al anochecer · Render de Blender</span></div>
+          </a>
+          <a class="stack-card c5" href="luz.html">
+            <div class="card-copy">
+              <span class="card-num num">05</span>
+              <div><h3>Seis horas de luz.</h3><p>Pueblos donde la luz llega con horario. Las 162 localidades no interconectadas, la distancia a la red, el diésel y lo que cambia con el sol.</p></div>
+              <div><div class="card-meta"><span>IPSE</span><span>UPME</span><span>DANE</span><span>NASA POWER</span></div><br><span class="card-go"><span aria-hidden="true">→</span>Entrar al capítulo</span></div>
+            </div>
+            <div class="card-media"><img src="assets/media/luz-portada.webp" alt="" loading="lazy"><span class="coord">Darién de noche · Render de Blender</span></div>
           </a>
         </div>
       </div>
@@ -156,7 +172,7 @@
     <div class="wrap">
       <div class="foot-grid">
         <div><p class="kicker">De Watts a Wow</p><h2>Un atlas para entender la energía que usamos.</h2></div>
-        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li></ul></div>
+        <div><p class="kicker">Capítulos</p><ul><li><a href="agua.html">01 · El Niño y la luz</a></li><li><a href="solar.html">02 · Guardar el sol</a></li><li><a href="fronteras.html">03 · Cruzar fronteras</a></li><li><a href="costa.html">04 · La costa no duerme</a></li><li><a href="luz.html">05 · Seis horas de luz</a></li></ul></div>
         <div><p class="kicker">Proyecto</p><ul><li><a href="datos.html">Catálogo de datos</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Metadatos y metodología</a></li><li><a href="https://github.com/EzequielFP/video-isa-metadatos">Código en GitHub</a></li></ul></div>
       </div>
       <p class="foot-word" aria-hidden="true">Watts <i>a</i> Wow</p>
