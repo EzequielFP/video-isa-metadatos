@@ -30,11 +30,11 @@ El script usa ffmpeg para dejar el video a 720 px de ancho en H.264, con arranqu
 
 ## Enlazar las carpetas de Google Drive
 
-Sube `GRUPO_1/VERSION_FINAL/VIDEO1`, `GRUPO_1/VERSION_FINAL/VIDEO2` y `GRUPO_1/VERSION_FINAL/VIDEO3` a Google Drive. En cada carpeta, configura el acceso que quieres dar a los visitantes. Para acceso público, elige **Cualquier persona con el enlace → Lector** y comprueba el enlace en una ventana privada.
+La carpeta de Drive se arma con `HERRAMIENTAS/organizar_drive.py` en `GRUPO_1/DE_WATTS_A_WOW_DRIVE` y se sincroniza con `H:/Mi unidad/DE_WATTS_A_WOW_DRIVE`. La carpeta raíz está compartida con **Cualquier persona con el enlace → Lector**, así que las subcarpetas heredan ese acceso. Comprueba cada enlace en una ventana privada.
 
-Edita [metadatos/drive.json](metadatos/drive.json) y pega los tres enlaces dentro de `videos`, en las claves `"1"`, `"2"` y `"3"`. Los botones aparecen en la página de datos.
+Edita [metadatos/drive.json](metadatos/drive.json) y pega los enlaces de las carpetas `01_VIDEO_1…` a `05_VIDEO_5…` dentro de `videos`, en las claves de `"1"` a `"5"`. Los botones aparecen en la página de datos.
 
-El bloque opcional `datos` acepta enlaces independientes para los GeoTIFF de mayor tamaño. Usa `"1"` para las exportaciones grandes del Video 1 y `"2-3"` para las dos capas VIIRS compartidas.
+El bloque opcional `datos` acepta enlaces independientes para los GeoTIFF de mayor tamaño. Usa `"1"` para las exportaciones grandes del Video 1 (`06_DATOS/VIDEO_1`) y `"2-3"` para las dos capas VIIRS compartidas (`06_DATOS/VIDEOS_2_Y_3`).
 
 ## Ver localmente
 
