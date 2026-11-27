@@ -327,7 +327,10 @@ html.is-arriving body::after { content: ""; position: fixed; inset: 0; z-index: 
 .pac-value { font-size: clamp(3rem, 4.6vw, 4.6rem); color: var(--coral); white-space: nowrap; }
 .pac-value[data-tone="cold"] { color: var(--cobalt); }
 .pac-date { font-weight: 700; font-size: 1.15rem; }
-.pac-spark { width: 100%; height: 90px; }
+.pac-spark { width: 100%; height: 112px; }
+.pac-trend-key { display: grid; gap: 5px; }
+.pac-oni-key { color: var(--muted); }
+.pac-trend-key button { justify-self: start; }
 .pac-controls { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; margin-top: 14px; }
 .pac-range { display: grid; gap: 2px; }
 .pac-range label { font: 600 .66rem var(--mono); text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }

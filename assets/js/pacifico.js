@@ -1,6 +1,8 @@
 import { canvasContext, clamp, fetchJson, monthLabel, palette, temperature } from "./util.js";
 
 const directory = new URL("../media/pacifico/", import.meta.url);
+const monthIndex = (month) => Number(month.slice(0, 4)) * 12 + Number(month.slice(5)) - 1;
+const oniColor = "#93949d";
 const descriptions = {
   "2023-01": "En 2023, la anomalía pasa de valores negativos a un máximo en noviembre.",
   "2024-01": "La anomalía pierde fuerza durante 2024 y llega a valores negativos a comienzos de 2025.",
@@ -19,9 +21,13 @@ export async function setupPacific(root, { reduce: motion }) {
   const date = root.querySelector("[data-pacific-date]");
   const days = root.querySelector("[data-pacific-days]");
   const graph = root.querySelector("[data-pacific-graph]");
+  const historyButton = root.querySelector("[data-pacific-history]");
+  const oniKey = root.querySelector("[data-pacific-oni]");
   const hint = root.querySelector("[data-pacific-hint]");
   const cache = new Map();
   let entries;
+  let oni = [];
+  let showHistory = true;
   let active = 0;
   let dissolve;
   let current = -1;
@@ -48,31 +54,49 @@ export async function setupPacific(root, { reduce: motion }) {
     const sizing = canvasContext(graph);
     if (!sizing) return;
     const { ctx, width, height } = sizing;
-    const x = (i) => 4 + i * (width - 8) / (entries.length - 1);
-    const y = (v) => 4 + (4 - v) / 7 * (height - 8);
-    ctx.strokeStyle = palette.rule;
-    ctx.beginPath();
-    ctx.moveTo(0, y(0));
-    ctx.lineTo(width, y(0));
-    ctx.stroke();
-    ctx.strokeStyle = palette.ink;
-    ctx.lineWidth = 1.6;
-    ctx.beginPath();
-    let hasPrevious = false;
-    entries.forEach((entry, i) => {
-      if (entry.value !== null) {
-        if (hasPrevious) ctx.lineTo(x(i), y(entry.value));
-        else ctx.moveTo(x(i), y(entry.value));
+    const full = showHistory && oni.length > 0;
+    const first = monthIndex(full ? oni[0][0] : entries[0].month);
+    const last = monthIndex(entries.at(-1).month);
+    const x = (month) => 25 + (monthIndex(month) - first) * (width - 33) / (last - first);
+    const y = (v) => 6 + (4 - v) / 7 * (height - 24);
+    ctx.font = "10px sans-serif";
+    ctx.fillStyle = palette.muted;
+    for (const v of [4, 2, 0, -2]) {
+      ctx.strokeStyle = palette.rule;
+      ctx.beginPath();
+      ctx.moveTo(25, y(v));
+      ctx.lineTo(width - 8, y(v));
+      ctx.stroke();
+      ctx.fillText(temperature.format(v), 2, y(v) + 3);
+    }
+    const firstYear = String(Math.floor(first / 12));
+    ctx.fillText(firstYear, 25, height - 2);
+    ctx.textAlign = "right";
+    ctx.fillText(entries.at(-1).month.slice(0, 4), width - 8, height - 2);
+
+    function trace(points, color, lineWidth) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lineWidth;
+      ctx.beginPath();
+      let previous = null;
+      for (const [month, anomaly] of points) {
+        const index = monthIndex(month);
+        if (index < first || index > last || anomaly === null) continue;
+        if (previous === index - 1) ctx.lineTo(x(month), y(anomaly));
+        else ctx.moveTo(x(month), y(anomaly));
+        previous = index;
       }
-      hasPrevious = entry.value !== null;
-    });
-    ctx.stroke();
+      ctx.stroke();
+    }
+
+    trace(oni, oniColor, 1);
+    trace(entries.map(({ month, value }) => [month, value]), palette.ink, 1.6);
     if (entries[current].value !== null) {
       ctx.fillStyle = entries[current].value < 0 ? palette.cobalt : palette.coral;
       ctx.strokeStyle = palette.ink;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.arc(x(current), y(entries[current].value), 5, 0, Math.PI * 2);
+      ctx.arc(x(entries[current].month), y(entries[current].value), 4, 0, Math.PI * 2);
       ctx.fill();
       ctx.stroke();
     }
@@ -211,6 +235,18 @@ export async function setupPacific(root, { reduce: motion }) {
   window.addEventListener("resize", updateCapabilities);
   motion.addEventListener("change", updateCapabilities);
   new ResizeObserver(drawTrend).observe(graph);
+  historyButton.addEventListener("click", () => {
+    showHistory = !showHistory;
+    historyButton.textContent = showHistory ? "Ver desde 2023" : "Ver desde 1981";
+    drawTrend();
+  });
+  fetchJson(new URL("oni.json", directory)).then(({ values }) => {
+    oni = values;
+    historyButton.hidden = false;
+    oniKey.hidden = false;
+    drawTrend();
+    updateCapabilities();
+  }).catch(() => {});
   await select(0);
   updateCapabilities();
   document.fonts.ready.then(updateCapabilities);
