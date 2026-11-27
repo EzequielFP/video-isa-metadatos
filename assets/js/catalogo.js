@@ -52,7 +52,7 @@ function resourceDrive(entry) {
 
 function primaryAction(entry, className) {
   if (entry.path) return link("Descargar", entry.path, { download: true, className });
-  if (entry.storage === "source") return link("Abrir fuente", entry.sourceUrl, { className });
+  if (entry.storage === "source") return link(entry.format === "PDF" ? "Abrir PDF oficial" : "Abrir fuente", entry.sourceUrl, { className });
   const url = resourceDrive(entry);
   return url ? link("Abrir carpeta de datos", url, { className }) : null;
 }
@@ -230,8 +230,8 @@ async function setupDrive() {
     if (entries.length) render();
     for (const placeholder of document.querySelectorAll("[data-drive]")) {
       const key = placeholder.dataset.drive;
-      const url = driveUrl((key === "todo" ? drive.carpeta : drive.videos?.[key]) || "");
-      if (url) placeholder.replaceWith(link(key === "todo" ? "Abrir todo en Drive ↗" : "Abrir carpeta de Drive ↗", url, { className: "btn small solid" }));
+      const url = driveUrl(drive.videos?.[key]);
+      if (url) placeholder.replaceWith(link("Descargar video en Drive ↗", url, { className: "btn small solid" }));
     }
   } catch {
     // El acceso a los archivos directos permanece disponible.

@@ -27,10 +27,24 @@
   <main id="contenido">
     <header class="page-head wrap">
       <p class="kicker"><b>Datos abiertos</b> Catálogo de recursos</p>
-      <h1 data-split>Todo lo que ves, descargable.</h1>
-      <p class="lede">Las series, los rásteres y las capas de los cinco capítulos, con su fuente, su cobertura temporal y su huella SHA-256 para verificar cada archivo.</p>
+      <h1 data-split>Datos de los cinco videos.</h1>
+      <p class="lede">Descarga tablas, mapas, modelos digitales de elevación (DEM) e informes. Cada ficha indica la fuente y, cuando aplica, la cobertura del archivo.</p>
     </header>
 
+    <section class="section on-paper2" aria-labelledby="capitulos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display" id="capitulos" data-split>Descargas por video</h2>
+        </div>
+        <div class="stats tres">
+          <article class="stat"><h3>01 · El Niño y la luz</h3><p>Embalses, generación, anomalías de lluvia y DEM de Colombia.</p><p><a href="datos.html?video=1#catalogo">Consultar datos</a> · <a href="datos.html?video=1&amp;formato=PDF#catalogo">Informes (PDF)</a></p><span class="fine" data-drive="1"></span></article>
+          <article class="stat"><h3>02 · Guardar el sol para la noche</h3><p>Demanda, generación y precios horarios, radiación solar y almacenamiento.</p><p><a href="datos.html?video=2#catalogo">Consultar datos</a> · <a href="datos.html?video=2&amp;formato=PDF#catalogo">Informes (PDF)</a></p><span class="fine" data-drive="2"></span></article>
+          <article class="stat"><h3>03 · La red que cruza fronteras</h3><p>Intercambios eléctricos, líneas, límites y cartografía regional.</p><p><a href="datos.html?video=3#catalogo">Consultar datos</a> · <a href="datos.html?video=3&amp;formato=PDF#catalogo">Informes (PDF)</a></p><span class="fine" data-drive="3"></span></article>
+          <article class="stat"><h3>04 · La costa no duerme</h3><p>Demanda por mercado, consumo, cobertura, temperatura e informes de la UPME.</p><p><a href="datos.html?video=4#catalogo">Consultar datos</a> · <a href="datos.html?video=4&amp;formato=PDF#catalogo">Informes (PDF)</a></p><span class="fine" data-drive="4"></span></article>
+          <article class="stat"><h3>05 · Seis horas de luz</h3><p>Horas de servicio, subsidios, sistemas híbridos e informes sobre las ZNI.</p><p><a href="datos.html?video=5#catalogo">Consultar datos</a> · <a href="datos.html?video=5&amp;formato=PDF#catalogo">Informes (PDF)</a></p><span class="fine" data-drive="5"></span></article>
+        </div>
+      </div>
+    </section>
     <section class="wrap section tight" style="padding-top:0" id="catalogo" data-catalog aria-labelledby="catalog-title">
       <h2 class="sr-only" id="catalog-title">Catálogo de recursos</h2>
       <div class="catalog-tools">
@@ -45,23 +59,6 @@
       <noscript><p>Descarga el catálogo CSV o JSON para consultar los recursos.</p></noscript>
     </section>
 
-    <section class="section on-paper2" aria-labelledby="drive-title">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="kicker"><b>Descargas</b> Videos y series</p>
-          <h2 class="display" id="drive-title" data-split>Las carpetas de cada video.</h2>
-          <p>Los videos en calidad original, las series, los textos para redes y los archivos más pesados de cada capítulo están en Google Drive, con un LEEME y un índice con SHA-256 en cada carpeta. <span data-drive="todo">Carpeta de Drive pendiente</span></p>
-        </div>
-        <div class="stats tres">
-          <article class="stat"><span class="num">01</span><p>El Niño y la luz</p><span class="fine" data-drive="1">Carpeta de Drive pendiente</span></article>
-          <article class="stat"><span class="num">02</span><p>Guardar el sol para la noche</p><span class="fine" data-drive="2">Carpeta de Drive pendiente</span></article>
-          <article class="stat"><span class="num">03</span><p>La red que cruza fronteras</p><span class="fine" data-drive="3">Carpeta de Drive pendiente</span></article>
-          <article class="stat"><span class="num">04</span><p>La costa no duerme</p><span class="fine" data-drive="4">Carpeta de Drive pendiente</span></article>
-          <article class="stat"><span class="num">05</span><p>Seis horas de luz</p><span class="fine" data-drive="5">Carpeta de Drive pendiente</span></article>
-          <article class="stat"><span class="num">i</span><p>Metadatos y metodología: scripts de Earth Engine, auditorías de XM y verificación de OpenStreetMap.</p><a class="text-link" href="https://github.com/EzequielFP/video-isa-metadatos/tree/main/metadatos">Ver en GitHub ↗</a></article>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="foot">
